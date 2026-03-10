@@ -3,126 +3,373 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Product Page</title>
+  <title>Glow Skin Serum</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f7f7f7;
+      background: #f3f3f3;
       color: #222;
     }
 
     .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      background: white;
-      border-radius: 14px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      max-width: 1200px;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 18px;
       overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
-    
+
     .image-section {
-      background: #fafafa;
+      background: #f8f8f8;
+      padding: 35px;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      padding: 30px;
+      align-items: center;
     }
 
-    .image-section img {
-      max-width: 100%;
-      height: auto;
+    #main-image {
+      width: 100%;
+      max-width: 520px;
+      border-radius: 16px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumbnails {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .thumbnails img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
       border-radius: 10px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: 0.2s ease;
+      background: #fff;
+    }
+
+    .thumbnails img:hover {
+      border-color: #111;
+      transform: scale(1.05);
     }
 
     .info-section {
-      padding: 40px;
+      padding: 45px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .badge {
       display: inline-block;
       background: #111;
       color: white;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      margin-bottom: 15px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      width: fit-content;
+      margin-bottom: 20px;
     }
 
     h1 {
-      margin: 0 0 10px;
-      font-size: 32px;
+      font-size: 58px;
+      margin: 0 0 20px;
+      line-height: 1.05;
     }
 
     .price {
-      font-size: 28px;
+      font-size: 36px;
       font-weight: bold;
-      color: #1e7a45;
-      margin: 20px 0;
+      color: #1c7c4d;
+      margin-bottom: 25px;
     }
 
-    p {
-      line-height: 1.6;
+    .description {
+      font-size: 20px;
+      line-height: 1.7;
       color: #555;
+      margin-bottom: 24px;
     }
 
-    ul {
-      padding-left: 18px;
-      color: #444;
+    .features {
+      margin: 0 0 28px;
+      padding-left: 22px;
+      color: #333;
+      font-size: 18px;
     }
 
-    button {
-      margin-top: 20px;
+    .features li {
+      margin-bottom: 10px;
+    }
+
+    .bundle-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+
+    .bundle-options {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .bundle {
+      border: 2px solid #ddd;
+      border-radius: 14px;
+      padding: 16px;
+      cursor: pointer;
+      transition: 0.2s ease;
+      background: #fff;
+    }
+
+    .bundle:hover {
+      border-color: #111;
+    }
+
+    .bundle.active {
+      border-color: #111;
+      background: #f9f9f9;
+    }
+
+    .bundle-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .bundle-name {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .bundle-price {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .bundle-save {
+      font-size: 14px;
+      color: #1c7c4d;
+      margin-top: 6px;
+    }
+
+    .cta-button {
       background: #111;
       color: white;
       border: none;
-      padding: 14px 22px;
-      font-size: 16px;
-      border-radius: 8px;
+      border-radius: 12px;
+      padding: 18px 24px;
+      font-size: 20px;
       cursor: pointer;
+      transition: 0.2s ease;
+      width: 100%;
+      max-width: 320px;
     }
 
-    button:hover {
-      background: #333;
+    .cta-button:hover {
+      background: #2a2a2a;
     }
 
-    @media (max-width: 768px) {
+    .trust {
+      margin-top: 22px;
+      font-size: 15px;
+      color: #666;
+      line-height: 1.9;
+    }
+
+    .reviews {
+      max-width: 1200px;
+      margin: 20px auto 50px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .review-card {
+      background: #fff;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .stars {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .review-text {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .review-name {
+      font-weight: bold;
+    }
+
+    @media (max-width: 900px) {
       .container {
         grid-template-columns: 1fr;
         margin: 20px;
       }
 
+      .reviews {
+        grid-template-columns: 1fr;
+        margin: 20px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .description,
+      .features {
+        font-size: 17px;
+      }
+
       .info-section {
-        padding: 25px;
+        padding: 30px 24px 36px;
+      }
+
+      .image-section {
+        padding: 24px;
       }
     }
   </style>
 </head>
 <body>
+
   <div class="container">
     <div class="image-section">
-  <img src="images/product.png" alt="Glow Skin Serum">
-</div>
+      <img id="main-image" src="images/product.png" alt="Glow Skin Serum" />
+
+      <div class="thumbnails">
+        <img src="images/product.png" alt="Thumbnail 1" onclick="changeImage(this)">
+        <img src="images/product.png" alt="Thumbnail 2" onclick="changeImage(this)">
+        <img src="images/product.png" alt="Thumbnail 3" onclick="changeImage(this)">
+      </div>
+    </div>
 
     <div class="info-section">
       <span class="badge">Best Seller</span>
+
       <h1>Glow Skin Serum</h1>
-      <p class="price">$19.99</p>
-      <p>
-        A simple and clean product page for your website. You can replace this text
-        with your own product description.
+
+      <div class="price" id="main-price">$19.99</div>
+
+      <p class="description">
+        A clean, modern skincare product page built for learning and conversion.
+        Replace this text with your own product description, benefits, and brand story.
       </p>
 
-      <ul>
+      <ul class="features">
         <li>Brightens the skin</li>
         <li>Lightweight formula</li>
         <li>Easy daily use</li>
       </ul>
 
-      <button onclick="alert('Product added to cart!')">Add to Cart</button>
+      <div class="bundle-title">Choose your bundle</div>
+
+      <div class="bundle-options">
+        <div class="bundle active" onclick="selectBundle(this, '$19.99', '1 Bottle added to cart!')">
+          <div class="bundle-top">
+            <div class="bundle-name">1 Bottle</div>
+            <div class="bundle-price">$19.99</div>
+          </div>
+          <div class="bundle-save">Perfect for trying it out</div>
+        </div>
+
+        <div class="bundle" onclick="selectBundle(this, '$27.95', '2 Bottles added to cart!')">
+          <div class="bundle-top">
+            <div class="bundle-name">2 Bottles</div>
+            <div class="bundle-price">$27.95</div>
+          </div>
+          <div class="bundle-save">Save more on each bottle</div>
+        </div>
+
+        <div class="bundle" onclick="selectBundle(this, '$33.95', '3 Bottles added to cart!')">
+          <div class="bundle-top">
+            <div class="bundle-name">3 Bottles</div>
+            <div class="bundle-price">$33.95</div>
+          </div>
+          <div class="bundle-save">Best value bundle</div>
+        </div>
+      </div>
+
+      <button class="cta-button" onclick="addToCart()">Add to Cart</button>
+
+      <div class="trust">
+        ✔ Secure Payment<br>
+        ✔ Free Shipping<br>
+        ✔ 30-Day Guarantee
+      </div>
     </div>
   </div>
+
+  <div class="reviews">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="review-text">
+        My skin looked smoother after just a few uses. The page feels premium and the product image looks great.
+      </div>
+      <div class="review-name">Sarah M.</div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="review-text">
+        Lightweight, clean, and easy to use. This layout looks like a real ecommerce product page.
+      </div>
+      <div class="review-name">Jessica T.</div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="review-text">
+        I love how simple and professional everything looks. Great base to build a real store from.
+      </div>
+      <div class="review-name">Emily R.</div>
+    </div>
+  </div>
+
+  <script>
+    let selectedCartMessage = "1 Bottle added to cart!";
+
+    function changeImage(img) {
+      document.getElementById("main-image").src = img.src;
+    }
+
+    function selectBundle(element, price, cartMessage) {
+      const bundles = document.querySelectorAll(".bundle");
+      bundles.forEach(bundle => bundle.classList.remove("active"));
+
+      element.classList.add("active");
+      document.getElementById("main-price").textContent = price;
+      selectedCartMessage = cartMessage;
+    }
+
+    function addToCart() {
+      alert(selectedCartMessage);
+    }
+  </script>
+
 </body>
 </html>
