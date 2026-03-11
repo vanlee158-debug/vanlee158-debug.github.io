@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitamin C Glow Serum</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f5f5f5;
+margin:0;
+padding:0;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:12px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+.product-img img{
+width:100%;
+border-radius:10px;
+}
+
+.gallery{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.gallery img{
+width:70px;
+cursor:pointer;
+border-radius:6px;
+}
+
+.price{
+font-size:32px;
+color:#0f8a3c;
+font-weight:bold;
+}
+
+.badge{
+background:black;
+color:white;
+display:inline-block;
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+}
+
+button{
+background:black;
+color:white;
+border:none;
+padding:14px 30px;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+margin-top:15px;
+}
+
+.bundle{
+border:1px solid #ddd;
+padding:15px;
+border-radius:10px;
+margin-top:10px;
+display:flex;
+justify-content:space-between;
+cursor:pointer;
+}
+
+.bundle:hover{
+border:1px solid black;
+}
+
+.features{
+margin-top:15px;
+color:#666;
+}
+
+.reviews{
+max-width:1100px;
+margin:auto;
+margin-top:40px;
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:20px;
+}
+
+.review{
+background:white;
+padding:20px;
+border-radius:10px;
+}
+
+.footer{
+text-align:center;
+margin-top:40px;
+padding:20px;
+color:#888;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="product-img">
+
+<img id="mainImage" src="images/product1.png">
+
+<div class="gallery">
+<img src="images/product1.png" onclick="changeImage(this)">
+<img src="images/product2.png" onclick="changeImage(this)">
+<img src="images/product3.png" onclick="changeImage(this)">
+<img src="images/product4.png" onclick="changeImage(this)">
+</div>
+
+</div>
+
+<div>
+
+<span class="badge">Best Seller</span>
+
+<h1>Vitamin C Glow Serum</h1>
+
+<div class="price">$19.99</div>
+
+<p>
+Advanced Vitamin C serum designed to brighten skin tone,
+restore hydration and reveal a radiant glow.
+</p>
+
+<ul>
+<li>Brightens dull skin</li>
+<li>Reduces dark spots</li>
+<li>Deep hydration</li>
+<li>Antioxidant protection</li>
+</ul>
+
+<h3>Choose your bundle</h3>
+
+<div class="bundle">
+<div>
+<b>1 Bottle</b>
+<br>Perfect for trying it out
+</div>
+
+<div>$19.99</div>
+</div>
+
+<div class="bundle">
+<div>
+<b>2 Bottles</b>
+<br>Save more on each bottle
+</div>
+
+<div>$27.95</div>
+</div>
+
+<div class="bundle">
+<div>
+<b>3 Bottles</b>
+<br>Best value bundle
+</div>
+
+<div>$33.95</div>
+</div>
+
+<button onclick="buy()">Add to Cart</button>
+
+<div class="features">
+✔ Secure Payment<br>
+✔ Free Shipping<br>
+✔ 30 Day Guarantee
+</div>
+
+</div>
+
+</div>
+
+<div class="reviews">
+
+<div class="review">
+★★★★★
+<p>My skin looked smoother after just a few uses.</p>
+<b>Sarah M.</b>
+</div>
+
+<div class="review">
+★★★★★
+<p>Lightweight and very hydrating. Love it!</p>
+<b>Jessica T.</b>
+</div>
+
+<div class="review">
+★★★★★
+<p>Great product and beautiful packaging.</p>
+<b>Emily R.</b>
+</div>
+
+</div>
+
+<div class="footer">
+© 2026 Glow Skincare
+</div>
+
+<script>
+
+function changeImage(element){
+document.getElementById("mainImage").src = element.src;
+}
+
+function buy(){
+alert("Demo store – order received!");
+}
+
+</script>
+
+</body>
+</html>
