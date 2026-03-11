@@ -3,274 +3,408 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>d'Alba Vita Toning Serum Toner</title>
+  <title>d'Alba Vita Toning Serum Toner | Premium Skincare</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      --bg: #f7f4ef;
+      --card: #ffffff;
+      --text: #1d1d1f;
+      --muted: #666;
+      --line: #e8dfd4;
+      --accent: #157347;
+      --accent-soft: #e9f7ee;
+      --gold: #d5a84a;
+      --dark: #111111;
+      --shadow: 0 14px 40px rgba(0,0,0,0.08);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1240px;
     }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: Arial, sans-serif;
-      background: #f6f3ef;
-      color: #1d1d1d;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.5;
+      padding-bottom: 92px;
     }
 
-    img, video {
-      max-width: 100%;
-      display: block;
-    }
+    img, video { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
 
-    .top-bar {
-      background: #111;
-      color: white;
+    .topbar {
+      background: var(--dark);
+      color: #fff;
       text-align: center;
       padding: 10px 16px;
       font-size: 14px;
+      letter-spacing: 0.2px;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 30px auto;
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      color: #444;
+      font-size: 15px;
+    }
+
+    .nav-links a:hover { color: #000; }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-chip {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 10px 14px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .btn, .btn-secondary, .btn-outline {
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: 0.2s ease;
+      font-weight: 700;
+    }
+
+    .btn {
+      background: var(--dark);
+      color: white;
+      padding: 16px 22px;
+    }
+
+    .btn:hover { background: #2b2b2b; }
+
+    .btn-secondary {
+      background: #efe7db;
+      color: var(--text);
+      padding: 16px 22px;
+    }
+
+    .btn-secondary:hover { background: #e6dccd; }
+
+    .btn-outline {
       background: white;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+      color: var(--text);
+      border: 1.5px solid var(--line);
+      padding: 14px 18px;
+    }
+
+    .btn-outline:hover { border-color: var(--dark); }
+
+    .section {
+      max-width: var(--max);
+      margin: 28px auto;
+      padding: 0 20px;
+    }
+
+    .hero {
       display: grid;
       grid-template-columns: 1.05fr 1fr;
-    }
-
-    .left {
-      padding: 30px;
-      background: #faf8f5;
-    }
-
-    .media-viewer {
-      border-radius: 20px;
+      background: var(--card);
+      border-radius: 28px;
       overflow: hidden;
-      background: white;
-      min-height: 520px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-left {
+      background: linear-gradient(180deg, #fcfbf8, #f3efe8);
+      padding: 28px;
+    }
+
+    .viewer {
+      background: #fff;
+      border-radius: 22px;
+      overflow: hidden;
+      min-height: 550px;
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.03);
     }
 
-    .media-viewer img,
-    .media-viewer video {
+    .viewer img, .viewer video {
       width: 100%;
       height: auto;
       object-fit: contain;
     }
 
-    .thumbs {
+    .thumb-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
-      margin-top: 16px;
+      margin-top: 14px;
     }
 
     .thumb {
-      border: 2px solid #ddd;
-      border-radius: 14px;
+      border: 2px solid transparent;
+      border-radius: 16px;
       overflow: hidden;
-      background: white;
+      background: #fff;
       cursor: pointer;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.05);
       transition: 0.2s ease;
+      min-height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 4px;
     }
 
-    .thumb.active,
-    .thumb:hover {
-      border-color: #111;
-    }
+    .thumb.active, .thumb:hover { border-color: var(--dark); transform: translateY(-2px); }
+    .thumb img, .thumb video { width: 100%; height: 88px; object-fit: cover; border-radius: 12px; }
 
-    .thumb img,
-    .thumb video {
-      width: 100%;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .right {
+    .hero-right {
       padding: 42px;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .badge {
+    .pill {
       display: inline-block;
       width: fit-content;
-      background: #111;
+      background: var(--dark);
       color: white;
       padding: 8px 14px;
       border-radius: 999px;
       font-size: 13px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 18px;
+      margin-bottom: 10px;
     }
 
     h1 {
-      font-size: 48px;
-      line-height: 1.08;
-      margin-bottom: 18px;
+      font-size: 54px;
+      line-height: 1.04;
+      margin-bottom: 16px;
     }
 
-    .subtext {
+    .subtitle {
+      color: #565656;
       font-size: 18px;
-      color: #555;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
+      max-width: 580px;
     }
 
     .price-row {
       display: flex;
       align-items: center;
-      gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 22px;
+      gap: 12px;
+      margin: 14px 0 22px;
     }
 
-    .price {
-      font-size: 36px;
-      color: #157347;
-      font-weight: bold;
-    }
+    .price { font-size: 40px; font-weight: 700; color: var(--accent); }
+    .old-price { font-size: 22px; color: #9a9a9a; text-decoration: line-through; }
+    .save { background: var(--accent-soft); color: var(--accent); padding: 6px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; }
 
-    .old-price {
-      font-size: 22px;
-      color: #999;
-      text-decoration: line-through;
-    }
-
-    .save {
-      background: #eaf7ef;
-      color: #157347;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    .benefits {
+    .benefit-list {
       list-style: none;
+      display: grid;
+      gap: 10px;
       margin-bottom: 22px;
-    }
-
-    .benefits li {
-      margin-bottom: 10px;
-      font-size: 16px;
+      color: #333;
     }
 
     .bundle-title {
       font-size: 18px;
-      font-weight: bold;
+      font-weight: 700;
       margin-bottom: 12px;
     }
 
-    .bundle-options {
+    .bundle-grid {
       display: grid;
       gap: 12px;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .bundle {
-      border: 2px solid #ddd;
-      border-radius: 16px;
+      border: 2px solid var(--line);
+      border-radius: 18px;
       padding: 16px;
       cursor: pointer;
+      background: #fff;
       transition: 0.2s ease;
     }
 
-    .bundle.active,
-    .bundle:hover {
-      border-color: #111;
+    .bundle:hover, .bundle.active {
+      border-color: var(--dark);
       background: #fcfaf7;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.05);
     }
 
-    .bundle-row {
+    .bundle-top {
       display: flex;
       justify-content: space-between;
       gap: 12px;
+      align-items: center;
       flex-wrap: wrap;
-      font-weight: bold;
+      font-weight: 700;
     }
 
-    .bundle-sub {
-      color: #157347;
-      font-size: 14px;
-      margin-top: 5px;
+    .bundle-sub { color: var(--accent); font-size: 14px; margin-top: 5px; }
+
+    .purchase-row {
+      display: grid;
+      grid-template-columns: 120px 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 18px;
     }
 
-    .buy-btn {
-      background: #111;
-      color: white;
-      border: none;
-      padding: 18px 22px;
+    .qty-wrap {
+      border: 1.5px solid var(--line);
       border-radius: 14px;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s ease;
-      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      overflow: hidden;
+      background: #fff;
     }
 
-    .buy-btn:hover {
-      background: #2c2c2c;
+    .qty-wrap button {
+      border: none;
+      background: #fff;
+      width: 38px;
+      height: 54px;
+      cursor: pointer;
+      font-size: 22px;
+    }
+
+    .qty-value {
+      min-width: 40px;
+      text-align: center;
+      font-weight: 700;
     }
 
     .trust {
-      margin-top: 18px;
-      color: #666;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
       font-size: 14px;
-      line-height: 1.9;
+      color: #555;
+      margin-top: 18px;
     }
 
-    .section {
-      max-width: 1200px;
-      margin: 30px auto;
-    }
-
-    .section-title {
+    .trust div {
+      background: #faf8f5;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
       text-align: center;
-      font-size: 40px;
-      margin-bottom: 10px;
     }
 
-    .section-subtitle {
-      text-align: center;
+    .mini-note {
+      font-size: 14px;
       color: #666;
+      margin-top: 12px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .stat-num { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+    .stat-label { color: #666; font-size: 14px; }
+
+    .heading {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 40px;
+    }
+
+    .subheading {
+      text-align: center;
       margin-bottom: 24px;
+      color: #666;
       font-size: 17px;
     }
 
-    .cards {
+    .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
     .card {
-      background: white;
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      background: #fff;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    .card img {
-      border-radius: 14px;
-      margin-bottom: 14px;
+    .card-body { padding: 22px; }
+    .card h3 { font-size: 24px; margin-bottom: 10px; }
+    .card p { color: #555; }
+
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
 
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 22px;
+    .story-box {
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 28px;
     }
 
-    .card p {
-      color: #555;
-    }
+    .story-box h3 { font-size: 28px; margin-bottom: 12px; }
+    .story-box p { color: #555; margin-bottom: 12px; }
+    .story-list { list-style: none; display: grid; gap: 10px; color: #333; }
 
     .reviews {
       display: grid;
@@ -279,20 +413,14 @@
     }
 
     .review {
-      background: white;
-      border-radius: 20px;
+      background: #fff;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
       padding: 22px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
 
-    .stars {
-      margin-bottom: 10px;
-    }
-
-    .review p {
-      color: #555;
-      margin-bottom: 10px;
-    }
+    .review p { color: #555; margin: 10px 0 12px; }
+    .review strong { display: block; }
 
     .faq {
       display: grid;
@@ -300,7 +428,7 @@
     }
 
     .faq-item {
-      background: white;
+      background: #fff;
       border-radius: 18px;
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(0,0,0,0.04);
@@ -309,11 +437,11 @@
     .faq-question {
       width: 100%;
       text-align: left;
+      background: #fff;
       border: none;
-      background: white;
       padding: 20px;
       font-size: 18px;
-      font-weight: bold;
+      font-weight: 700;
       cursor: pointer;
     }
 
@@ -323,8 +451,128 @@
       color: #555;
     }
 
-    .faq-item.open .faq-answer {
-      display: block;
+    .faq-item.open .faq-answer { display: block; }
+
+    .checkout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .checkout-box, .summary-box {
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .field { display: grid; gap: 8px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: 14px; color: #444; font-weight: 700; }
+
+    .field input, .field textarea, .field select {
+      width: 100%;
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1.5px solid var(--line);
+      background: #fff;
+      outline: none;
+    }
+
+    .field input:focus, .field textarea:focus, .field select:focus {
+      border-color: var(--dark);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .tab {
+      border: 1px solid var(--line);
+      background: #faf8f5;
+      border-radius: 999px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .tab.active {
+      background: var(--dark);
+      border-color: var(--dark);
+      color: #fff;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .summary-line:last-child { border-bottom: none; }
+    .summary-total { font-size: 22px; font-weight: 700; }
+    .promo-row {
+      display: flex;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .promo-row input {
+      flex: 1;
+      padding: 14px;
+      border: 1.5px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .newsletter {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: center;
+      background: linear-gradient(135deg, #161616, #2b2b2b);
+      color: #fff;
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .newsletter p { color: #dfdfdf; margin-top: 10px; }
+
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 220px;
+      border: none;
+      border-radius: 14px;
+      padding: 15px 14px;
+    }
+
+    .footer {
+      max-width: var(--max);
+      margin: 20px auto 0;
+      padding: 0 20px 28px;
+      color: #666;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
     .sticky-bar {
@@ -332,47 +580,42 @@
       bottom: 0;
       left: 0;
       right: 0;
+      z-index: 1400;
       background: rgba(255,255,255,0.96);
-      border-top: 1px solid #e7dfd7;
-      padding: 14px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 14px;
       backdrop-filter: blur(10px);
+      border-top: 1px solid var(--line);
+      padding: 12px 20px;
     }
 
-    .sticky-name {
-      font-weight: bold;
+    .sticky-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
 
-    .sticky-price {
-      color: #157347;
-      font-weight: bold;
-    }
-
-    .sticky-btn {
-      background: #111;
-      color: white;
-      border: none;
-      padding: 14px 20px;
-      border-radius: 12px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+    .sticky-left { display: flex; flex-direction: column; }
+    .sticky-name { font-weight: 700; }
+    .sticky-price { color: var(--accent); font-weight: 700; }
+    .sticky-actions { display: flex; gap: 10px; }
 
     .popup {
       position: fixed;
       top: 20px;
       right: 20px;
+      z-index: 2000;
       background: #111;
-      color: white;
+      color: #fff;
       padding: 15px 18px;
-      border-radius: 12px;
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
       opacity: 0;
-      transform: translateY(-10px);
-      transition: 0.25s ease;
+      transform: translateY(-12px);
       pointer-events: none;
+      transition: 0.25s ease;
+      max-width: 340px;
     }
 
     .popup.show {
@@ -380,265 +623,536 @@
       transform: translateY(0);
     }
 
-    @media (max-width: 980px) {
-      .container,
-      .cards,
-      .reviews {
-        grid-template-columns: 1fr;
-      }
-
-      .right,
-      .left {
-        padding: 24px;
-      }
-
-      h1 {
-        font-size: 36px;
-      }
-
-      .section-title {
-        font-size: 30px;
-      }
+    @media (max-width: 1100px) {
+      .hero, .story, .checkout, .newsletter { grid-template-columns: 1fr; }
+      .grid-3, .reviews, .stats { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      h1 { font-size: 42px; }
+      .purchase-row { grid-template-columns: 120px 1fr; }
+      .purchase-row .btn-secondary { grid-column: 1 / -1; }
     }
 
-    @media (max-width: 640px) {
-      .thumbs {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .sticky-bar {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .sticky-btn {
-        width: 100%;
-      }
+    @media (max-width: 720px) {
+      .grid-3, .reviews, .stats, .trust, .form-grid { grid-template-columns: 1fr; }
+      .purchase-row { grid-template-columns: 1fr; }
+      .thumb-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-right, .hero-left { padding: 22px; }
+      h1 { font-size: 34px; }
+      .heading { font-size: 30px; }
+      .sticky-inner { flex-direction: column; align-items: stretch; }
+      .sticky-actions { width: 100%; }
+      .sticky-actions button { flex: 1; }
+      .nav-inner { padding: 14px 16px; }
+      .section { padding: 0 16px; }
+      .footer { padding: 0 16px 24px; }
     }
   </style>
 </head>
 <body>
+  <div class="topbar">Free Shipping Today • Brightening + Hydration • 30-Day Glow Guarantee</div>
 
-  <div class="top-bar">Free Shipping Today • Brightening & Hydration • 30-Day Guarantee</div>
-
-  <div class="container">
-    <div class="left">
-      <div class="media-viewer" id="mediaViewer">
-        <img src="images/hero%20product%20.png" alt="d'Alba Vita Toning Serum Toner">
-      </div>
-
-      <div class="thumbs">
-        <div class="thumb active" onclick="showImage(this, 'images/hero%20product%20.png', 'Hero product image')">
-          <img src="images/hero%20product%20.png" alt="Hero product thumbnail">
-        </div>
-
-        <div class="thumb" onclick="showImage(this, 'images/result%20image%20product%20.png', 'Result image')">
-          <img src="images/result%20image%20product%20.png" alt="Result image thumbnail">
-        </div>
-
-        <div class="thumb" onclick="showImage(this, 'images/lifestyle%20image%20.png', 'Lifestyle image')">
-          <img src="images/lifestyle%20image%20.png" alt="Lifestyle image thumbnail">
-        </div>
-
-        <div class="thumb" onclick="showVideo(this, 'images/d%E2%80%99Alba%20Vita%20Toning%20Serum%20Toner.mp4')">
-          <video muted>
-            <source src="images/d%E2%80%99Alba%20Vita%20Toning%20Serum%20Toner.mp4" type="video/mp4">
-          </video>
-        </div>
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="brand">d'Alba Glow</div>
+      <nav class="nav-links">
+        <a href="#benefits" onclick="notify('Viewing benefits section')">Benefits</a>
+        <a href="#reviews" onclick="notify('Opening customer reviews')">Reviews</a>
+        <a href="#faq" onclick="notify('Opening FAQ section')">FAQ</a>
+        <a href="#checkout" onclick="notify('Jumping to checkout')">Checkout</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn-outline" onclick="scrollToSection('checkout'); notify('Scrolling to checkout')">Shop Now</button>
+        <button class="cart-chip" onclick="openCartSummary()">🛒 <span id="cartCount">0</span> items</button>
       </div>
     </div>
+  </header>
 
-    <div class="right">
-      <span class="badge">Best Seller</span>
-      <h1>d'Alba Vita Toning Serum Toner</h1>
-
-      <p class="subtext">
-        A brightening and hydrating toner designed to help improve uneven skin tone,
-        restore moisture, and give skin a smoother radiant glow.
-      </p>
-
-      <div class="price-row">
-        <div class="price" id="mainPrice">$33.95</div>
-        <div class="old-price" id="oldPrice">$49.95</div>
-        <div class="save">Save 32%</div>
-      </div>
-
-      <ul class="benefits">
-        <li>✔ Helps improve uneven skin tone</li>
-        <li>✔ Restores hydration and pH balance</li>
-        <li>✔ Lightweight formula for radiant-looking skin</li>
-        <li>✔ Vitamin complex support for daily glow</li>
-      </ul>
-
-      <div class="bundle-title">Choose your bundle</div>
-
-      <div class="bundle-options">
-        <div class="bundle" onclick="selectBundle(this, '$19.99', '$29.95', '1 Bottle selected')">
-          <div class="bundle-row">
-            <span>1 Bottle</span>
-            <span>$19.99</span>
+  <main>
+    <section class="section">
+      <div class="hero">
+        <div class="hero-left">
+          <div class="viewer" id="viewer">
+            <img src="images/hero%20product%20.png" alt="Hero product image" />
           </div>
-          <div class="bundle-sub">Perfect for trying it out</div>
-        </div>
-
-        <div class="bundle" onclick="selectBundle(this, '$27.95', '$39.95', '2 Bottles selected')">
-          <div class="bundle-row">
-            <span>2 Bottles</span>
-            <span>$27.95</span>
+          <div class="thumb-grid">
+            <div class="thumb active" onclick="showImage(this, 'images/hero%20product%20.png', 'Hero product image'); notify('Hero image selected')">
+              <img src="images/hero%20product%20.png" alt="Hero thumbnail" />
+            </div>
+            <div class="thumb" onclick="showVideo(this, 'images/d%E2%80%99Alba%20Vita%20Toning%20Serum%20Toner.mp4'); notify('Product video opened')">
+              <video muted>
+                <source src="images/d%E2%80%99Alba%20Vita%20Toning%20Serum%20Toner.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="thumb" onclick="showImage(this, 'images/result%20image%20product%20.png', 'Result image'); notify('Results image selected')">
+              <img src="images/result%20image%20product%20.png" alt="Results thumbnail" />
+            </div>
+            <div class="thumb" onclick="showImage(this, 'images/lifestyle%20image%20.png', 'Lifestyle image'); notify('Lifestyle image selected')">
+              <img src="images/lifestyle%20image%20.png" alt="Lifestyle thumbnail" />
+            </div>
           </div>
-          <div class="bundle-sub">Save more on each bottle</div>
         </div>
 
-        <div class="bundle active" onclick="selectBundle(this, '$33.95', '$49.95', '3 Bottles selected')">
-          <div class="bundle-row">
-            <span>3 Bottles</span>
-            <span>$33.95</span>
+        <div class="hero-right">
+          <span class="pill">Best Seller</span>
+          <div class="stars">★★★★★ 4.9/5 from 12,000+ skincare customers</div>
+          <h1>d'Alba Vita Toning Serum Toner</h1>
+          <p class="subtitle">A premium brightening and hydrating toner designed to support smoother-looking skin, help improve uneven tone, and create a polished glass-skin glow.</p>
+
+          <div class="price-row">
+            <div class="price" id="mainPrice">$33.95</div>
+            <div class="old-price" id="oldPrice">$49.95</div>
+            <div class="save" id="saveTag">Save 32%</div>
           </div>
-          <div class="bundle-sub">Best value bundle</div>
+
+          <ul class="benefit-list">
+            <li>✔ Helps improve uneven skin tone</li>
+            <li>✔ Supports hydration and skin comfort</li>
+            <li>✔ Lightweight daily formula for radiant skin</li>
+            <li>✔ Premium vitamin-complex presentation</li>
+          </ul>
+
+          <div class="bundle-title">Choose your bundle</div>
+          <div class="bundle-grid">
+            <div class="bundle" data-name="1 Bottle" data-price="19.99" data-compare="29.95" onclick="selectBundle(this, 1, 19.99, 29.95, 33); notify('1 Bottle bundle selected')">
+              <div class="bundle-top"><span>1 Bottle</span><span>$19.99</span></div>
+              <div class="bundle-sub">Perfect for trying it out</div>
+            </div>
+            <div class="bundle" data-name="2 Bottles" data-price="27.95" data-compare="39.95" onclick="selectBundle(this, 2, 27.95, 39.95, 30); notify('2 Bottles bundle selected')">
+              <div class="bundle-top"><span>2 Bottles</span><span>$27.95</span></div>
+              <div class="bundle-sub">Save more on each bottle</div>
+            </div>
+            <div class="bundle active" data-name="3 Bottles" data-price="33.95" data-compare="49.95" onclick="selectBundle(this, 3, 33.95, 49.95, 32); notify('3 Bottles bundle selected')">
+              <div class="bundle-top"><span>3 Bottles</span><span>$33.95</span></div>
+              <div class="bundle-sub">Best value bundle</div>
+            </div>
+          </div>
+
+          <div class="purchase-row">
+            <div class="qty-wrap">
+              <button onclick="changeQty(-1)" type="button">−</button>
+              <div class="qty-value" id="qtyValue">1</div>
+              <button onclick="changeQty(1)" type="button">+</button>
+            </div>
+            <button class="btn" onclick="addToCart()">Add to Cart</button>
+            <button class="btn-secondary" onclick="buyNow()">Buy Now</button>
+          </div>
+
+          <button class="btn-outline" onclick="toggleWishlist()" id="wishlistBtn">♡ Save to Wishlist</button>
+          <div class="mini-note">Limited offer today: free shipping and premium bundle pricing included.</div>
+
+          <div class="trust">
+            <div onclick="notify('Secure payment information opened')">✔ Secure Payment</div>
+            <div onclick="notify('Free shipping information opened')">✔ Free Shipping</div>
+            <div onclick="notify('30-day guarantee viewed')">✔ 30-Day Guarantee</div>
+          </div>
         </div>
       </div>
 
-      <button class="buy-btn" onclick="addToCart()">Add to Cart</button>
-
-      <div class="trust">
-        ✔ Secure Payment<br>
-        ✔ Free Shipping<br>
-        ✔ 30-Day Guarantee
+      <div class="stats">
+        <div class="stat"><div class="stat-num">12k+</div><div class="stat-label">Happy Customers</div></div>
+        <div class="stat"><div class="stat-num">4.9/5</div><div class="stat-label">Average Rating</div></div>
+        <div class="stat"><div class="stat-num">2 Weeks</div><div class="stat-label">Visible Glow Story</div></div>
+        <div class="stat"><div class="stat-num">30 Days</div><div class="stat-label">Money-Back Window</div></div>
       </div>
+    </section>
+
+    <section class="section" id="benefits">
+      <h2 class="heading">Why This Page Converts</h2>
+      <p class="subheading">A premium ecommerce structure built around your uploaded media and a cleaner buying journey.</p>
+      <div class="grid-3">
+        <article class="card">
+          <img src="images/hero%20product%20.png" alt="Hydration support" />
+          <div class="card-body">
+            <h3>Hydration Story</h3>
+            <p>Strong first-impression product presentation with polished packaging and clean visual focus.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="images/result%20image%20product%20.png" alt="Results story" />
+          <div class="card-body">
+            <h3>Results Focus</h3>
+            <p>Visual proof elements help buyers connect product claims with a visible skin-tone improvement story.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="images/lifestyle%20image%20.png" alt="Lifestyle story" />
+          <div class="card-body">
+            <h3>Lifestyle Trust</h3>
+            <p>The model image makes the product feel real, aspirational, and easier for visitors to imagine using daily.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="story">
+        <div class="story-box">
+          <h3>Perfect for Instagram Ad Traffic</h3>
+          <p>People coming from a 30-second Instagram ad need a page that answers four questions fast: What is it? Why should I care? Does it work? How do I buy now?</p>
+          <ul class="story-list">
+            <li>✔ Clear premium hero presentation</li>
+            <li>✔ Fast bundle decision making</li>
+            <li>✔ Real-looking media flow</li>
+            <li>✔ Short path to checkout</li>
+          </ul>
+          <button class="btn-outline" onclick="scrollToSection('reviews'); notify('Scrolling to customer reviews')">Read Reviews</button>
+        </div>
+        <div class="story-box">
+          <h3>What Makes It Feel Premium</h3>
+          <p>Luxury-feeling stores rely on spacing, confidence-building sections, real media, consistent calls to action, and a simple checkout path.</p>
+          <ul class="story-list">
+            <li>✔ Elevated layout and spacing</li>
+            <li>✔ Social proof and FAQ</li>
+            <li>✔ Working navigation buttons</li>
+            <li>✔ Popups for important actions</li>
+          </ul>
+          <button class="btn-outline" onclick="scrollToSection('checkout'); notify('Opening checkout section')">Go to Checkout</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <h2 class="heading">Customer Reviews</h2>
+      <p class="subheading">Strong social proof reduces hesitation and keeps ad traffic moving toward purchase.</p>
+      <div class="reviews">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>My skin looked fresher and more radiant very quickly. The layout also made the brand feel much more premium.</p>
+          <strong>Sarah M.</strong>
+          <button class="btn-outline" style="margin-top:12px;" onclick="notify('Sarah review marked as helpful')">Helpful Review</button>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>I liked how easy it was to pick a bundle and go straight to checkout. The product visuals look elegant.</p>
+          <strong>Jessica T.</strong>
+          <button class="btn-outline" style="margin-top:12px;" onclick="notify('Jessica review marked as helpful')">Helpful Review</button>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>The video and lifestyle media helped me trust the product more. It feels like a real skincare store now.</p>
+          <strong>Emily R.</strong>
+          <button class="btn-outline" style="margin-top:12px;" onclick="notify('Emily review marked as helpful')">Helpful Review</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <h2 class="heading">Frequently Asked Questions</h2>
+      <p class="subheading">Every answer removes a little more friction from the purchase.</p>
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this); notify('FAQ opened: what does it help with?')">What does this toner help with?</button>
+          <div class="faq-answer">It is presented as a brightening and hydrating toner that supports smoother-looking skin and a more even-looking glow.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this); notify('FAQ opened: can I use it daily?')">Can I use it daily?</button>
+          <div class="faq-answer">Yes. This page presents it as a daily skincare step that fits a standard routine.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this); notify('FAQ opened: is checkout real?')">Is the checkout functional?</button>
+          <div class="faq-answer">This version is a premium demo flow. Buttons, forms, and decisions work on-page and show notification popups, but payment is simulated.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="checkout">
+      <h2 class="heading">Checkout</h2>
+      <p class="subheading">A full on-page purchase flow with working buttons, routing, and decision popups.</p>
+      <div class="checkout">
+        <div class="checkout-box">
+          <div class="tabs">
+            <button class="tab active" onclick="selectPaymentTab(this, 'card'); notify('Card payment tab selected')">Card</button>
+            <button class="tab" onclick="selectPaymentTab(this, 'paypal'); notify('PayPal tab selected')">PayPal</button>
+            <button class="tab" onclick="selectPaymentTab(this, 'cod'); notify('Cash on Delivery tab selected')">Cash on Delivery</button>
+          </div>
+
+          <form id="checkoutForm" onsubmit="submitOrder(event)">
+            <div class="form-grid">
+              <div class="field">
+                <label for="firstName">First name</label>
+                <input id="firstName" name="firstName" placeholder="First name" required />
+              </div>
+              <div class="field">
+                <label for="lastName">Last name</label>
+                <input id="lastName" name="lastName" placeholder="Last name" required />
+              </div>
+              <div class="field full">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              </div>
+              <div class="field full">
+                <label for="address">Street address</label>
+                <input id="address" name="address" placeholder="123 Main Street" required />
+              </div>
+              <div class="field">
+                <label for="city">City</label>
+                <input id="city" name="city" placeholder="City" required />
+              </div>
+              <div class="field">
+                <label for="zip">ZIP / Postal code</label>
+                <input id="zip" name="zip" placeholder="ZIP code" required />
+              </div>
+              <div class="field full" id="paymentCardFields">
+                <label for="cardNumber">Card number</label>
+                <input id="cardNumber" name="cardNumber" placeholder="4242 4242 4242 4242" />
+              </div>
+              <div class="field">
+                <label for="expDate">Expiry date</label>
+                <input id="expDate" name="expDate" placeholder="MM/YY" />
+              </div>
+              <div class="field">
+                <label for="cvv">CVV</label>
+                <input id="cvv" name="cvv" placeholder="123" />
+              </div>
+              <div class="field full">
+                <label for="orderNotes">Order notes</label>
+                <textarea id="orderNotes" name="orderNotes" rows="4" placeholder="Special delivery note, gift message, or product preference"></textarea>
+              </div>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
+              <button class="btn" type="submit">Place Order</button>
+              <button class="btn-secondary" type="button" onclick="previewOrder()">Preview Order</button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="summary-box">
+          <h3 style="font-size:28px; margin-bottom:10px;">Order Summary</h3>
+          <div class="summary-line"><span>Selected bundle</span><strong id="summaryBundle">3 Bottles</strong></div>
+          <div class="summary-line"><span>Quantity</span><strong id="summaryQty">1</strong></div>
+          <div class="summary-line"><span>Subtotal</span><strong id="summarySubtotal">$33.95</strong></div>
+          <div class="summary-line"><span>Shipping</span><strong id="summaryShipping">Free</strong></div>
+          <div class="summary-line"><span>Discount</span><strong id="summaryDiscount">-$0.00</strong></div>
+          <div class="summary-line summary-total"><span>Total</span><strong id="summaryTotal">$33.95</strong></div>
+
+          <div class="promo-row">
+            <input id="promoInput" placeholder="Promo code (try GLOW10)" />
+            <button class="btn-outline" onclick="applyPromo()" type="button">Apply</button>
+          </div>
+
+          <div style="display:grid; gap:10px; margin-top:12px; color:#555; font-size:14px;">
+            <div onclick="notify('Free shipping note opened')">✔ Free shipping included today</div>
+            <div onclick="notify('Guarantee note opened')">✔ 30-day satisfaction guarantee</div>
+            <div onclick="notify('Checkout is a demo purchase flow')">✔ Demo checkout with working interactions</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="newsletter">
+        <div>
+          <h2 style="font-size:36px;">Join the Glow List</h2>
+          <p>Get launch alerts, skincare offers, and early access to future product drops.</p>
+        </div>
+        <div class="newsletter-form">
+          <input id="newsletterEmail" type="email" placeholder="Enter your email" />
+          <button class="btn" onclick="subscribeNewsletter()">Subscribe</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© 2026 d'Alba Glow — Premium skincare landing page demo.</div>
+    <div style="display:flex; gap:18px; flex-wrap:wrap;">
+      <a href="#" onclick="notify('Shipping policy opened')">Shipping Policy</a>
+      <a href="#" onclick="notify('Returns policy opened')">Returns</a>
+      <a href="#" onclick="notify('Contact support opened')">Contact</a>
     </div>
-  </div>
-
-  <section class="section">
-    <h2 class="section-title">Why Customers Love It</h2>
-    <p class="section-subtitle">A premium visual story built from your real product media.</p>
-
-    <div class="cards">
-      <div class="card">
-        <img src="images/hero%20product%20.png" alt="Hydration image">
-        <h3>Hydration Support</h3>
-        <p>Helps recharge moisture and leaves skin feeling fresh, balanced, and comfortable.</p>
-      </div>
-
-      <div class="card">
-        <img src="images/result%20image%20product%20.png" alt="Result image">
-        <h3>Visible Tone Improvement</h3>
-        <p>Designed to support brighter-looking skin and a smoother, more even complexion.</p>
-      </div>
-
-      <div class="card">
-        <img src="images/lifestyle%20image%20.png" alt="Lifestyle image">
-        <h3>Glass Skin Glow</h3>
-        <p>Lightweight daily toner with a polished skincare look that feels luxurious and modern.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">Customer Reviews</h2>
-    <p class="section-subtitle">Social proof is one of the strongest conversion drivers.</p>
-
-    <div class="reviews">
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p>My skin looked fresher and more hydrated very quickly. The product also feels premium.</p>
-        <strong>Sarah M.</strong>
-      </div>
-
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p>I love the glow and the lightweight feel. The brightening effect is what made me keep using it.</p>
-        <strong>Jessica T.</strong>
-      </div>
-
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p>The page looks beautiful and the product presentation feels like a luxury skincare brand.</p>
-        <strong>Emily R.</strong>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <p class="section-subtitle">Answering buyer hesitation helps improve conversion.</p>
-
-    <div class="faq">
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">What does this toner help with?</button>
-        <div class="faq-answer">It helps support hydration, brighter-looking skin, and a more even-looking tone.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">Can I use it daily?</button>
-        <div class="faq-answer">Yes. It is presented as a daily-use toner that fits into a standard skincare routine.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">Does the video work inside the gallery?</button>
-        <div class="faq-answer">Yes. You can click the video thumbnail and it will open directly in the main media viewer.</div>
-      </div>
-    </div>
-  </section>
+  </footer>
 
   <div class="sticky-bar">
-    <div>
-      <div class="sticky-name">d'Alba Vita Toning Serum Toner</div>
-      <div class="sticky-price" id="stickyPrice">$33.95</div>
+    <div class="sticky-inner">
+      <div class="sticky-left">
+        <span class="sticky-name">d'Alba Vita Toning Serum Toner</span>
+        <span class="sticky-price" id="stickyPrice">$33.95</span>
+      </div>
+      <div class="sticky-actions">
+        <button class="btn-outline" onclick="scrollToSection('checkout'); notify('Sticky checkout opened')">Checkout</button>
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+      </div>
     </div>
-    <button class="sticky-btn" onclick="addToCart()">Buy Now</button>
   </div>
 
-  <div class="popup" id="popup">Added to cart</div>
+  <div class="popup" id="popup">Notification</div>
 
   <script>
-    let selectedMessage = "3 Bottles selected";
+    let selectedBundle = { name: '3 Bottles', price: 33.95, compare: 49.95, savePercent: 32 };
+    let quantity = 1;
+    let cartCount = 0;
+    let wishlist = false;
+    let promoDiscount = 0;
+    let selectedPayment = 'card';
     let popupTimeout;
 
-    function clearActiveThumbs() {
-      document.querySelectorAll(".thumb").forEach(thumb => thumb.classList.remove("active"));
+    function notify(message) {
+      const popup = document.getElementById('popup');
+      popup.textContent = message;
+      popup.classList.add('show');
+      clearTimeout(popupTimeout);
+      popupTimeout = setTimeout(() => popup.classList.remove('show'), 2200);
     }
 
-    function showImage(element, src, alt) {
-      clearActiveThumbs();
-      element.classList.add("active");
-      document.getElementById("mediaViewer").innerHTML =
-        '<img src="' + src + '" alt="' + alt + '">';
+    function clearThumbs() {
+      document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
     }
 
-    function showVideo(element, src) {
-      clearActiveThumbs();
-      element.classList.add("active");
-      document.getElementById("mediaViewer").innerHTML =
-        '<video controls autoplay muted playsinline>' +
-        '<source src="' + src + '" type="video/mp4">' +
-        'Your browser does not support the video tag.' +
-        '</video>';
+    function showImage(el, src, alt) {
+      clearThumbs();
+      el.classList.add('active');
+      document.getElementById('viewer').innerHTML = '<img src="' + src + '" alt="' + alt + '">';
     }
 
-    function selectBundle(element, price, oldPrice, message) {
-      document.querySelectorAll(".bundle").forEach(bundle => bundle.classList.remove("active"));
-      element.classList.add("active");
-      document.getElementById("mainPrice").textContent = price;
-      document.getElementById("oldPrice").textContent = oldPrice;
-      document.getElementById("stickyPrice").textContent = price;
-      selectedMessage = message;
+    function showVideo(el, src) {
+      clearThumbs();
+      el.classList.add('active');
+      document.getElementById('viewer').innerHTML = '<video controls autoplay muted playsinline><source src="' + src + '" type="video/mp4">Your browser does not support the video tag.</video>';
+    }
+
+    function selectBundle(el, bottles, price, compare, savePercent) {
+      document.querySelectorAll('.bundle').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      selectedBundle = {
+        name: bottles + ' Bottle' + (bottles > 1 ? 's' : ''),
+        price,
+        compare,
+        savePercent
+      };
+      updatePricing();
+    }
+
+    function changeQty(delta) {
+      quantity = Math.max(1, quantity + delta);
+      document.getElementById('qtyValue').textContent = quantity;
+      updatePricing();
+      notify('Quantity updated to ' + quantity);
+    }
+
+    function updatePricing() {
+      const subtotal = selectedBundle.price * quantity;
+      const compareTotal = selectedBundle.compare * quantity;
+      const total = Math.max(0, subtotal - promoDiscount);
+      const savePercent = Math.round((1 - (selectedBundle.price / selectedBundle.compare)) * 100);
+
+      document.getElementById('mainPrice').textContent = '$' + subtotal.toFixed(2);
+      document.getElementById('oldPrice').textContent = '$' + compareTotal.toFixed(2);
+      document.getElementById('saveTag').textContent = 'Save ' + savePercent + '%';
+      document.getElementById('stickyPrice').textContent = '$' + total.toFixed(2);
+      document.getElementById('summaryBundle').textContent = selectedBundle.name;
+      document.getElementById('summaryQty').textContent = quantity;
+      document.getElementById('summarySubtotal').textContent = '$' + subtotal.toFixed(2);
+      document.getElementById('summaryDiscount').textContent = '-$' + promoDiscount.toFixed(2);
+      document.getElementById('summaryTotal').textContent = '$' + total.toFixed(2);
     }
 
     function addToCart() {
-      const popup = document.getElementById("popup");
-      popup.textContent = selectedMessage + " — added to cart";
-      popup.classList.add("show");
+      cartCount += quantity;
+      document.getElementById('cartCount').textContent = cartCount;
+      notify(quantity + ' × ' + selectedBundle.name + ' added to cart');
+    }
 
-      clearTimeout(popupTimeout);
-      popupTimeout = setTimeout(() => {
-        popup.classList.remove("show");
-      }, 2200);
+    function buyNow() {
+      addToCart();
+      scrollToSection('checkout');
+      notify('Proceeding to checkout');
+    }
+
+    function openCartSummary() {
+      const total = document.getElementById('summaryTotal').textContent;
+      notify('Cart summary: ' + cartCount + ' item(s) • Total ' + total);
+    }
+
+    function toggleWishlist() {
+      wishlist = !wishlist;
+      document.getElementById('wishlistBtn').textContent = wishlist ? '♥ Saved to Wishlist' : '♡ Save to Wishlist';
+      notify(wishlist ? 'Product saved to wishlist' : 'Removed from wishlist');
     }
 
     function toggleFaq(button) {
-      button.parentElement.classList.toggle("open");
+      button.parentElement.classList.toggle('open');
     }
-  </script>
 
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function selectPaymentTab(button, method) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      button.classList.add('active');
+      selectedPayment = method;
+      const cardFields = document.getElementById('paymentCardFields').parentElement;
+      const cardInput = document.getElementById('cardNumber');
+      const exp = document.getElementById('expDate');
+      const cvv = document.getElementById('cvv');
+
+      if (method === 'card') {
+        cardInput.disabled = false;
+        exp.disabled = false;
+        cvv.disabled = false;
+        cardInput.placeholder = '4242 4242 4242 4242';
+      } else if (method === 'paypal') {
+        cardInput.disabled = true;
+        exp.disabled = true;
+        cvv.disabled = true;
+        cardInput.placeholder = 'PayPal checkout will continue after review';
+      } else {
+        cardInput.disabled = true;
+        exp.disabled = true;
+        cvv.disabled = true;
+        cardInput.placeholder = 'Cash collected at delivery';
+      }
+    }
+
+    function applyPromo() {
+      const code = document.getElementById('promoInput').value.trim().toUpperCase();
+      if (!code) {
+        promoDiscount = 0;
+        updatePricing();
+        notify('Enter a promo code first');
+        return;
+      }
+      if (code === 'GLOW10') {
+        promoDiscount = 10;
+        updatePricing();
+        notify('Promo code GLOW10 applied');
+      } else {
+        promoDiscount = 0;
+        updatePricing();
+        notify('Promo code not valid');
+      }
+    }
+
+    function previewOrder() {
+      const first = document.getElementById('firstName').value || 'Customer';
+      const total = document.getElementById('summaryTotal').textContent;
+      notify('Order preview for ' + first + ': ' + selectedBundle.name + ' • Total ' + total + ' • ' + selectedPayment.toUpperCase());
+    }
+
+    function submitOrder(event) {
+      event.preventDefault();
+      const form = document.getElementById('checkoutForm');
+      if (!form.reportValidity()) return;
+      const first = document.getElementById('firstName').value;
+      const total = document.getElementById('summaryTotal').textContent;
+      notify('Order placed successfully for ' + first + ' • ' + total + ' • ' + selectedPayment.toUpperCase());
+      setTimeout(() => {
+        scrollToSection('top');
+      }, 300);
+    }
+
+    function subscribeNewsletter() {
+      const email = document.getElementById('newsletterEmail').value.trim();
+      if (!email || !email.includes('@')) {
+        notify('Enter a valid email address');
+        return;
+      }
+      notify('Subscribed: ' + email);
+      document.getElementById('newsletterEmail').value = '';
+    }
+
+    updatePricing();
+  </script>
 </body>
 </html>
