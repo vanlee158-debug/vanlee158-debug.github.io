@@ -1,232 +1,644 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vitamin C Glow Serum</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>d'Alba Vita Toning Serum Toner</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f3ef;
+      color: #1d1d1d;
+      line-height: 1.5;
+    }
 
-body{
-font-family:Arial;
-background:#f5f5f5;
-margin:0;
-padding:0;
-}
+    img, video {
+      max-width: 100%;
+      display: block;
+    }
 
-.container{
-max-width:1100px;
-margin:auto;
-background:white;
-padding:40px;
-border-radius:12px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-}
+    .top-bar {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 14px;
+    }
 
-.product-img img{
-width:100%;
-border-radius:10px;
-}
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+    }
 
-.gallery{
-display:flex;
-gap:10px;
-margin-top:10px;
-}
+    .left {
+      padding: 30px;
+      background: #faf8f5;
+    }
 
-.gallery img{
-width:70px;
-cursor:pointer;
-border-radius:6px;
-}
+    .media-viewer {
+      border-radius: 20px;
+      overflow: hidden;
+      background: white;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.price{
-font-size:32px;
-color:#0f8a3c;
-font-weight:bold;
-}
+    .media-viewer img,
+    .media-viewer video {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
 
-.badge{
-background:black;
-color:white;
-display:inline-block;
-padding:6px 12px;
-border-radius:20px;
-font-size:12px;
-}
+    .thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
 
-button{
-background:black;
-color:white;
-border:none;
-padding:14px 30px;
-font-size:16px;
-border-radius:8px;
-cursor:pointer;
-margin-top:15px;
-}
+    .thumb {
+      border: 2px solid #ddd;
+      border-radius: 14px;
+      overflow: hidden;
+      background: white;
+      cursor: pointer;
+      transition: 0.2s ease;
+      padding: 4px;
+    }
 
-.bundle{
-border:1px solid #ddd;
-padding:15px;
-border-radius:10px;
-margin-top:10px;
-display:flex;
-justify-content:space-between;
-cursor:pointer;
-}
+    .thumb.active,
+    .thumb:hover {
+      border-color: #111;
+    }
 
-.bundle:hover{
-border:1px solid black;
-}
+    .thumb img,
+    .thumb video {
+      width: 100%;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
 
-.features{
-margin-top:15px;
-color:#666;
-}
+    .right {
+      padding: 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-.reviews{
-max-width:1100px;
-margin:auto;
-margin-top:40px;
-display:grid;
-grid-template-columns:1fr 1fr 1fr;
-gap:20px;
-}
+    .badge {
+      display: inline-block;
+      width: fit-content;
+      background: #111;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
 
-.review{
-background:white;
-padding:20px;
-border-radius:10px;
-}
+    h1 {
+      font-size: 48px;
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
 
-.footer{
-text-align:center;
-margin-top:40px;
-padding:20px;
-color:#888;
-}
+    .subtext {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 18px;
+    }
 
-</style>
+    .price-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .price {
+      font-size: 36px;
+      color: #157347;
+      font-weight: bold;
+    }
+
+    .old-price {
+      font-size: 22px;
+      color: #999;
+      text-decoration: line-through;
+    }
+
+    .save {
+      background: #eaf7ef;
+      color: #157347;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .benefits {
+      list-style: none;
+      margin-bottom: 22px;
+    }
+
+    .benefits li {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .bundle-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .bundle-options {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .bundle {
+      border: 2px solid #ddd;
+      border-radius: 16px;
+      padding: 16px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .bundle.active,
+    .bundle:hover {
+      border-color: #111;
+      background: #fcfaf7;
+    }
+
+    .bundle-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-weight: bold;
+    }
+
+    .bundle-sub {
+      color: #157347;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .buy-btn {
+      background: #111;
+      color: white;
+      border: none;
+      padding: 18px 22px;
+      border-radius: 14px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s ease;
+      width: 100%;
+    }
+
+    .buy-btn:hover {
+      background: #2c2c2c;
+    }
+
+    .trust {
+      margin-top: 18px;
+      color: #666;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 30px auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 24px;
+      font-size: 17px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .card img {
+      border-radius: 14px;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .card p {
+      color: #555;
+    }
+
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .review {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .stars {
+      margin-bottom: 10px;
+    }
+
+    .review p {
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      border: none;
+      background: white;
+      padding: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 20px;
+      color: #555;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.96);
+      border-top: 1px solid #e7dfd7;
+      padding: 14px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      backdrop-filter: blur(10px);
+    }
+
+    .sticky-name {
+      font-weight: bold;
+    }
+
+    .sticky-price {
+      color: #157347;
+      font-weight: bold;
+    }
+
+    .sticky-btn {
+      background: #111;
+      color: white;
+      border: none;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #111;
+      color: white;
+      padding: 15px 18px;
+      border-radius: 12px;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: 0.25s ease;
+      pointer-events: none;
+    }
+
+    .popup.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .container,
+      .cards,
+      .reviews {
+        grid-template-columns: 1fr;
+      }
+
+      .right,
+      .left {
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .thumbs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .sticky-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .sticky-btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
+  <div class="top-bar">Free Shipping Today • Brightening & Hydration • 30-Day Guarantee</div>
 
-<div class="product-img">
+  <div class="container">
+    <div class="left">
+      <div class="media-viewer" id="mediaViewer">
+        <img src="images/hero%20product%20.png" alt="d'Alba Vita Toning Serum Toner">
+      </div>
 
-<img id="mainImage" src="images/product1.png">
+      <div class="thumbs">
+        <div class="thumb active" onclick="showImage(this, 'images/hero%20product%20.png', 'Hero product image')">
+          <img src="images/hero%20product%20.png" alt="Hero product thumbnail">
+        </div>
 
-<div class="gallery">
-<img src="images/product1.png" onclick="changeImage(this)">
-<img src="images/product2.png" onclick="changeImage(this)">
-<img src="images/product3.png" onclick="changeImage(this)">
-<img src="images/product4.png" onclick="changeImage(this)">
-</div>
+        <div class="thumb" onclick="showImage(this, 'images/result%20image%20product%20.png', 'Result image')">
+          <img src="images/result%20image%20product%20.png" alt="Result image thumbnail">
+        </div>
 
-</div>
+        <div class="thumb" onclick="showImage(this, 'images/lifestyle%20image%20.png', 'Lifestyle image')">
+          <img src="images/lifestyle%20image%20.png" alt="Lifestyle image thumbnail">
+        </div>
 
-<div>
+        <div class="thumb" onclick="showVideo(this, 'images/d%E2%80%99Alba%20Vita%20Toning%20Serum%20Toner.mp4')">
+          <video muted>
+            <source src="images/d%E2%80%99Alba%20Vita%20Toning%20Serum%20Toner.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
 
-<span class="badge">Best Seller</span>
+    <div class="right">
+      <span class="badge">Best Seller</span>
+      <h1>d'Alba Vita Toning Serum Toner</h1>
 
-<h1>Vitamin C Glow Serum</h1>
+      <p class="subtext">
+        A brightening and hydrating toner designed to help improve uneven skin tone,
+        restore moisture, and give skin a smoother radiant glow.
+      </p>
 
-<div class="price">$19.99</div>
+      <div class="price-row">
+        <div class="price" id="mainPrice">$33.95</div>
+        <div class="old-price" id="oldPrice">$49.95</div>
+        <div class="save">Save 32%</div>
+      </div>
 
-<p>
-Advanced Vitamin C serum designed to brighten skin tone,
-restore hydration and reveal a radiant glow.
-</p>
+      <ul class="benefits">
+        <li>✔ Helps improve uneven skin tone</li>
+        <li>✔ Restores hydration and pH balance</li>
+        <li>✔ Lightweight formula for radiant-looking skin</li>
+        <li>✔ Vitamin complex support for daily glow</li>
+      </ul>
 
-<ul>
-<li>Brightens dull skin</li>
-<li>Reduces dark spots</li>
-<li>Deep hydration</li>
-<li>Antioxidant protection</li>
-</ul>
+      <div class="bundle-title">Choose your bundle</div>
 
-<h3>Choose your bundle</h3>
+      <div class="bundle-options">
+        <div class="bundle" onclick="selectBundle(this, '$19.99', '$29.95', '1 Bottle selected')">
+          <div class="bundle-row">
+            <span>1 Bottle</span>
+            <span>$19.99</span>
+          </div>
+          <div class="bundle-sub">Perfect for trying it out</div>
+        </div>
 
-<div class="bundle">
-<div>
-<b>1 Bottle</b>
-<br>Perfect for trying it out
-</div>
+        <div class="bundle" onclick="selectBundle(this, '$27.95', '$39.95', '2 Bottles selected')">
+          <div class="bundle-row">
+            <span>2 Bottles</span>
+            <span>$27.95</span>
+          </div>
+          <div class="bundle-sub">Save more on each bottle</div>
+        </div>
 
-<div>$19.99</div>
-</div>
+        <div class="bundle active" onclick="selectBundle(this, '$33.95', '$49.95', '3 Bottles selected')">
+          <div class="bundle-row">
+            <span>3 Bottles</span>
+            <span>$33.95</span>
+          </div>
+          <div class="bundle-sub">Best value bundle</div>
+        </div>
+      </div>
 
-<div class="bundle">
-<div>
-<b>2 Bottles</b>
-<br>Save more on each bottle
-</div>
+      <button class="buy-btn" onclick="addToCart()">Add to Cart</button>
 
-<div>$27.95</div>
-</div>
+      <div class="trust">
+        ✔ Secure Payment<br>
+        ✔ Free Shipping<br>
+        ✔ 30-Day Guarantee
+      </div>
+    </div>
+  </div>
 
-<div class="bundle">
-<div>
-<b>3 Bottles</b>
-<br>Best value bundle
-</div>
+  <section class="section">
+    <h2 class="section-title">Why Customers Love It</h2>
+    <p class="section-subtitle">A premium visual story built from your real product media.</p>
 
-<div>$33.95</div>
-</div>
+    <div class="cards">
+      <div class="card">
+        <img src="images/hero%20product%20.png" alt="Hydration image">
+        <h3>Hydration Support</h3>
+        <p>Helps recharge moisture and leaves skin feeling fresh, balanced, and comfortable.</p>
+      </div>
 
-<button onclick="buy()">Add to Cart</button>
+      <div class="card">
+        <img src="images/result%20image%20product%20.png" alt="Result image">
+        <h3>Visible Tone Improvement</h3>
+        <p>Designed to support brighter-looking skin and a smoother, more even complexion.</p>
+      </div>
 
-<div class="features">
-✔ Secure Payment<br>
-✔ Free Shipping<br>
-✔ 30 Day Guarantee
-</div>
+      <div class="card">
+        <img src="images/lifestyle%20image%20.png" alt="Lifestyle image">
+        <h3>Glass Skin Glow</h3>
+        <p>Lightweight daily toner with a polished skincare look that feels luxurious and modern.</p>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <section class="section">
+    <h2 class="section-title">Customer Reviews</h2>
+    <p class="section-subtitle">Social proof is one of the strongest conversion drivers.</p>
 
-</div>
+    <div class="reviews">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>My skin looked fresher and more hydrated very quickly. The product also feels premium.</p>
+        <strong>Sarah M.</strong>
+      </div>
 
-<div class="reviews">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>I love the glow and the lightweight feel. The brightening effect is what made me keep using it.</p>
+        <strong>Jessica T.</strong>
+      </div>
 
-<div class="review">
-★★★★★
-<p>My skin looked smoother after just a few uses.</p>
-<b>Sarah M.</b>
-</div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>The page looks beautiful and the product presentation feels like a luxury skincare brand.</p>
+        <strong>Emily R.</strong>
+      </div>
+    </div>
+  </section>
 
-<div class="review">
-★★★★★
-<p>Lightweight and very hydrating. Love it!</p>
-<b>Jessica T.</b>
-</div>
+  <section class="section">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-subtitle">Answering buyer hesitation helps improve conversion.</p>
 
-<div class="review">
-★★★★★
-<p>Great product and beautiful packaging.</p>
-<b>Emily R.</b>
-</div>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">What does this toner help with?</button>
+        <div class="faq-answer">It helps support hydration, brighter-looking skin, and a more even-looking tone.</div>
+      </div>
 
-</div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Can I use it daily?</button>
+        <div class="faq-answer">Yes. It is presented as a daily-use toner that fits into a standard skincare routine.</div>
+      </div>
 
-<div class="footer">
-© 2026 Glow Skincare
-</div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Does the video work inside the gallery?</button>
+        <div class="faq-answer">Yes. You can click the video thumbnail and it will open directly in the main media viewer.</div>
+      </div>
+    </div>
+  </section>
 
-<script>
+  <div class="sticky-bar">
+    <div>
+      <div class="sticky-name">d'Alba Vita Toning Serum Toner</div>
+      <div class="sticky-price" id="stickyPrice">$33.95</div>
+    </div>
+    <button class="sticky-btn" onclick="addToCart()">Buy Now</button>
+  </div>
 
-function changeImage(element){
-document.getElementById("mainImage").src = element.src;
-}
+  <div class="popup" id="popup">Added to cart</div>
 
-function buy(){
-alert("Demo store – order received!");
-}
+  <script>
+    let selectedMessage = "3 Bottles selected";
+    let popupTimeout;
 
-</script>
+    function clearActiveThumbs() {
+      document.querySelectorAll(".thumb").forEach(thumb => thumb.classList.remove("active"));
+    }
+
+    function showImage(element, src, alt) {
+      clearActiveThumbs();
+      element.classList.add("active");
+      document.getElementById("mediaViewer").innerHTML =
+        '<img src="' + src + '" alt="' + alt + '">';
+    }
+
+    function showVideo(element, src) {
+      clearActiveThumbs();
+      element.classList.add("active");
+      document.getElementById("mediaViewer").innerHTML =
+        '<video controls autoplay muted playsinline>' +
+        '<source src="' + src + '" type="video/mp4">' +
+        'Your browser does not support the video tag.' +
+        '</video>';
+    }
+
+    function selectBundle(element, price, oldPrice, message) {
+      document.querySelectorAll(".bundle").forEach(bundle => bundle.classList.remove("active"));
+      element.classList.add("active");
+      document.getElementById("mainPrice").textContent = price;
+      document.getElementById("oldPrice").textContent = oldPrice;
+      document.getElementById("stickyPrice").textContent = price;
+      selectedMessage = message;
+    }
+
+    function addToCart() {
+      const popup = document.getElementById("popup");
+      popup.textContent = selectedMessage + " — added to cart";
+      popup.classList.add("show");
+
+      clearTimeout(popupTimeout);
+      popupTimeout = setTimeout(() => {
+        popup.classList.remove("show");
+      }, 2200);
+    }
+
+    function toggleFaq(button) {
+      button.parentElement.classList.toggle("open");
+    }
+  </script>
 
 </body>
 </html>
