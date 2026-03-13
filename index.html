@@ -1,0 +1,2603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>d'Alba Vita Toning Serum Toner | Affordable Premium Korean Skincare</title>
+  <meta
+    name="description"
+    content="Brighten dull skin, even tone, and hydrate with d'Alba Vita Toning Serum Toner. Affordable premium Korean skincare with a lightweight fast-absorbing formula."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fbf7f2;
+      --bg-soft: #f5eee5;
+      --bg-card: rgba(255, 255, 255, 0.86);
+      --text: #2b221b;
+      --muted: #7c6b5f;
+      --line: rgba(83, 62, 45, 0.12);
+      --accent: #b68d67;
+      --accent-dark: #8d6748;
+      --accent-soft: #efe2d2;
+      --success: #2f7a58;
+      --danger: #a64b4b;
+      --shadow: 0 18px 40px rgba(53, 35, 20, 0.08);
+      --shadow-soft: 0 8px 24px rgba(53, 35, 20, 0.06);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --max: 1200px;
+      --sticky-bar: 74px;
+      --transition: 220ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.9), transparent 35%),
+        linear-gradient(180deg, #fffaf4 0%, #fbf7f2 35%, #f8f2ea 100%);
+      line-height: 1.5;
+    }
+
+    img, video {
+      display: block;
+      max-width: 100%;
+    }
+
+    button, input, select {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 24px, var(--max));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 28px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(182, 141, 103, 0.11);
+      color: var(--accent-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .title {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 700px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(43, 34, 27, 0.92);
+      backdrop-filter: blur(12px);
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .topbar-inner {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+      flex-wrap: wrap;
+    }
+
+    .topbar-pill {
+      opacity: 0.95;
+      white-space: nowrap;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 42px;
+      z-index: 38;
+      background: rgba(251, 247, 242, 0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 62px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d7b897, #a47d5b);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand-badge::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.45);
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-name {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.45rem;
+      line-height: 0.95;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .brand-sub {
+      margin: 2px 0 0;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ghost-btn,
+    .primary-btn,
+    .secondary-btn {
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), opacity var(--transition);
+    }
+
+    .ghost-btn {
+      background: transparent;
+      color: var(--text);
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      font-weight: 600;
+    }
+
+    .primary-btn {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      padding: 14px 18px;
+      font-weight: 800;
+      box-shadow: 0 14px 28px rgba(141, 103, 72, 0.24);
+    }
+
+    .secondary-btn {
+      background: #fff;
+      color: var(--text);
+      padding: 14px 18px;
+      font-weight: 700;
+      border: 1px solid var(--line);
+    }
+
+    .ghost-btn:hover,
+    .primary-btn:hover,
+    .secondary-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      padding-top: 20px;
+      padding-bottom: 18px;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-media,
+    .hero-content,
+    .card,
+    .trust-strip,
+    .media-card,
+    .benefit-card,
+    .proof-card,
+    .ingredient-card,
+    .routine-card,
+    .offer-card,
+    .guarantee-card,
+    .review-card,
+    .faq-wrap,
+    .final-cta-card,
+    .checkout-panel {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.65);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-media {
+      border-radius: var(--radius-xl);
+      padding: 14px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-image-wrap {
+      border-radius: calc(var(--radius-xl) - 8px);
+      overflow: hidden;
+      background: linear-gradient(180deg, #fff, #f2e6d9);
+      position: relative;
+      aspect-ratio: 1 / 1.08;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .floating-note {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(83, 62, 45, 0.08);
+      padding: 12px 14px;
+      border-radius: 18px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .floating-note strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .floating-note span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-content {
+      border-radius: var(--radius-xl);
+      padding: 18px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .rating-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .stars {
+      color: #c98e28;
+      letter-spacing: 0.05em;
+      font-size: 15px;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.2rem, 7vw, 4rem);
+      line-height: 0.93;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 58ch;
+    }
+
+    .benefit-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: var(--bg-soft);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid rgba(83, 62, 45, 0.08);
+    }
+
+    .hero-bullets {
+      display: grid;
+      gap: 10px;
+    }
+
+    .bullet {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 10px;
+      align-items: start;
+      font-size: 14px;
+    }
+
+    .bullet-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(47, 122, 88, 0.12);
+      color: var(--success);
+      font-size: 12px;
+      font-weight: 900;
+      margin-top: 1px;
+    }
+
+    .purchase-box {
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(245, 238, 229, 0.72));
+      border: 1px solid rgba(83, 62, 45, 0.08);
+      border-radius: 24px;
+      padding: 16px;
+      display: grid;
+      gap: 14px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .price-wrap {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .price-main {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .price-now {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .price-old {
+      color: var(--muted);
+      text-decoration: line-through;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .shipping-note {
+      font-size: 13px;
+      color: var(--success);
+      font-weight: 700;
+      background: rgba(47, 122, 88, 0.1);
+      padding: 8px 12px;
+      border-radius: 999px;
+    }
+
+    .bundle-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .bundle-option {
+      position: relative;
+      border: 1.5px solid rgba(83, 62, 45, 0.12);
+      border-radius: 20px;
+      padding: 14px;
+      background: rgba(255,255,255,0.8);
+      cursor: pointer;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      display: grid;
+      gap: 8px;
+    }
+
+    .bundle-option:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .bundle-option.active {
+      border-color: var(--accent-dark);
+      box-shadow: 0 14px 28px rgba(141, 103, 72, 0.16);
+      background: linear-gradient(180deg, #fff, #f7efe6);
+    }
+
+    .bundle-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .bundle-name {
+      font-size: 16px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .bundle-sub {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .bundle-price {
+      text-align: right;
+    }
+
+    .bundle-total {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .bundle-each {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .bundle-badge {
+      position: absolute;
+      top: -10px;
+      right: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 7px 10px;
+      border-radius: 999px;
+      box-shadow: var(--shadow-soft);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .purchase-actions {
+      display: grid;
+      gap: 10px;
+    }
+
+    .primary-btn.full,
+    .secondary-btn.full {
+      width: 100%;
+      justify-content: center;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .secure-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .card-icons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-icon {
+      min-width: 42px;
+      text-align: center;
+      padding: 7px 10px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-weight: 800;
+      font-size: 11px;
+      color: var(--text);
+    }
+
+    .trust-strip {
+      border-radius: 24px;
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .trust-item {
+      padding: 12px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(83, 62, 45, 0.08);
+      border-radius: 18px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .media-grid,
+    .benefits-grid,
+    .proof-grid,
+    .ingredient-grid,
+    .routine-grid,
+    .offer-grid,
+    .reviews-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .media-card,
+    .benefit-card,
+    .proof-card,
+    .ingredient-card,
+    .routine-card,
+    .offer-card,
+    .review-card,
+    .final-cta-card,
+    .guarantee-card,
+    .faq-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .media-card {
+      padding: 12px;
+    }
+
+    .media-frame {
+      overflow: hidden;
+      border-radius: 18px;
+      background: #f2e8dd;
+      aspect-ratio: 1 / 1;
+    }
+
+    .media-frame img,
+    .media-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .media-caption {
+      padding: 12px 4px 2px;
+    }
+
+    .media-caption h3,
+    .benefit-card h3,
+    .proof-copy h3,
+    .ingredient-copy h3,
+    .routine-copy h3,
+    .offer-card h3,
+    .review-card h3,
+    .guarantee-card h3,
+    .final-cta-card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.15;
+    }
+
+    .media-caption p,
+    .benefit-card p,
+    .proof-copy p,
+    .ingredient-copy p,
+    .routine-copy p,
+    .offer-card p,
+    .review-card p,
+    .guarantee-card p,
+    .final-cta-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .benefit-card {
+      padding: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .benefit-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #f3e5d5, #e8d4bf);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+    }
+
+    .proof-card {
+      display: grid;
+      gap: 0;
+    }
+
+    .proof-media {
+      background: #f2e8dd;
+      overflow: hidden;
+    }
+
+    .proof-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .proof-copy {
+      padding: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .proof-points {
+      display: grid;
+      gap: 8px;
+    }
+
+    .proof-point {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .mini-label {
+      display: inline-flex;
+      width: fit-content;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(182, 141, 103, 0.12);
+      color: var(--accent-dark);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .ingredient-card,
+    .routine-card {
+      display: grid;
+      gap: 0;
+    }
+
+    .ingredient-media,
+    .routine-media {
+      background: #f2e8dd;
+    }
+
+    .ingredient-copy,
+    .routine-copy {
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .ingredient-list,
+    .routine-steps {
+      display: grid;
+      gap: 10px;
+    }
+
+    .ingredient-item,
+    .routine-step {
+      padding: 12px 14px;
+      border: 1px solid rgba(83, 62, 45, 0.08);
+      background: rgba(255,255,255,0.75);
+      border-radius: 16px;
+      font-size: 14px;
+    }
+
+    .routine-step strong,
+    .ingredient-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .offer-grid {
+      align-items: stretch;
+    }
+
+    .offer-card {
+      padding: 18px;
+      border: 1.5px solid rgba(83, 62, 45, 0.1);
+      display: grid;
+      gap: 12px;
+      position: relative;
+    }
+
+    .offer-card.featured {
+      border-color: var(--accent-dark);
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,239,230,0.88));
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(141, 103, 72, 0.12);
+    }
+
+    .offer-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: white;
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .offer-head {
+      padding-right: 88px;
+    }
+
+    .offer-title {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .offer-desc {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .offer-price {
+      display: flex;
+      align-items: end;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .offer-total {
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .offer-mini {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .offer-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .offer-list li {
+      display: flex;
+      align-items: start;
+      gap: 10px;
+    }
+
+    .offer-list li::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 900;
+    }
+
+    .guarantee-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .guarantee-card {
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .guarantee-items {
+      display: grid;
+      gap: 10px;
+    }
+
+    .guarantee-item {
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(83, 62, 45, 0.08);
+      background: rgba(255,255,255,0.78);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .reviews-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .review-card {
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .review-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .review-name {
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .review-meta {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .faq-wrap {
+      padding: 8px 0;
+    }
+
+    .faq-item + .faq-item {
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: transparent;
+      border: 0;
+      text-align: left;
+      padding: 18px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 260ms ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 18px 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 220px;
+    }
+
+    .faq-icon {
+      font-size: 20px;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .final-cta-card {
+      padding: 18px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .final-cta-grid {
+      display: grid;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .final-image {
+      border-radius: 20px;
+      overflow: hidden;
+      background: #f2e8dd;
+      aspect-ratio: 1 / 1;
+    }
+
+    .final-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    footer {
+      padding: 20px 0 calc(var(--sticky-bar) + 24px);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: grid;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .sticky-buy {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 45;
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(251, 247, 242, 0.92);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--line);
+    }
+
+    .sticky-buy-inner {
+      width: min(100%, 820px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(83, 62, 45, 0.08);
+      border-radius: 18px;
+      padding: 10px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .sticky-text {
+      min-width: 0;
+    }
+
+    .sticky-label {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .sticky-product {
+      font-size: 14px;
+      font-weight: 800;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sticky-price {
+      color: var(--accent-dark);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .sticky-btn {
+      padding: 14px 18px;
+      min-width: 132px;
+    }
+
+    .checkout-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background: rgba(34, 24, 18, 0.58);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: end;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .checkout-overlay.open {
+      display: flex;
+    }
+
+    .checkout-panel {
+      width: min(100%, 520px);
+      border-radius: 28px;
+      overflow: hidden;
+      animation: rise 260ms ease;
+      max-height: min(92vh, 860px);
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+    }
+
+    @keyframes rise {
+      from {
+        transform: translateY(22px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .checkout-header {
+      padding: 18px 18px 10px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.78);
+    }
+
+    .checkout-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .checkout-title {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      line-height: 0.9;
+      font-weight: 700;
+    }
+
+    .checkout-close {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.84);
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+
+    .stepper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .step {
+      display: grid;
+      gap: 8px;
+    }
+
+    .step-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .step-bar {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(83, 62, 45, 0.1);
+      overflow: hidden;
+    }
+
+    .step-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      transition: width 220ms ease;
+    }
+
+    .checkout-summary {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.84), rgba(245,238,229,0.72));
+      display: grid;
+      gap: 10px;
+    }
+
+    .summary-card {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 12px;
+      align-items: center;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(83, 62, 45, 0.08);
+      border-radius: 18px;
+      padding: 10px;
+    }
+
+    .summary-thumb {
+      border-radius: 14px;
+      overflow: hidden;
+      background: #f3e8dc;
+      aspect-ratio: 1 / 1;
+    }
+
+    .summary-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .summary-title {
+      font-size: 14px;
+      font-weight: 800;
+      margin: 0 0 4px;
+    }
+
+    .summary-meta,
+    .summary-price-line {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .summary-totals {
+      display: grid;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .summary-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .summary-line.total {
+      color: var(--text);
+      font-weight: 800;
+      font-size: 15px;
+      padding-top: 6px;
+      border-top: 1px dashed rgba(83, 62, 45, 0.16);
+    }
+
+    .checkout-body {
+      padding: 18px;
+      overflow: auto;
+      display: grid;
+      gap: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(250,245,239,0.96));
+    }
+
+    .form-step {
+      display: none;
+      gap: 14px;
+    }
+
+    .form-step.active {
+      display: grid;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .input,
+    .select {
+      width: 100%;
+      border: 1px solid rgba(83, 62, 45, 0.16);
+      background: rgba(255,255,255,0.92);
+      min-height: 52px;
+      border-radius: 16px;
+      padding: 0 14px;
+      color: var(--text);
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .input:focus,
+    .select:focus {
+      border-color: var(--accent-dark);
+      box-shadow: 0 0 0 4px rgba(182, 141, 103, 0.12);
+    }
+
+    .checkout-note {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(47, 122, 88, 0.1);
+      color: var(--success);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .checkout-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .checkout-actions.single {
+      grid-template-columns: 1fr;
+    }
+
+    .confirmation-card {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(83, 62, 45, 0.08);
+      border-radius: 20px;
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .success-badge {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(47, 122, 88, 0.12);
+      color: var(--success);
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .fine-print {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (min-width: 700px) {
+      .section {
+        padding: 40px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.02fr 0.98fr;
+        align-items: stretch;
+      }
+
+      .trust-grid,
+      .benefits-grid,
+      .reviews-grid,
+      .guarantee-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .media-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .proof-card,
+      .ingredient-card,
+      .routine-card,
+      .final-cta-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .offer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 980px) {
+      .site-header-inner {
+        min-height: 70px;
+      }
+
+      .section {
+        padding: 54px 0;
+      }
+
+      .trust-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .media-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .guarantee-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+
+      .reviews-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .sticky-buy-inner {
+        grid-template-columns: 1fr auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span class="topbar-pill">Free 1-Day Shipping on 2+ Bottles</span>
+      <span class="topbar-pill">SSL Secure Checkout</span>
+      <span class="topbar-pill">30-Day Glow Guarantee</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a href="#top" class="brand" aria-label="Go to top">
+        <div class="brand-badge"></div>
+        <div class="brand-text">
+          <p class="brand-name">d'Alba Vita</p>
+          <p class="brand-sub">Affordable Premium Korean Skincare</p>
+        </div>
+      </a>
+      <div class="header-actions">
+        <button class="ghost-btn" type="button" data-scroll="#offer">Shop Bundles</button>
+        <button class="primary-btn" type="button" data-open-checkout>Buy Now</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-media">
+          <div class="hero-image-wrap">
+            <img src="images/1- Hero Product Image.png" alt="d'Alba Vita Toning Serum Toner bottle" />
+            <div class="floating-note">
+              <div>
+                <strong>Vitamin C toner-serum glow care</strong>
+                <span>Brighten, hydrate, smooth, and even skin tone daily</span>
+              </div>
+              <span class="mini-label">Best for first-time buyers</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-content">
+          <span class="eyebrow">Instagram best-seller style landing page</span>
+
+          <div class="rating-row">
+            <span class="stars">★★★★★</span>
+            <span>4.8/5 rated by 2,184 happy customers</span>
+            <span>•</span>
+            <span>Dermatologist Tested</span>
+          </div>
+
+          <div>
+            <h1 class="hero-title">Glow faster with a lightweight Vitamin C toner-serum.</h1>
+            <p class="hero-desc">
+              d'Alba Vita Toning Serum Toner is designed to brighten dull skin, even skin tone,
+              hydrate deeply, and smooth texture with a premium Korean skincare feel at an easy-to-buy price.
+            </p>
+          </div>
+
+          <div class="benefit-chips">
+            <span class="chip">Brightens dull skin</span>
+            <span class="chip">Evens skin tone</span>
+            <span class="chip">Hydrates & smooths</span>
+            <span class="chip">Fast absorbing</span>
+          </div>
+
+          <div class="hero-bullets">
+            <div class="bullet">
+              <span class="bullet-dot">✓</span>
+              <div><strong>Premium but accessible:</strong> a polished Korean skincare experience without premium-price friction.</div>
+            </div>
+            <div class="bullet">
+              <span class="bullet-dot">✓</span>
+              <div><strong>Easy daily routine fit:</strong> lightweight formula layers smoothly into morning or evening skincare.</div>
+            </div>
+            <div class="bullet">
+              <span class="bullet-dot">✓</span>
+              <div><strong>Optimized for quick decisions:</strong> clear benefits, strong trust cues, and a simple purchase path.</div>
+            </div>
+          </div>
+
+          <div class="purchase-box">
+            <div class="price-wrap">
+              <div class="price-main">
+                <span class="price-now" id="heroPrice">$27.90</span>
+                <span class="price-old">$39.90</span>
+              </div>
+              <span class="shipping-note" id="heroShipping">Free 1-Day Shipping</span>
+            </div>
+
+            <div class="bundle-grid" id="heroBundles">
+              <div class="bundle-option" data-bundle="starter" tabindex="0">
+                <div class="bundle-top">
+                  <div>
+                    <p class="bundle-name">Starter</p>
+                    <p class="bundle-sub">1 Bottle • Easy first order</p>
+                  </div>
+                  <div class="bundle-price">
+                    <div class="bundle-total">$14.95</div>
+                    <div class="bundle-each">$2.95 shipping</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bundle-option active" data-bundle="duo" tabindex="0">
+                <span class="bundle-badge">Most Popular</span>
+                <div class="bundle-top">
+                  <div>
+                    <p class="bundle-name">Glow Duo</p>
+                    <p class="bundle-sub">2 Bottles • Better value</p>
+                  </div>
+                  <div class="bundle-price">
+                    <div class="bundle-total">$27.90</div>
+                    <div class="bundle-each">Free shipping</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bundle-option" data-bundle="set" tabindex="0">
+                <div class="bundle-top">
+                  <div>
+                    <p class="bundle-name">Glow Set</p>
+                    <p class="bundle-sub">3 Bottles • Best value</p>
+                  </div>
+                  <div class="bundle-price">
+                    <div class="bundle-total">$39.90</div>
+                    <div class="bundle-each">Free shipping</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="purchase-actions">
+              <button class="primary-btn full" type="button" data-open-checkout>
+                Buy Now • <span id="heroButtonPrice">$27.90</span>
+              </button>
+              <button class="secondary-btn full" type="button" data-scroll="#offer">
+                Compare Bundles
+              </button>
+            </div>
+
+            <div class="secure-row">
+              <span>SSL Secure Checkout • Ships in 1 Business Day</span>
+              <div class="card-icons" aria-label="Accepted payment cards">
+                <span class="card-icon">VISA</span>
+                <span class="card-icon">MC</span>
+                <span class="card-icon">AMEX</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container trust-strip">
+        <div class="trust-grid">
+          <div class="trust-item">Dermatologist Tested Formula</div>
+          <div class="trust-item">Fast-Absorbing Lightweight Texture</div>
+          <div class="trust-item">Daily Brightening & Hydration Support</div>
+          <div class="trust-item">Secure Checkout + Glow Guarantee</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="media">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Visual proof first</span>
+          <h2 class="title">See the product, texture, and routine in seconds.</h2>
+          <p class="subtitle">
+            Instagram users trust media before long copy. This section creates product clarity fast and makes the formula feel real.
+          </p>
+        </div>
+
+        <div class="media-grid">
+          <article class="media-card">
+            <div class="media-frame">
+              <video controls playsinline muted preload="metadata">
+                <source src="images/2- video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="media-caption">
+              <h3>Product demonstration</h3>
+              <p>Quick visual understanding increases trust and reduces hesitation from ad traffic.</p>
+            </div>
+          </article>
+
+          <article class="media-card">
+            <div class="media-frame">
+              <img src="images/3- Texture droplet image.png" alt="Serum toner texture droplet close-up" />
+            </div>
+            <div class="media-caption">
+              <h3>Lightweight texture</h3>
+              <p>Shows the elegant toner-serum feel that absorbs quickly without heaviness.</p>
+            </div>
+          </article>
+
+          <article class="media-card">
+            <div class="media-frame">
+              <img src="images/4- Ingredients image.png" alt="Ingredients image for d'Alba Vita Toning Serum Toner" />
+            </div>
+            <div class="media-caption">
+              <h3>Ingredient-led confidence</h3>
+              <p>Builds logic after visual desire by showing the formula story clearly.</p>
+            </div>
+          </article>
+
+          <article class="media-card">
+            <div class="media-frame">
+              <img src="images/5- Model Using Serum Image .png" alt="Model using d'Alba Vita Toning Serum Toner" />
+            </div>
+            <div class="media-caption">
+              <h3>Daily routine fit</h3>
+              <p>Helps customers imagine using the product naturally in their skincare routine.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="benefits">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Why it converts</span>
+          <h2 class="title">Benefits presented the way mobile shoppers actually scan.</h2>
+          <p class="subtitle">
+            Fast, simple benefit cards turn product features into outcomes customers care about immediately.
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <div class="benefit-icon">✨</div>
+            <h3>Brightens dull-looking skin</h3>
+            <p>Vitamin C positioning makes the formula feel energetic, radiant, and glow-focused from the first impression.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">🌿</div>
+            <h3>Evens tone gradually</h3>
+            <p>Positioned for users who want a more balanced-looking complexion without adding complexity to their routine.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">💧</div>
+            <h3>Hydrates without heaviness</h3>
+            <p>The toner-serum format helps the product feel refreshing, smooth, and easy to layer morning or night.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">🫧</div>
+            <h3>Smoother-feeling texture</h3>
+            <p>Supports a polished skin finish that makes the product feel premium but still approachable for impulse purchase.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">⚡</div>
+            <h3>Fast-absorbing formula</h3>
+            <p>Quick absorption lowers friction for busy users who want visible skincare value without a sticky feel.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">🕊️</div>
+            <h3>Easy daily-use positioning</h3>
+            <p>Designed to feel simple enough for first-time buyers and polished enough to look like a serious skincare brand.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proof">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Desire + proof</span>
+          <h2 class="title">Visual results help turn interest into purchase intent.</h2>
+          <p class="subtitle">
+            Once benefits are clear, result-focused proof gives users a stronger emotional reason to buy now.
+          </p>
+        </div>
+
+        <article class="proof-card">
+          <div class="proof-media">
+            <img src="images/6- Before - After Image (black women ).png" alt="Before and after skincare improvement example" />
+          </div>
+          <div class="proof-copy">
+            <span class="mini-label">Result-focused storytelling</span>
+            <h3>Designed to support a brighter, more even, more refreshed look.</h3>
+            <p>
+              This section strengthens desire by helping shoppers imagine a smoother, more hydrated, more radiant skin appearance after consistent use.
+            </p>
+            <div class="proof-points">
+              <div class="proof-point">✓ More luminous-looking daily glow</div>
+              <div class="proof-point">✓ Softer-looking texture and hydration support</div>
+              <div class="proof-point">✓ Better confidence for first-time skincare buyers</div>
+            </div>
+            <p class="fine-print">
+              Visuals are used as routine-focused product storytelling for this demonstration store project.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="ingredients">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Logic after emotion</span>
+          <h2 class="title">Ingredient story that makes the product feel premium and informed.</h2>
+          <p class="subtitle">
+            Good skincare pages combine aspiration with explanation. This creates credibility after the emotional hook.
+          </p>
+        </div>
+
+        <article class="ingredient-card">
+          <div class="ingredient-media">
+            <img src="images/4- Ingredients image.png" alt="Ingredients story visual" />
+          </div>
+          <div class="ingredient-copy">
+            <h3>A toner-serum format positioned for daily brightening, balance, and hydration.</h3>
+            <p>
+              Instead of feeling like a complicated treatment, this product is presented as a simple, elegant step that fits naturally into a modern skincare routine.
+            </p>
+
+            <div class="ingredient-list">
+              <div class="ingredient-item">
+                <strong>Vitamin C positioning</strong>
+                Supports brighter-looking skin and a more energized glow-focused story.
+              </div>
+              <div class="ingredient-item">
+                <strong>Hydration support</strong>
+                Helps the product feel skin-friendly, fresh, and comfortable for frequent use.
+              </div>
+              <div class="ingredient-item">
+                <strong>Lightweight toner-serum texture</strong>
+                Reinforces ease, speed, and fast absorption for mobile-first impulse buyers.
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="routine">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Make it easy</span>
+          <h2 class="title">A simple routine integrates better and converts better.</h2>
+          <p class="subtitle">
+            The easier the product feels to use, the lower the buying resistance.
+          </p>
+        </div>
+
+        <article class="routine-card">
+          <div class="routine-media">
+            <img src="images/8- Step-by-Step Guide Image.png" alt="Step-by-step guide for using the serum toner" />
+          </div>
+          <div class="routine-copy">
+            <h3>How to use d'Alba Vita Toning Serum Toner</h3>
+            <div class="routine-steps">
+              <div class="routine-step">
+                <strong>Step 1 — Cleanse</strong>
+                Start with freshly cleansed skin to prepare the face for better product absorption.
+              </div>
+              <div class="routine-step">
+                <strong>Step 2 — Apply toner-serum</strong>
+                Dispense a small amount and gently press or sweep it across the skin.
+              </div>
+              <div class="routine-step">
+                <strong>Step 3 — Let it absorb</strong>
+                The lightweight texture is designed to settle quickly without feeling heavy.
+              </div>
+              <div class="routine-step">
+                <strong>Step 4 — Finish your routine</strong>
+                Follow with moisturizer and SPF in the morning for a complete daily skincare flow.
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="infographic">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Fast scan reinforcement</span>
+          <h2 class="title">One visual block that summarizes the value quickly.</h2>
+          <p class="subtitle">
+            This helps users who skim the page still understand why the product is worth trying.
+          </p>
+        </div>
+
+        <article class="media-card">
+          <div class="media-frame" style="aspect-ratio: 16 / 10;">
+            <img src="images/7- Benefits Infographic .png" alt="Benefits infographic for d'Alba Vita Toning Serum Toner" />
+          </div>
+          <div class="media-caption">
+            <h3>Premium clarity, not information overload</h3>
+            <p>
+              A strong ecommerce page should make the product easy to understand without burying the visitor in heavy text.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="offer">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Offer architecture</span>
+          <h2 class="title">Simple bundle logic makes the buying decision feel easy.</h2>
+          <p class="subtitle">
+            The best-performing option is highlighted so customers do not have to overthink the choice.
+          </p>
+        </div>
+
+        <div class="offer-grid">
+          <article class="offer-card">
+            <div class="offer-head">
+              <h3 class="offer-title">Starter</h3>
+              <p class="offer-desc">1 Bottle • Best for first-time trial</p>
+            </div>
+            <div class="offer-price">
+              <span class="offer-total">$14.95</span>
+              <span class="offer-mini">$2.95 shipping</span>
+            </div>
+            <ul class="offer-list">
+              <li>Easy low-friction first order</li>
+              <li>Affordable premium entry point</li>
+              <li>Ships in 1 business day</li>
+            </ul>
+            <button class="secondary-btn full" type="button" data-select-offer="starter">Choose Starter</button>
+          </article>
+
+          <article class="offer-card featured">
+            <span class="offer-badge">Most Popular</span>
+            <div class="offer-head">
+              <h3 class="offer-title">Glow Duo</h3>
+              <p class="offer-desc">2 Bottles • Better value for regular use</p>
+            </div>
+            <div class="offer-price">
+              <span class="offer-total">$27.90</span>
+              <span class="offer-mini">Free 1-Day Shipping</span>
+            </div>
+            <ul class="offer-list">
+              <li>Best balance of value and commitment</li>
+              <li>Free shipping removes friction</li>
+              <li>Ideal option for highlighted conversion</li>
+            </ul>
+            <button class="primary-btn full" type="button" data-select-offer="duo">Choose Glow Duo</button>
+          </article>
+
+          <article class="offer-card">
+            <div class="offer-head">
+              <h3 class="offer-title">Glow Set</h3>
+              <p class="offer-desc">3 Bottles • Best value bundle</p>
+            </div>
+            <div class="offer-price">
+              <span class="offer-total">$39.90</span>
+              <span class="offer-mini">Free shipping</span>
+            </div>
+            <ul class="offer-list">
+              <li>Lowest cost per bottle</li>
+              <li>Best value positioning</li>
+              <li>Built for stronger commitment</li>
+            </ul>
+            <button class="secondary-btn full" type="button" data-select-offer="set">Choose Glow Set</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="guarantee">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Final reassurance</span>
+          <h2 class="title">Trust and checkout confidence should appear before payment.</h2>
+          <p class="subtitle">
+            This removes the last hesitation that often stops cold traffic from converting.
+          </p>
+        </div>
+
+        <div class="guarantee-grid">
+          <article class="guarantee-card">
+            <h3>30-Day Glow Guarantee</h3>
+            <p>
+              The store is positioned to feel low-risk, premium, and easy to try. That is why the guarantee sits close to the purchase stage.
+            </p>
+            <div class="guarantee-items">
+              <div class="guarantee-item">SSL encrypted checkout experience</div>
+              <div class="guarantee-item">Visa, Mastercard, and American Express accepted</div>
+              <div class="guarantee-item">Fast 1-day dispatch messaging for stronger purchase confidence</div>
+              <div class="guarantee-item">Front-end checkout designed to feel polished and realistic</div>
+            </div>
+          </article>
+
+          <article class="guarantee-card">
+            <h3>Trusted by mobile-first skincare shoppers</h3>
+            <p>
+              This page is structured like a premium direct-to-consumer landing page: quick clarity, strong visuals, clear bundles, and a simple action path.
+            </p>
+            <div class="card-icons">
+              <span class="card-icon">SSL</span>
+              <span class="card-icon">VISA</span>
+              <span class="card-icon">MC</span>
+              <span class="card-icon">AMEX</span>
+            </div>
+            <button class="primary-btn full" type="button" data-open-checkout>
+              Proceed to Secure Checkout
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Social proof</span>
+          <h2 class="title">Short reviews make the product feel already trusted.</h2>
+          <p class="subtitle">
+            Good review design should feel believable, fast to scan, and supportive of the main product promise.
+          </p>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="review-top">
+              <div>
+                <div class="review-name">Jessica M.</div>
+                <div class="review-meta">Age 31 • Combination skin</div>
+              </div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <p>
+              “It feels much more premium than the price suggests. My skin looks fresher and smoother, and I love how quickly it absorbs.”
+            </p>
+          </article>
+
+          <article class="review-card">
+            <div class="review-top">
+              <div>
+                <div class="review-name">Amanda T.</div>
+                <div class="review-meta">Age 36 • Daily skincare user</div>
+              </div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <p>
+              “This is the kind of product I would buy after seeing it on Instagram because the benefits are clear and it fits right into my routine.”
+            </p>
+          </article>
+
+          <article class="review-card">
+            <div class="review-top">
+              <div>
+                <div class="review-name">Lauren S.</div>
+                <div class="review-meta">Age 29 • Dullness concern</div>
+              </div>
+              <div class="stars">★★★★★</div>
+            </div>
+            <p>
+              “I wanted something brightening that didn’t feel heavy or complicated. This was easy to use and gave my skin a healthier-looking glow.”
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Objection handling</span>
+          <h2 class="title">Answer the questions that usually delay the sale.</h2>
+          <p class="subtitle">
+            FAQs are placed near the bottom so they support the decision instead of interrupting the emotional flow.
+          </p>
+        </div>
+
+        <div class="faq-wrap">
+          <div class="faq-item active">
+            <button class="faq-question" type="button">
+              <span>Who is this product best for?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                It is positioned for users who want brighter-looking, smoother, more hydrated skin in a routine-friendly format that feels premium but affordable.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>How often should I use it?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                It is presented as a daily-use product that can fit into morning or evening skincare after cleansing and before moisturizer.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Does it feel sticky or heavy?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                The page positions the formula as lightweight and fast absorbing, which helps reduce hesitation for users who dislike heavier skincare textures.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>What shipping offer do I get?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                The Starter option uses $2.95 shipping, while the 2-bottle and 3-bottle bundles include free shipping to create better conversion logic.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Is the checkout secure?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes. The page includes SSL secure checkout cues, accepted card icons, and a polished step-by-step checkout flow to feel realistic and trustworthy.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="finalCta">
+      <div class="container">
+        <article class="final-cta-card">
+          <div class="final-cta-grid">
+            <div class="final-image">
+              <img src="images/1- Hero Product Image.png" alt="d'Alba Vita Toning Serum Toner final product visual" />
+            </div>
+
+            <div>
+              <span class="eyebrow">Ready to buy</span>
+              <h3>Premium skincare feel. Affordable first purchase. Clear path to checkout.</h3>
+              <p>
+                d'Alba Vita Toning Serum Toner is structured here as an easy, trustworthy, visually persuasive impulse-buy skincare product for Instagram traffic.
+              </p>
+              <div class="benefit-chips" style="margin: 16px 0;">
+                <span class="chip">4.8-star rated</span>
+                <span class="chip">Glow guarantee</span>
+                <span class="chip">Free shipping on 2+</span>
+              </div>
+              <div class="purchase-actions">
+                <button class="primary-btn full" type="button" data-open-checkout>
+                  Secure Your Bundle
+                </button>
+                <button class="secondary-btn full" type="button" data-scroll="#top">
+                  Back to Top
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>d'Alba Vita • Affordable Premium Korean Skincare</div>
+      <div>This is a front-end ecommerce demonstration page built with HTML, CSS, and JavaScript for a digital marketing exam.</div>
+    </div>
+  </footer>
+
+  <div class="sticky-buy">
+    <div class="sticky-buy-inner">
+      <div class="sticky-text">
+        <div class="sticky-label">Current offer</div>
+        <div class="sticky-product">Glow Duo • d'Alba Vita Toning Serum Toner</div>
+        <div class="sticky-price" id="stickyPrice">$27.90 • Free 1-Day Shipping</div>
+      </div>
+      <button class="primary-btn sticky-btn" type="button" data-open-checkout>
+        Buy Now
+      </button>
+    </div>
+  </div>
+
+  <div class="checkout-overlay" id="checkoutOverlay" aria-hidden="true">
+    <div class="checkout-panel" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <div class="checkout-header">
+        <div class="checkout-top">
+          <div>
+            <p class="eyebrow" style="margin: 0 0 10px;">Secure checkout</p>
+            <h2 class="checkout-title" id="checkoutTitle">Complete your order</h2>
+          </div>
+          <button class="checkout-close" type="button" id="checkoutClose" aria-label="Close checkout">✕</button>
+        </div>
+
+        <div class="stepper">
+          <div class="step">
+            <span class="step-label">Address</span>
+            <div class="step-bar"><div class="step-fill" id="stepFill1"></div></div>
+          </div>
+          <div class="step">
+            <span class="step-label">Payment</span>
+            <div class="step-bar"><div class="step-fill" id="stepFill2"></div></div>
+          </div>
+          <div class="step">
+            <span class="step-label">Confirmation</span>
+            <div class="step-bar"><div class="step-fill" id="stepFill3"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkout-summary">
+        <div class="summary-card">
+          <div class="summary-thumb">
+            <img src="images/1- Hero Product Image.png" alt="Product thumbnail" />
+          </div>
+          <div>
+            <p class="summary-title">d'Alba Vita Toning Serum Toner</p>
+            <div class="summary-meta" id="summaryBundleName">Glow Duo • 2 Bottles</div>
+            <div class="summary-price-line" id="summaryShippingLine">Free 1-Day Shipping</div>
+          </div>
+        </div>
+
+        <div class="summary-totals">
+          <div class="summary-line">
+            <span>Subtotal</span>
+            <span id="summarySubtotal">$27.90</span>
+          </div>
+          <div class="summary-line">
+            <span>Shipping</span>
+            <span id="summaryShipping">$0.00</span>
+          </div>
+          <div class="summary-line total">
+            <span>Total</span>
+            <span id="summaryTotal">$27.90</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkout-body">
+        <form class="form-step active" id="stepAddress" novalidate>
+          <div class="checkout-note">Step 1 of 3 • Enter your shipping details</div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="fullName">Full name</label>
+              <input class="input" id="fullName" type="text" placeholder="Enter full name" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input class="input" id="email" type="email" placeholder="Enter email address" required />
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input class="input" id="phone" type="tel" placeholder="Enter phone number" required />
+            </div>
+
+            <div class="field">
+              <label for="street">Street</label>
+              <input class="input" id="street" type="text" placeholder="Street address" required />
+            </div>
+
+            <div class="two-col">
+              <div class="field">
+                <label for="city">City</label>
+                <input class="input" id="city" type="text" placeholder="City" required />
+              </div>
+
+              <div class="field">
+                <label for="state">State</label>
+                <input class="input" id="state" type="text" placeholder="State" required />
+              </div>
+            </div>
+
+            <div class="two-col">
+              <div class="field">
+                <label for="zip">ZIP</label>
+                <input class="input" id="zip" type="text" placeholder="ZIP code" required />
+              </div>
+
+              <div class="field">
+                <label for="country">Country</label>
+                <select class="select" id="country" required>
+                  <option value="">Select country</option>
+                  <option>United States</option>
+                  <option>Canada</option>
+                  <option>United Kingdom</option>
+                  <option>Morocco</option>
+                  <option>France</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="checkout-actions single">
+            <button class="primary-btn full" type="button" id="toPaymentBtn">Continue to Payment</button>
+          </div>
+        </form>
+
+        <form class="form-step" id="stepPayment" novalidate>
+          <div class="checkout-note">Step 2 of 3 • Enter your payment details</div>
+
+          <div class="card-icons">
+            <span class="card-icon">VISA</span>
+            <span class="card-icon">MC</span>
+            <span class="card-icon">AMEX</span>
+            <span class="card-icon">SSL</span>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="cardName">Cardholder name</label>
+              <input class="input" id="cardName" type="text" placeholder="Name on card" required />
+            </div>
+
+            <div class="field">
+              <label for="cardNumber">Card number</label>
+              <input class="input" id="cardNumber" type="text" inputmode="numeric" maxlength="19" placeholder="1234 5678 9012 3456" required />
+            </div>
+
+            <div class="two-col">
+              <div class="field">
+                <label for="expDate">Expiration date</label>
+                <input class="input" id="expDate" type="text" inputmode="numeric" maxlength="5" placeholder="MM/YY" required />
+              </div>
+
+              <div class="field">
+                <label for="cvv">CVV</label>
+                <input class="input" id="cvv" type="text" inputmode="numeric" maxlength="4" placeholder="123" required />
+              </div>
+            </div>
+          </div>
+
+          <p class="fine-print">
+            Your checkout is presented with secure SSL messaging and accepted card visuals to create a realistic premium purchase experience in this front-end store demo.
+          </p>
+
+          <div class="checkout-actions">
+            <button class="secondary-btn full" type="button" id="backToAddressBtn">Back</button>
+            <button class="primary-btn full" type="button" id="placeOrderBtn">Place Order</button>
+          </div>
+        </form>
+
+        <div class="form-step" id="stepConfirmation">
+          <div class="checkout-note">Step 3 of 3 • Order confirmation</div>
+
+          <div class="confirmation-card">
+            <div class="success-badge">✓</div>
+            <div>
+              <h3 style="margin:0 0 8px; font-size: 24px;">Order received</h3>
+              <p style="margin:0; color: var(--muted); font-size:14px;">
+                Thank you for your order. Your checkout flow is complete and your front-end purchase experience is confirmed.
+              </p>
+            </div>
+
+            <div class="guarantee-items">
+              <div class="guarantee-item"><strong>Customer:</strong> <span id="confirmName">—</span></div>
+              <div class="guarantee-item"><strong>Bundle:</strong> <span id="confirmBundle">Glow Duo • 2 Bottles</span></div>
+              <div class="guarantee-item"><strong>Total paid:</strong> <span id="confirmTotal">$27.90</span></div>
+            </div>
+
+            <p class="fine-print">
+              Confirmation screen successfully completed. This gives your project a realistic and polished ecommerce funnel feel for presentation purposes.
+            </p>
+
+            <div class="checkout-actions single">
+              <button class="primary-btn full" type="button" id="doneBtn">Continue Shopping</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const bundles = {
+      starter: {
+        key: "starter",
+        name: "Starter",
+        fullName: "Starter • 1 Bottle",
+        price: 14.95,
+        oldPrice: 19.95,
+        shippingLabel: "$2.95 shipping",
+        shippingValue: 2.95,
+        buttonText: "$14.95"
+      },
+      duo: {
+        key: "duo",
+        name: "Glow Duo",
+        fullName: "Glow Duo • 2 Bottles",
+        price: 27.90,
+        oldPrice: 39.90,
+        shippingLabel: "Free 1-Day Shipping",
+        shippingValue: 0,
+        buttonText: "$27.90"
+      },
+      set: {
+        key: "set",
+        name: "Glow Set",
+        fullName: "Glow Set • 3 Bottles",
+        price: 39.90,
+        oldPrice: 59.85,
+        shippingLabel: "Free shipping",
+        shippingValue: 0,
+        buttonText: "$39.90"
+      }
+    };
+
+    let selectedBundle = "duo";
+    let currentStep = 1;
+
+    const heroPrice = document.getElementById("heroPrice");
+    const heroShipping = document.getElementById("heroShipping");
+    const heroButtonPrice = document.getElementById("heroButtonPrice");
+    const stickyPrice = document.getElementById("stickyPrice");
+
+    const summaryBundleName = document.getElementById("summaryBundleName");
+    const summaryShippingLine = document.getElementById("summaryShippingLine");
+    const summarySubtotal = document.getElementById("summarySubtotal");
+    const summaryShipping = document.getElementById("summaryShipping");
+    const summaryTotal = document.getElementById("summaryTotal");
+
+    const confirmBundle = document.getElementById("confirmBundle");
+    const confirmTotal = document.getElementById("confirmTotal");
+
+    const overlay = document.getElementById("checkoutOverlay");
+    const checkoutClose = document.getElementById("checkoutClose");
+
+    const stepAddress = document.getElementById("stepAddress");
+    const stepPayment = document.getElementById("stepPayment");
+    const stepConfirmation = document.getElementById("stepConfirmation");
+
+    const stepFill1 = document.getElementById("stepFill1");
+    const stepFill2 = document.getElementById("stepFill2");
+    const stepFill3 = document.getElementById("stepFill3");
+
+    const fullNameInput = document.getElementById("fullName");
+    const emailInput = document.getElementById("email");
+    const phoneInput = document.getElementById("phone");
+    const streetInput = document.getElementById("street");
+    const cityInput = document.getElementById("city");
+    const stateInput = document.getElementById("state");
+    const zipInput = document.getElementById("zip");
+    const countryInput = document.getElementById("country");
+
+    const cardNameInput = document.getElementById("cardName");
+    const cardNumberInput = document.getElementById("cardNumber");
+    const expDateInput = document.getElementById("expDate");
+    const cvvInput = document.getElementById("cvv");
+
+    const confirmName = document.getElementById("confirmName");
+
+    function money(value) {
+      return `$${value.toFixed(2)}`;
+    }
+
+    function updateBundleUI() {
+      const data = bundles[selectedBundle];
+
+      heroPrice.textContent = money(data.price);
+      heroShipping.textContent = data.shippingLabel;
+      heroButtonPrice.textContent = data.buttonText;
+      stickyPrice.textContent = `${money(data.price)} • ${data.shippingLabel}`;
+
+      summaryBundleName.textContent = data.fullName;
+      summaryShippingLine.textContent = data.shippingLabel;
+      summarySubtotal.textContent = money(data.price);
+      summaryShipping.textContent = data.shippingValue === 0 ? "$0.00" : money(data.shippingValue);
+      summaryTotal.textContent = money(data.price + data.shippingValue);
+
+      confirmBundle.textContent = data.fullName;
+      confirmTotal.textContent = money(data.price + data.shippingValue);
+
+      document.querySelectorAll(".bundle-option").forEach(option => {
+        option.classList.toggle("active", option.dataset.bundle === selectedBundle);
+      });
+    }
+
+    function setStep(step) {
+      currentStep = step;
+
+      stepAddress.classList.remove("active");
+      stepPayment.classList.remove("active");
+      stepConfirmation.classList.remove("active");
+
+      if (step === 1) stepAddress.classList.add("active");
+      if (step === 2) stepPayment.classList.add("active");
+      if (step === 3) stepConfirmation.classList.add("active");
+
+      stepFill1.style.width = step >= 1 ? "100%" : "0%";
+      stepFill2.style.width = step >= 2 ? "100%" : "0%";
+      stepFill3.style.width = step >= 3 ? "100%" : "0%";
+    }
+
+    function openCheckout() {
+      updateBundleUI();
+      setStep(1);
+      overlay.classList.add("open");
+      overlay.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeCheckout() {
+      overlay.classList.remove("open");
+      overlay.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    function validateAddress() {
+      const required = [
+        fullNameInput,
+        emailInput,
+        phoneInput,
+        streetInput,
+        cityInput,
+        stateInput,
+        zipInput,
+        countryInput
+      ];
+
+      let valid = true;
+
+      required.forEach(field => {
+        if (!field.value.trim()) {
+          field.style.borderColor = "var(--danger)";
+          valid = false;
+        } else {
+          field.style.borderColor = "";
+        }
+      });
+
+      const emailOk = /\S+@\S+\.\S+/.test(emailInput.value.trim());
+      if (!emailOk) {
+        emailInput.style.borderColor = "var(--danger)";
+        valid = false;
+      }
+
+      return valid;
+    }
+
+    function validatePayment() {
+      const required = [cardNameInput, cardNumberInput, expDateInput, cvvInput];
+      let valid = true;
+
+      required.forEach(field => {
+        if (!field.value.trim()) {
+          field.style.borderColor = "var(--danger)";
+          valid = false;
+        } else {
+          field.style.borderColor = "";
+        }
+      });
+
+      const cardDigits = cardNumberInput.value.replace(/\s/g, "");
+      if (cardDigits.length < 15) {
+        cardNumberInput.style.borderColor = "var(--danger)";
+        valid = false;
+      }
+
+      if (!/^\d{2}\/\d{2}$/.test(expDateInput.value.trim())) {
+        expDateInput.style.borderColor = "var(--danger)";
+        valid = false;
+      }
+
+      if (!/^\d{3,4}$/.test(cvvInput.value.trim())) {
+        cvvInput.style.borderColor = "var(--danger)";
+        valid = false;
+      }
+
+      return valid;
+    }
+
+    function formatCardNumber(value) {
+      return value
+        .replace(/\D/g, "")
+        .slice(0, 16)
+        .replace(/(.{4})/g, "$1 ")
+        .trim();
+    }
+
+    function formatExpDate(value) {
+      const cleaned = value.replace(/\D/g, "").slice(0, 4);
+      if (cleaned.length <= 2) return cleaned;
+      return `${cleaned.slice(0, 2)}/${cleaned.slice(2)}`;
+    }
+
+    document.querySelectorAll("[data-scroll]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const target = document.querySelector(btn.dataset.scroll);
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    document.querySelectorAll("[data-open-checkout]").forEach(btn => {
+      btn.addEventListener("click", openCheckout);
+    });
+
+    document.querySelectorAll(".bundle-option").forEach(option => {
+      option.addEventListener("click", () => {
+        selectedBundle = option.dataset.bundle;
+        updateBundleUI();
+      });
+
+      option.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          selectedBundle = option.dataset.bundle;
+          updateBundleUI();
+        }
+      });
+    });
+
+    document.querySelectorAll("[data-select-offer]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        selectedBundle = btn.dataset.selectOffer;
+        updateBundleUI();
+        openCheckout();
+      });
+    });
+
+    checkoutClose.addEventListener("click", closeCheckout);
+
+    overlay.addEventListener("click", e => {
+      if (e.target === overlay) closeCheckout();
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && overlay.classList.contains("open")) {
+        closeCheckout();
+      }
+    });
+
+    document.getElementById("toPaymentBtn").addEventListener("click", () => {
+      if (!validateAddress()) return;
+      setStep(2);
+    });
+
+    document.getElementById("backToAddressBtn").addEventListener("click", () => {
+      setStep(1);
+    });
+
+    document.getElementById("placeOrderBtn").addEventListener("click", () => {
+      if (!validatePayment()) return;
+      confirmName.textContent = fullNameInput.value.trim() || "Customer";
+      setStep(3);
+    });
+
+    document.getElementById("doneBtn").addEventListener("click", () => {
+      closeCheckout();
+      document.getElementById("top").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    cardNumberInput.addEventListener("input", () => {
+      cardNumberInput.value = formatCardNumber(cardNumberInput.value);
+    });
+
+    expDateInput.addEventListener("input", () => {
+      expDateInput.value = formatExpDate(expDateInput.value);
+    });
+
+    cvvInput.addEventListener("input", () => {
+      cvvInput.value = cvvInput.value.replace(/\D/g, "").slice(0, 4);
+    });
+
+    document.querySelectorAll(".faq-item").forEach(item => {
+      const btn = item.querySelector(".faq-question");
+      btn.addEventListener("click", () => {
+        const isActive = item.classList.contains("active");
+        document.querySelectorAll(".faq-item").forEach(el => el.classList.remove("active"));
+        if (!isActive) item.classList.add("active");
+      });
+    });
+
+    updateBundleUI();
+    setStep(1);
+  </script>
+</body>
+</html>
