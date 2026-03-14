@@ -1470,41 +1470,56 @@
       flex-shrink: 0;
     }
 
-    .hero-callout {
+    .premium-floating-note {
+      background: rgba(255,255,255,0.94);
+    }
+
+    .hero-badge-minimal {
       position: absolute;
+      top: 16px;
+      left: 16px;
       z-index: 3;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 14px;
+      padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.84);
+      background: rgba(255,255,255,0.72);
       border: 1px solid rgba(83, 62, 45, 0.08);
-      box-shadow: 0 10px 24px rgba(53, 35, 20, 0.08);
+      box-shadow: 0 8px 18px rgba(53, 35, 20, 0.05);
       color: var(--text);
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
-      backdrop-filter: blur(10px);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       white-space: nowrap;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
-    .hero-callout-top-left {
-      top: 18px;
-      left: 18px;
+    .minimal-floating-note {
+      justify-content: flex-start;
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(83, 62, 45, 0.06);
+      box-shadow: 0 10px 22px rgba(53, 35, 20, 0.06);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
-    .hero-callout-top-right {
-      top: 24px;
-      right: 18px;
+    .minimal-floating-note strong {
+      display: block;
+      margin: 0 0 4px;
+      font-size: 15px;
+      line-height: 1.15;
+      font-weight: 700;
+      color: var(--text);
     }
 
-    .hero-callout-bottom-left {
-      bottom: 92px;
-      left: 18px;
-    }
-
-    .premium-floating-note {
-      background: rgba(255,255,255,0.94);
+    .minimal-floating-note span {
+      display: block;
+      font-size: 12px;
+      line-height: 1.4;
+      color: var(--muted);
     }
 
     .premium-cta-btn {
@@ -1685,24 +1700,11 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-callout {
-        font-size: 11px;
-        padding: 8px 11px;
-      }
-
-      .hero-callout-top-left {
+      .hero-badge-minimal {
         top: 12px;
         left: 12px;
-      }
-
-      .hero-callout-top-right {
-        top: 48px;
-        right: 12px;
-      }
-
-      .hero-callout-bottom-left {
-        left: 12px;
-        bottom: 88px;
+        font-size: 10px;
+        padding: 7px 10px;
       }
 
       .hero-thumbnails {
@@ -1752,15 +1754,6 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-callout {
-        font-size: 10px;
-        padding: 7px 10px;
-      }
-
-      .hero-callout-bottom-left {
-        bottom: 96px;
-      }
-
       .hero-thumbnails {
         grid-template-columns: repeat(8, 76px);
       }
@@ -1781,6 +1774,21 @@
 
       .benefit-chips.premium-benefit-chips .chip {
         font-size: 13.5px;
+      }
+
+      .minimal-floating-note {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        padding: 11px 12px;
+      }
+
+      .minimal-floating-note strong {
+        font-size: 14px;
+      }
+
+      .minimal-floating-note span {
+        font-size: 11.5px;
       }
     }
 
@@ -1903,16 +1911,13 @@
             <div class="hero-main-media premium-hero-image-wrap" id="heroMainMedia">
               <img id="heroMainImage" src="images/1- Hero Product Image.png" alt="d'Alba Vita Toning Serum Toner bottle" />
 
-              <span class="hero-callout hero-callout-top-left">Vitamin C Brightening</span>
-              <span class="hero-callout hero-callout-top-right">Dermatologist Tested</span>
-              <span class="hero-callout hero-callout-bottom-left">Fast Absorbing Formula</span>
+              <span class="hero-badge-minimal">Vitamin C Toner Serum</span>
 
-              <div class="floating-note premium-floating-note">
+              <div class="floating-note premium-floating-note minimal-floating-note">
                 <div>
-                  <strong>Lightweight daily glow care</strong>
-                  <span>Brightens, hydrates, and smooths with a fresh toner-serum feel</span>
+                  <strong>Lightweight Glow Toner</strong>
+                  <span>Brightens • Hydrates • Smooths</span>
                 </div>
-                <span class="mini-label">Vitamin C toner serum</span>
               </div>
             </div>
 
