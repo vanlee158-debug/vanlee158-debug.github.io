@@ -1495,6 +1495,7 @@
     #heroBundles .bundle-option[data-bundle="set"] {
       order: 3;
     }
+
     .hero-gallery {
       display: grid;
       gap: 14px;
@@ -1504,7 +1505,9 @@
       position: relative;
       border-radius: calc(var(--radius-xl) - 8px);
       overflow: hidden;
-      background: linear-gradient(180deg, #fff, #f2e6d9);
+      background:
+        radial-gradient(circle at top center, rgba(255,255,255,0.98), rgba(242,230,217,0.9) 72%),
+        linear-gradient(180deg, #fff, #f2e6d9);
       aspect-ratio: 1 / 1.08;
     }
 
@@ -1519,7 +1522,53 @@
       background: #000;
     }
 
-    .hero-th
+    .hero-thumbnails {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .hero-thumb {
+      position: relative;
+      border: 1.5px solid rgba(83, 62, 45, 0.12);
+      background: rgba(255,255,255,0.86);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      padding: 0;
+      aspect-ratio: 1 / 1;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+
+    .hero-thumb:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-thumb.active {
+      border-color: var(--accent-dark);
+      box-shadow: 0 10px 22px rgba(141, 103, 72, 0.16);
+    }
+
+    .hero-thumb img,
+    .hero-thumb video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-thumb-video-badge {
+      position: absolute;
+      inset: auto auto 8px 8px;
+      background: rgba(43, 34, 27, 0.78);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 6px 8px;
+      border-radius: 999px;
+      line-height: 1;
+    }
+
     @media (max-width: 699px) {
       .topbar {
         min-height: 38px;
@@ -1627,6 +1676,21 @@
         left: 12px;
         bottom: 88px;
       }
+
+      .hero-thumbnails {
+        grid-template-columns: repeat(8, 84px);
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .hero-thumbnails::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .hero-thumbnails::-webkit-scrollbar-thumb {
+        background: rgba(83, 62, 45, 0.18);
+        border-radius: 999px;
+      }
     }
 
     @media (max-width: 520px) {
@@ -1667,6 +1731,10 @@
 
       .hero-callout-bottom-left {
         bottom: 96px;
+      }
+
+      .hero-thumbnails {
+        grid-template-columns: repeat(8, 76px);
       }
     }
 
@@ -1785,19 +1853,58 @@
     <section class="hero section">
       <div class="container hero-grid">
         <div class="hero-media premium-hero-media">
-          <div class="hero-image-wrap premium-hero-image-wrap">
-            <img src="images/1- Hero Product Image.png" alt="d'Alba Vita Toning Serum Toner bottle" />
+          <div class="hero-gallery">
+            <div class="hero-main-media premium-hero-image-wrap" id="heroMainMedia">
+              <img id="heroMainImage" src="images/1- Hero Product Image.png" alt="d'Alba Vita Toning Serum Toner bottle" />
 
-            <span class="hero-callout hero-callout-top-left">Vitamin C Brightening</span>
-            <span class="hero-callout hero-callout-top-right">Dermatologist Tested</span>
-            <span class="hero-callout hero-callout-bottom-left">Fast Absorbing Formula</span>
+              <span class="hero-callout hero-callout-top-left">Vitamin C Brightening</span>
+              <span class="hero-callout hero-callout-top-right">Dermatologist Tested</span>
+              <span class="hero-callout hero-callout-bottom-left">Fast Absorbing Formula</span>
 
-            <div class="floating-note premium-floating-note">
-              <div>
-                <strong>Lightweight daily glow care</strong>
-                <span>Brightens, hydrates, and smooths with a fresh toner-serum feel</span>
+              <div class="floating-note premium-floating-note">
+                <div>
+                  <strong>Lightweight daily glow care</strong>
+                  <span>Brightens, hydrates, and smooths with a fresh toner-serum feel</span>
+                </div>
+                <span class="mini-label">Vitamin C toner serum</span>
               </div>
-              <span class="mini-label">Vitamin C toner serum</span>
+            </div>
+
+            <div class="hero-thumbnails" id="heroThumbnails">
+              <button class="hero-thumb active" type="button" data-type="image" data-src="images/1- Hero Product Image.png" data-alt="d'Alba Vita Toning Serum Toner bottle">
+                <img src="images/1- Hero Product Image.png" alt="Hero product thumbnail" />
+              </button>
+
+              <button class="hero-thumb" type="button" data-type="video" data-src="images/2- video.mp4">
+                <video muted playsinline preload="metadata">
+                  <source src="images/2- video.mp4" type="video/mp4" />
+                </video>
+                <span class="hero-thumb-video-badge">▶ Video</span>
+              </button>
+
+              <button class="hero-thumb" type="button" data-type="image" data-src="images/3- Texture droplet image.png" data-alt="Serum toner texture droplet close-up">
+                <img src="images/3- Texture droplet image.png" alt="Texture thumbnail" />
+              </button>
+
+              <button class="hero-thumb" type="button" data-type="image" data-src="images/4- Ingredients image.png" data-alt="Ingredients image for d'Alba Vita Toning Serum Toner">
+                <img src="images/4- Ingredients image.png" alt="Ingredients thumbnail" />
+              </button>
+
+              <button class="hero-thumb" type="button" data-type="image" data-src="images/5- Model Using Serum Image .png" data-alt="Model using d'Alba Vita Toning Serum Toner">
+                <img src="images/5- Model Using Serum Image .png" alt="Model thumbnail" />
+              </button>
+
+              <button class="hero-thumb" type="button" data-type="image" data-src="images/6- Before - After Image (black women ).png" data-alt="Before and after skincare improvement example">
+                <img src="images/6- Before - After Image (black women ).png" alt="Before after thumbnail" />
+              </button>
+
+              <button class="hero-thumb" type="button" data-type="image" data-src="images/7- Benefits Infographic .png" data-alt="Benefits infographic for d'Alba Vita Toning Serum Toner">
+                <img src="images/7- Benefits Infographic .png" alt="Infographic thumbnail" />
+              </button>
+
+              <button class="hero-thumb" type="button" data-type="image" data-src="images/8- Step-by-Step Guide Image.png" data-alt="Step-by-step guide for using the serum toner">
+                <img src="images/8- Step-by-Step Guide Image.png" alt="Routine guide thumbnail" />
+              </button>
             </div>
           </div>
         </div>
@@ -2738,6 +2845,9 @@
     const confirmName = document.getElementById("confirmName");
     const priceOld = document.querySelector(".price-old");
 
+    const heroMainMedia = document.getElementById("heroMainMedia");
+    const heroThumbs = document.querySelectorAll(".hero-thumb");
+
     function money(value) {
       return `$${value.toFixed(2)}`;
     }
@@ -2877,6 +2987,34 @@
       return `${cleaned.slice(0, 2)}/${cleaned.slice(2)}`;
     }
 
+    function setHeroMedia(type, src, alt = "Product media") {
+      if (!heroMainMedia) return;
+
+      const existingMainImage = document.getElementById("heroMainImage");
+      if (existingMainImage) {
+        existingMainImage.remove();
+      }
+
+      heroMainMedia.querySelectorAll("video").forEach(el => el.remove());
+
+      if (type === "video") {
+        const video = document.createElement("video");
+        video.setAttribute("controls", "");
+        video.setAttribute("playsinline", "");
+        video.setAttribute("autoplay", "");
+        video.setAttribute("muted", "");
+        video.setAttribute("loop", "");
+        video.innerHTML = `<source src="${src}" type="video/mp4" />Your browser does not support the video tag.`;
+        heroMainMedia.insertBefore(video, heroMainMedia.firstChild);
+      } else {
+        const img = document.createElement("img");
+        img.id = "heroMainImage";
+        img.src = src;
+        img.alt = alt;
+        heroMainMedia.insertBefore(img, heroMainMedia.firstChild);
+      }
+    }
+
     document.querySelectorAll("[data-scroll]").forEach(btn => {
       btn.addEventListener("click", () => {
         const target = document.querySelector(btn.dataset.scroll);
@@ -2908,6 +3046,19 @@
         selectedBundle = btn.dataset.selectOffer;
         updateBundleUI();
         openCheckout();
+      });
+    });
+
+    heroThumbs.forEach(thumb => {
+      thumb.addEventListener("click", () => {
+        heroThumbs.forEach(item => item.classList.remove("active"));
+        thumb.classList.add("active");
+
+        const type = thumb.dataset.type;
+        const src = thumb.dataset.src;
+        const alt = thumb.dataset.alt || "Product media";
+
+        setHeroMedia(type, src, alt);
       });
     });
 
