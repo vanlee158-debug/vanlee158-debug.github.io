@@ -1495,7 +1495,31 @@
     #heroBundles .bundle-option[data-bundle="set"] {
       order: 3;
     }
+    .hero-gallery {
+      display: grid;
+      gap: 14px;
+    }
 
+    .hero-main-media {
+      position: relative;
+      border-radius: calc(var(--radius-xl) - 8px);
+      overflow: hidden;
+      background: linear-gradient(180deg, #fff, #f2e6d9);
+      aspect-ratio: 1 / 1.08;
+    }
+
+    .hero-main-media img,
+    .hero-main-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-main-media video {
+      background: #000;
+    }
+
+    .hero-th
     @media (max-width: 699px) {
       .topbar {
         min-height: 38px;
