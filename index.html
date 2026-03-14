@@ -1407,6 +1407,96 @@
       line-height: 1.5;
     }
 
+    /* Premium hero improvements */
+    .premium-hero-media {
+      padding: 16px;
+    }
+
+    .premium-hero-image-wrap {
+      background:
+        radial-gradient(circle at top center, rgba(255,255,255,0.98), rgba(242,230,217,0.9) 72%),
+        linear-gradient(180deg, #fff, #f2e6d9);
+      overflow: visible;
+    }
+
+    .premium-hero-content {
+      gap: 18px;
+    }
+
+    .premium-rating-row {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .premium-benefit-chips .chip {
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(83, 62, 45, 0.08);
+      box-shadow: 0 6px 16px rgba(53, 35, 20, 0.04);
+    }
+
+    .hero-reassurance {
+      margin: -2px 0 2px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-callout {
+      position: absolute;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(83, 62, 45, 0.08);
+      box-shadow: 0 10px 24px rgba(53, 35, 20, 0.08);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+      backdrop-filter: blur(10px);
+      white-space: nowrap;
+    }
+
+    .hero-callout-top-left {
+      top: 18px;
+      left: 18px;
+    }
+
+    .hero-callout-top-right {
+      top: 24px;
+      right: 18px;
+    }
+
+    .hero-callout-bottom-left {
+      bottom: 92px;
+      left: 18px;
+    }
+
+    .premium-floating-note {
+      background: rgba(255,255,255,0.94);
+    }
+
+    .premium-cta-btn {
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    #heroBundles .bundle-option[data-bundle="duo"] {
+      order: 1;
+    }
+
+    #heroBundles .bundle-option[data-bundle="starter"] {
+      order: 2;
+    }
+
+    #heroBundles .bundle-option[data-bundle="set"] {
+      order: 3;
+    }
+
     @media (max-width: 699px) {
       .topbar {
         min-height: 38px;
@@ -1494,6 +1584,26 @@
       .offer-grid {
         grid-template-columns: 1fr;
       }
+
+      .hero-callout {
+        font-size: 11px;
+        padding: 8px 11px;
+      }
+
+      .hero-callout-top-left {
+        top: 12px;
+        left: 12px;
+      }
+
+      .hero-callout-top-right {
+        top: 48px;
+        right: 12px;
+      }
+
+      .hero-callout-bottom-left {
+        left: 12px;
+        bottom: 88px;
+      }
     }
 
     @media (max-width: 520px) {
@@ -1525,6 +1635,15 @@
       .two-col,
       .checkout-actions {
         grid-template-columns: 1fr;
+      }
+
+      .hero-callout {
+        font-size: 10px;
+        padding: 7px 10px;
+      }
+
+      .hero-callout-bottom-left {
+        bottom: 96px;
       }
     }
 
@@ -1644,10 +1763,15 @@
   <main id="top">
     <section class="hero section">
       <div class="container hero-grid">
-        <div class="hero-media">
-          <div class="hero-image-wrap">
+        <div class="hero-media premium-hero-media">
+          <div class="hero-image-wrap premium-hero-image-wrap">
             <img src="images/1- Hero Product Image.png" alt="d'Alba Vita Toning Serum Toner bottle" />
-            <div class="floating-note">
+
+            <span class="hero-callout hero-callout-top-left">Vitamin C Brightening</span>
+            <span class="hero-callout hero-callout-top-right">Dermatologist Tested</span>
+            <span class="hero-callout hero-callout-bottom-left">Fast Absorbing Formula</span>
+
+            <div class="floating-note premium-floating-note">
               <div>
                 <strong>Lightweight daily glow care</strong>
                 <span>Brightens, hydrates, and smooths with a fresh toner-serum feel</span>
@@ -1657,45 +1781,55 @@
           </div>
         </div>
 
-        <div class="hero-content">
+        <div class="hero-content premium-hero-content">
           <span class="eyebrow">Vitamin C Toner Serum</span>
 
-          <div class="rating-row">
+          <div class="rating-row premium-rating-row">
             <span class="stars">★★★★★</span>
-            <span>4.8/5 rated by 2,184 customers</span>
+            <span>4.8 rating</span>
+            <span>•</span>
+            <span>2,184 verified customers</span>
             <span>•</span>
             <span>Dermatologist Tested</span>
           </div>
 
           <div>
-            <h1 class="hero-title">Brighter-looking skin starts with one easy daily step.</h1>
+            <h1 class="hero-title">Daily Vitamin C Toner for Brighter, Smoother Skin</h1>
             <p class="hero-desc">
               d'Alba Vita Toning Serum Toner helps refresh dull skin, support a more even-looking tone,
               and leave skin feeling hydrated, soft, and smooth with a lightweight fast-absorbing formula.
             </p>
           </div>
 
-          <div class="benefit-chips">
+          <div class="benefit-chips premium-benefit-chips">
             <span class="chip">Brightens dull skin</span>
             <span class="chip">Evens skin tone</span>
-            <span class="chip">Hydrates & smooths</span>
+            <span class="chip">Hydrates &amp; smooths</span>
             <span class="chip">Fast absorbing</span>
           </div>
 
           <div class="hero-bullets">
             <div class="bullet">
               <span class="bullet-dot">✓</span>
-              <div><strong>Fresh, lightweight texture:</strong> absorbs quickly and layers easily into your daily skincare routine.</div>
+              <div>Fresh lightweight texture that absorbs quickly</div>
             </div>
             <div class="bullet">
               <span class="bullet-dot">✓</span>
-              <div><strong>Glow-focused care:</strong> designed to help skin look more radiant, balanced, and refreshed.</div>
+              <div>Supports brighter and smoother-looking skin tone</div>
             </div>
             <div class="bullet">
               <span class="bullet-dot">✓</span>
-              <div><strong>Affordable premium feel:</strong> a polished skincare experience at an easy-to-buy price point.</div>
+              <div>Designed for simple daily skincare routines</div>
+            </div>
+            <div class="bullet">
+              <span class="bullet-dot">✓</span>
+              <div>Premium Korean skincare formula at an accessible price</div>
             </div>
           </div>
+
+          <p class="hero-reassurance">
+            Most customers report brighter-looking skin within 7–14 days of consistent use.
+          </p>
 
           <div class="purchase-box">
             <div class="price-wrap">
@@ -1707,29 +1841,29 @@
             </div>
 
             <div class="bundle-grid" id="heroBundles">
-              <div class="bundle-option" data-bundle="starter" tabindex="0">
-                <div class="bundle-top">
-                  <div>
-                    <p class="bundle-name">Starter</p>
-                    <p class="bundle-sub">1 Bottle • Easy first order</p>
-                  </div>
-                  <div class="bundle-price">
-                    <div class="bundle-total">$14.95</div>
-                    <div class="bundle-each">$2.95 shipping</div>
-                  </div>
-                </div>
-              </div>
-
               <div class="bundle-option active" data-bundle="duo" tabindex="0">
                 <span class="bundle-badge">Most Popular</span>
                 <div class="bundle-top">
                   <div>
                     <p class="bundle-name">Glow Duo</p>
-                    <p class="bundle-sub">2 Bottles • Better value</p>
+                    <p class="bundle-sub">2 Bottles</p>
                   </div>
                   <div class="bundle-price">
                     <div class="bundle-total">$27.90</div>
-                    <div class="bundle-each">Free shipping</div>
+                    <div class="bundle-each">≈ $13.95 each</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bundle-option" data-bundle="starter" tabindex="0">
+                <div class="bundle-top">
+                  <div>
+                    <p class="bundle-name">Starter</p>
+                    <p class="bundle-sub">1 Bottle</p>
+                  </div>
+                  <div class="bundle-price">
+                    <div class="bundle-total">$14.95</div>
+                    <div class="bundle-each">Single bottle starter</div>
                   </div>
                 </div>
               </div>
@@ -1738,19 +1872,19 @@
                 <div class="bundle-top">
                   <div>
                     <p class="bundle-name">Glow Set</p>
-                    <p class="bundle-sub">3 Bottles • Best value</p>
+                    <p class="bundle-sub">3 Bottles</p>
                   </div>
                   <div class="bundle-price">
                     <div class="bundle-total">$39.90</div>
-                    <div class="bundle-each">Free shipping</div>
+                    <div class="bundle-each">≈ $13.30 each</div>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="purchase-actions">
-              <button class="primary-btn full" type="button" data-open-checkout>
-                Buy Now • <span id="heroButtonPrice">$27.90</span>
+              <button class="primary-btn full premium-cta-btn" type="button" data-open-checkout>
+                Get Brighter Skin Today — <span id="heroButtonPrice">$27.90</span>
               </button>
               <button class="secondary-btn full" type="button" data-scroll="#offer">
                 Compare Bundles
