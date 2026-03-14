@@ -428,16 +428,21 @@
       margin: 0;
       font-family: "Cormorant Garamond", serif;
       font-size: clamp(2rem, 6vw, 3.3rem);
-      line-height: 0.98;
+      line-height: 0.96;
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-title span {
+      display: block;
     }
 
     .hero-desc {
       margin: 0;
       color: var(--muted);
       font-size: 15px;
-      max-width: 58ch;
+      max-width: 46ch;
+      line-height: 1.7;
     }
 
     .benefit-chips {
@@ -1419,27 +1424,50 @@
     }
 
     .premium-hero-content {
-      gap: 18px;
+      gap: 14px;
     }
 
     .premium-rating-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
       font-size: 13px;
       color: var(--muted);
       font-weight: 700;
     }
 
-    .premium-benefit-chips .chip {
-      padding: 10px 14px;
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(83, 62, 45, 0.08);
-      box-shadow: 0 6px 16px rgba(53, 35, 20, 0.04);
+    .premium-rating-row .stars {
+      font-size: 12px;
+      letter-spacing: 0.08em;
     }
 
-    .hero-reassurance {
-      margin: -2px 0 2px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 600;
+    .benefit-chips.premium-benefit-chips {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 18px;
+      margin-top: 2px;
+    }
+
+    .benefit-chips.premium-benefit-chips .chip {
+      padding: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      border-radius: 0;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .benefit-chips.premium-benefit-chips .chip::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 900;
+      flex-shrink: 0;
     }
 
     .hero-callout {
@@ -1736,6 +1764,24 @@
       .hero-thumbnails {
         grid-template-columns: repeat(8, 76px);
       }
+
+      .benefit-chips.premium-benefit-chips {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .hero-title {
+        line-height: 1.01;
+      }
+
+      .hero-desc {
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .benefit-chips.premium-benefit-chips .chip {
+        font-size: 13.5px;
+      }
     }
 
     @media (min-width: 700px) {
@@ -1917,47 +1963,24 @@
             <span>4.8 rating</span>
             <span>•</span>
             <span>2,184 verified customers</span>
-            <span>•</span>
-            <span>Dermatologist Tested</span>
           </div>
 
           <div>
-            <h1 class="hero-title">Daily Vitamin C Toner for Brighter, Smoother Skin</h1>
+            <h1 class="hero-title">
+              Daily Vitamin C Toner
+              <span>for Brighter, Smoother Skin</span>
+            </h1>
             <p class="hero-desc">
-              d'Alba Vita Toning Serum Toner helps refresh dull skin, support a more even-looking tone,
-              and leave skin feeling hydrated, soft, and smooth with a lightweight fast-absorbing formula.
+              Lightweight vitamin C toner-serum that brightens dull skin, evens tone, and deeply hydrates with a fast-absorbing formula.
             </p>
           </div>
 
           <div class="benefit-chips premium-benefit-chips">
             <span class="chip">Brightens dull skin</span>
             <span class="chip">Evens skin tone</span>
-            <span class="chip">Hydrates &amp; smooths</span>
+            <span class="chip">Deep hydration</span>
             <span class="chip">Fast absorbing</span>
           </div>
-
-          <div class="hero-bullets">
-            <div class="bullet">
-              <span class="bullet-dot">✓</span>
-              <div>Fresh lightweight texture that absorbs quickly</div>
-            </div>
-            <div class="bullet">
-              <span class="bullet-dot">✓</span>
-              <div>Supports brighter and smoother-looking skin tone</div>
-            </div>
-            <div class="bullet">
-              <span class="bullet-dot">✓</span>
-              <div>Designed for simple daily skincare routines</div>
-            </div>
-            <div class="bullet">
-              <span class="bullet-dot">✓</span>
-              <div>Premium Korean skincare formula at an accessible price</div>
-            </div>
-          </div>
-
-          <p class="hero-reassurance">
-            Most customers report brighter-looking skin within 7–14 days of consistent use.
-          </p>
 
           <div class="purchase-box">
             <div class="price-wrap">
