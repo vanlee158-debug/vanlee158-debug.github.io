@@ -75,20 +75,22 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      width: fit-content;
       padding: 8px 12px;
       border-radius: 999px;
       background: rgba(182, 141, 103, 0.11);
       color: var(--accent-dark);
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
     .section-head {
       display: grid;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 18px;
+      justify-items: start;
     }
 
     .title {
@@ -123,9 +125,8 @@
     }
 
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 40;
+      position: relative;
+      z-index: 10;
       min-height: 42px;
       display: flex;
       align-items: center;
@@ -170,7 +171,7 @@
 
     .site-header {
       position: sticky;
-      top: 42px;
+      top: 0;
       z-index: 38;
       background: rgba(251, 247, 242, 0.84);
       backdrop-filter: blur(14px);
@@ -187,54 +188,21 @@
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 14px;
       min-width: 0;
       flex: 1;
     }
 
-    .brand-logo-wrap {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-    }
-
-    .brand-logo-img {
-      display: block;
-      width: auto;
-      height: 32px;
-      max-width: 190px;
-      object-fit: contain;
-    }
-
-    .brand-text {
-      min-width: 0;
-      display: grid;
-      gap: 3px;
-    }
-
-    .brand-rating {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      min-width: 0;
-    }
-
-    .brand-stars {
-      color: #c98e28;
-      font-size: 12px;
-      letter-spacing: 0.08em;
+    .brand-wordmark {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.7rem, 2.4vw, 2.2rem);
       line-height: 1;
-      flex-shrink: 0;
-    }
-
-    .brand-rating-text {
-      font-size: 12px;
-      color: var(--muted);
       font-weight: 700;
-      line-height: 1.25;
+      letter-spacing: 0.04em;
+      color: var(--accent-dark);
+      white-space: nowrap;
     }
 
     .header-actions {
@@ -321,14 +289,11 @@
     .ingredient-card,
     .routine-card,
     .offer-card,
-    .guarantee-card,
     .review-card,
     .faq-wrap,
-    .final-cta-card,
     .checkout-panel,
     .reviews-shell,
     .review-submit-wrap,
-    .trust-card,
     .glance-card,
     .footer-newsletter,
     .footer-social {
@@ -559,7 +524,7 @@
 
     .bundle-grid {
       display: grid;
-      gap: 10px;
+      gap: 14px;
     }
 
     .bundle-option {
@@ -567,7 +532,7 @@
       overflow: visible;
       border: 1.5px solid rgba(83, 62, 45, 0.12);
       border-radius: 20px;
-      padding: 18px 14px 14px;
+      padding: 24px 14px 14px;
       background: rgba(255,255,255,0.85);
       cursor: pointer;
       transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
@@ -638,19 +603,34 @@
 
     .bundle-badge {
       position: absolute;
-      top: -12px;
-      right: 14px;
+      top: -14px;
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
       z-index: 2;
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-      color: #fff;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 7px 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 7px 14px;
       border-radius: 999px;
-      box-shadow: var(--shadow-soft);
-      letter-spacing: 0.04em;
+      box-shadow: 0 10px 22px rgba(53, 35, 20, 0.12);
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       white-space: nowrap;
+      font-size: 10px;
+      font-weight: 800;
+      border: 1px solid rgba(255,255,255,0.45);
+    }
+
+    .bundle-option[data-bundle="duo"] .bundle-badge {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+    }
+
+    .bundle-option[data-bundle="set"] .bundle-badge {
+      background: linear-gradient(180deg, #ead9c7, #dbc1a5);
+      color: #5f4530;
     }
 
     .purchase-actions {
@@ -697,6 +677,14 @@
       color: var(--text);
     }
 
+    .secure-cards-image {
+      display: block;
+      width: auto;
+      height: 26px;
+      max-width: 180px;
+      object-fit: contain;
+    }
+
     .media-grid,
     .benefits-grid,
     .proof-grid,
@@ -705,8 +693,7 @@
     .offer-grid,
     .reviews-grid,
     .glance-benefits,
-    .footer-columns,
-    .final-trust-row {
+    .footer-columns {
       display: grid;
       gap: 14px;
     }
@@ -718,8 +705,6 @@
     .routine-card,
     .offer-card,
     .review-card,
-    .final-cta-card,
-    .guarantee-card,
     .faq-wrap {
       border-radius: var(--radius-lg);
       overflow: hidden;
@@ -757,10 +742,7 @@
     .routine-copy h3,
     .offer-card h3,
     .review-card h3,
-    .guarantee-card h3,
-    .final-cta-card h3,
     .glance-card h3,
-    .trust-card h3,
     .review-submit-wrap h3,
     .footer-newsletter h3,
     .footer-social h3 {
@@ -776,10 +758,7 @@
     .routine-copy p,
     .offer-card p,
     .review-card p,
-    .guarantee-card p,
-    .final-cta-card p,
     .glance-card p,
-    .trust-card p,
     .review-submit-wrap p,
     .footer-newsletter p,
     .footer-social p {
@@ -862,7 +841,6 @@
     .proof-points,
     .ingredient-list,
     .routine-steps,
-    .trust-list,
     .glance-benefits {
       display: grid;
       gap: 10px;
@@ -871,7 +849,6 @@
     .proof-point,
     .ingredient-item,
     .routine-step,
-    .trust-item,
     .glance-card {
       padding: 12px 14px;
       border: 1px solid rgba(83, 62, 45, 0.08);
@@ -923,27 +900,79 @@
       font-weight: 700;
     }
 
+    #infographic .section-head {
+      margin-bottom: 24px;
+      justify-items: center;
+      text-align: center;
+    }
+
     .at-glance-main {
       display: grid;
-      gap: 16px;
+      gap: 22px;
+      align-items: start;
     }
 
     .glance-main-visual {
-      border-radius: var(--radius-lg);
+      border-radius: 30px;
       overflow: hidden;
-      background: #f3e8dc;
-      aspect-ratio: 16 / 10;
-      box-shadow: var(--shadow-soft);
+      background:
+        radial-gradient(circle at top center, rgba(255,255,255,0.98), rgba(242,230,217,0.9) 72%),
+        linear-gradient(180deg, #fff, #f2e6d9);
+      min-height: 360px;
+      box-shadow: 0 20px 40px rgba(53, 35, 20, 0.08);
+      border: 1px solid rgba(255,255,255,0.8);
+      display: grid;
+      place-items: center;
+      padding: 26px;
     }
 
     .glance-main-visual img {
       width: 100%;
       height: 100%;
+      max-height: 360px;
       object-fit: contain;
-      padding: 24px;
-      background:
-        radial-gradient(circle at top center, rgba(255,255,255,0.98), rgba(242,230,217,0.9) 72%),
-        linear-gradient(180deg, #fff, #f2e6d9);
+      filter: drop-shadow(0 20px 28px rgba(141, 103, 72, 0.12));
+    }
+
+    .glance-card {
+      display: grid;
+      gap: 8px;
+      padding: 18px;
+      background: rgba(255,255,255,0.82);
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .glance-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 28px rgba(53, 35, 20, 0.08);
+      border-color: rgba(182, 141, 103, 0.22);
+    }
+
+    .glance-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #f3e5d5, #e8d4bf);
+      color: var(--accent-dark);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .glance-card h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .glance-card p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
     }
 
     .offer-grid {
@@ -966,18 +995,34 @@
 
     .offer-badge {
       position: absolute;
-      top: -12px;
-      right: 14px;
+      top: -14px;
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
       z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      box-shadow: 0 10px 22px rgba(53, 35, 20, 0.12);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      font-size: 10px;
+      font-weight: 800;
+      border: 1px solid rgba(255,255,255,0.45);
+    }
+
+    .offer-card.featured .offer-badge {
       background: linear-gradient(135deg, var(--accent), var(--accent-dark));
       color: white;
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      white-space: nowrap;
+    }
+
+    .offer-card[data-offer="set"] .offer-badge {
+      background: linear-gradient(180deg, #ead9c7, #dbc1a5);
+      color: #5f4530;
     }
 
     .offer-title {
@@ -1055,34 +1100,6 @@
       content: "✓";
       color: var(--success);
       font-weight: 900;
-    }
-
-    .trust-card {
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      display: grid;
-      gap: 18px;
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .trust-list {
-      max-width: 520px;
-      margin: 0 auto;
-      text-align: left;
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-    }
-
-    .trust-cta-wrap {
-      display: flex;
-      justify-content: center;
     }
 
     .reviews-shell {
@@ -1348,77 +1365,6 @@
       margin-top: 14px;
     }
 
-    .final-cta-card {
-      padding: 22px;
-      display: grid;
-      gap: 18px;
-    }
-
-    .final-cta-grid {
-      display: grid;
-      gap: 18px;
-      align-items: center;
-    }
-
-    .final-image {
-      border-radius: 22px;
-      overflow: hidden;
-      background: #f2e8dd;
-      aspect-ratio: 1 / 1;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .final-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 18px;
-      background:
-        radial-gradient(circle at top center, rgba(255,255,255,0.98), rgba(242,230,217,0.9) 72%),
-        linear-gradient(180deg, #fff, #f2e6d9);
-      filter: drop-shadow(0 18px 24px rgba(141, 103, 72, 0.12));
-    }
-
-    .final-trust-row {
-      grid-template-columns: 1fr;
-      margin: 16px 0;
-    }
-
-    .final-trust-chip {
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.8);
-      border: 1px solid rgba(83, 62, 45, 0.08);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .final-mini-trust {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 14px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .return-top-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.78);
-      font-weight: 700;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-
-    .return-top-link:hover {
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-soft);
-    }
-
     .footer-trust-bar {
       background: #201a16;
       color: #f7f3ee;
@@ -1455,6 +1401,17 @@
       border: 1px solid rgba(255,255,255,0.06);
       box-shadow: none;
       backdrop-filter: none;
+    }
+
+    .email-community-text {
+      font-family: "Inter", sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #d6c5b4;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 18px auto;
     }
 
     .footer-columns {
@@ -1505,15 +1462,13 @@
     }
 
     .social-icons,
-    .payment-icons,
     .footer-bottom-links {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
 
-    .social-pill,
-    .payment-pill {
+    .social-pill {
       padding: 10px 12px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.08);
@@ -1522,32 +1477,50 @@
       font-weight: 700;
     }
 
-    .footer-bottom {
+    .footer-payments {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 14px;
+      justify-content: center;
+      gap: 20px;
       flex-wrap: wrap;
-      padding-top: 6px;
+      padding: 8px 0 2px;
+    }
+
+    .footer-payment-icon {
+      display: block;
+      width: auto;
+      height: 44px;
+      object-fit: contain;
+    }
+
+    .footer-bottom {
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+      text-align: center;
       color: #b9ae9f;
       font-size: 13px;
       border-top: 1px solid rgba(255,255,255,0.06);
       padding-top: 18px;
     }
 
+    .footer-bottom-links {
+      justify-content: center;
+      gap: 18px;
+    }
+
     .footer-bottom-links a {
       color: #d9d1c6;
+      font-size: 13px;
+      transition: color var(--transition), text-decoration-color var(--transition);
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      text-underline-offset: 3px;
     }
 
     .footer-bottom-links a:hover {
-      color: #d8b27f;
-    }
-
-    .footer-final-trust {
-      color: #d8b27f;
-      font-size: 13px;
-      font-weight: 700;
-      text-align: center;
+      color: #e6d6c6;
+      text-decoration-color: currentColor;
     }
 
     .sticky-buy {
@@ -1938,25 +1911,14 @@
         font-size: 11px;
       }
 
-      .site-header { top: 38px; }
       .site-header-inner {
         min-height: 68px;
         gap: 12px;
       }
 
-      .brand { gap: 10px; }
-      .brand-logo-img {
-        height: 24px;
-        max-width: 140px;
-      }
-
-      .brand-rating {
-        gap: 6px;
-      }
-
-      .brand-stars,
-      .brand-rating-text {
-        font-size: 11px;
+      .brand-wordmark {
+        font-size: 1.8rem;
+        letter-spacing: 0.03em;
       }
 
       .header-shop-btn {
@@ -1967,8 +1929,8 @@
 
       .section { padding: 40px 0; }
       .hero-grid { grid-template-columns: 1fr; }
-      .benefits-grid,
-      .guarantee-grid {
+
+      .benefits-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -1994,8 +1956,7 @@
 
       .proof-card,
       .ingredient-card,
-      .routine-card,
-      .final-cta-grid {
+      .routine-card {
         grid-template-columns: 1fr;
       }
 
@@ -2018,10 +1979,19 @@
       }
 
       .reviews-grid,
-      .glance-benefits,
       .footer-trust-inner,
-      .footer-columns {
+      .footer-columns,
+      .glance-benefits {
         grid-template-columns: 1fr;
+      }
+
+      .at-glance-main {
+        gap: 18px;
+      }
+
+      .glance-main-visual {
+        min-height: 300px;
+        padding: 22px;
       }
 
       .footer-group-toggle {
@@ -2041,24 +2011,34 @@
         transform: rotate(-90deg);
       }
 
-      .footer-bottom,
-      .footer-bottom-links {
-        flex-direction: column;
-        align-items: flex-start;
+      .footer-payments {
+        gap: 14px;
+      }
+
+      .footer-payment-icon {
+        height: 40px;
+      }
+
+      .bundle-badge,
+      .offer-badge {
+        font-size: 9px;
+        min-height: 28px;
+        padding: 6px 12px;
       }
     }
 
     @media (max-width: 520px) {
-      .site-header-inner { align-items: center; }
-      .brand-rating-text { max-width: 180px; }
       .header-shop-btn {
         padding: 10px 12px;
         min-width: auto;
       }
 
+      .brand-wordmark {
+        font-size: 1.55rem;
+      }
+
       .benefits-grid,
       .reviews-grid,
-      .guarantee-grid,
       .glance-benefits {
         grid-template-columns: 1fr;
       }
@@ -2098,6 +2078,19 @@
       .sticky-buy-inner {
         grid-template-columns: 1fr;
       }
+
+      .secure-row {
+        align-items: flex-start;
+      }
+
+      .secure-cards-image {
+        height: 24px;
+        max-width: 150px;
+      }
+
+      .email-community-text {
+        font-size: 16px;
+      }
     }
 
     @media (min-width: 700px) {
@@ -2117,8 +2110,7 @@
 
       .proof-card,
       .ingredient-card,
-      .routine-card,
-      .final-cta-grid {
+      .routine-card {
         grid-template-columns: 1fr 1fr;
       }
 
@@ -2127,7 +2119,7 @@
       }
 
       .glance-benefits {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .reviews-grid {
@@ -2142,13 +2134,14 @@
     @media (min-width: 980px) {
       .site-header-inner { min-height: 72px; }
       .section { padding: 54px 0; }
+
       .offer-card.featured {
         transform: scale(1.08);
         z-index: 2;
       }
 
-      .final-trust-row {
-        grid-template-columns: repeat(3, 1fr);
+      .glance-benefits {
+        grid-template-columns: repeat(4, 1fr);
       }
 
       .footer-trust-inner {
@@ -2180,16 +2173,7 @@
   <header class="site-header">
     <div class="container site-header-inner">
       <a href="#top" class="brand" aria-label="Go to top">
-        <div class="brand-logo-wrap">
-          <img class="brand-logo-img" src="images/dalba-vita-logo.png" alt="d'Alba Vita logo" />
-        </div>
-
-        <div class="brand-text">
-          <div class="brand-rating">
-            <span class="brand-stars">★★★★★</span>
-            <span class="brand-rating-text">4.8 / 5 Rated — Trusted by over 12,000 customers</span>
-          </div>
-        </div>
+        <span class="brand-wordmark">d'Alba Vita</span>
       </a>
 
       <div class="header-actions">
@@ -2360,9 +2344,7 @@
             <div class="secure-row">
               <span>SSL Secure Checkout • Ships in 1 Business Day</span>
               <div class="card-icons" aria-label="Accepted payment cards">
-                <span class="card-icon">VISA</span>
-                <span class="card-icon">MC</span>
-                <span class="card-icon">AMEX</span>
+                <img class="secure-cards-image" src="assets/images/secure-checkout-cards.png" alt="Secure checkout accepted cards" />
               </div>
             </div>
           </div>
@@ -2618,22 +2600,29 @@
           </div>
 
           <div class="glance-benefits">
-            <div class="glance-card">
-              <strong>Brightens</strong>
-              Helps reduce dullness and improve skin tone.
-            </div>
-            <div class="glance-card">
-              <strong>Hydrates</strong>
-              Leaves skin fresh, soft, and comfortable.
-            </div>
-            <div class="glance-card">
-              <strong>Vitamin Boost</strong>
-              Vitamin C + E + B3 support a radiant-looking glow.
-            </div>
-            <div class="glance-card">
-              <strong>Lightweight Finish</strong>
-              Absorbs fast with no sticky feel.
-            </div>
+            <article class="glance-card">
+              <div class="glance-icon">✨</div>
+              <h3>Brightens</h3>
+              <p>Helps reduce visible dullness for a fresher, more radiant-looking complexion.</p>
+            </article>
+
+            <article class="glance-card">
+              <div class="glance-icon">💧</div>
+              <h3>Hydrates</h3>
+              <p>Leaves skin feeling soft, comfortable, and refreshed throughout the day.</p>
+            </article>
+
+            <article class="glance-card">
+              <div class="glance-icon">🧴</div>
+              <h3>Vitamin Boost</h3>
+              <p>Vitamin C + E + B3 support a healthy-looking glow in one lightweight step.</p>
+            </article>
+
+            <article class="glance-card">
+              <div class="glance-icon">🫧</div>
+              <h3>Lightweight Finish</h3>
+              <p>Absorbs quickly with a smooth, non-sticky feel that layers effortlessly.</p>
+            </article>
           </div>
         </div>
       </div>
@@ -2716,30 +2705,6 @@
             </ul>
             <button class="secondary-btn full" type="button" data-select-offer="set">Choose Glow Set</button>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="guarantee">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Shop with confidence</span>
-          <h2 class="title">Secure Checkout • Fast 1-Day Dispatch • 30-Day Glow Guarantee</h2>
-        </div>
-
-        <div class="trust-card">
-          <div class="trust-list">
-            <div class="trust-item">🔒 SSL Secure Checkout</div>
-            <div class="trust-item">💳 Visa, Mastercard, and American Express Accepted</div>
-            <div class="trust-item">🚚 Fast 1-Day Shipping</div>
-            <div class="trust-item">✨ 30-Day Glow Guarantee</div>
-          </div>
-
-          <div class="trust-cta-wrap">
-            <button class="primary-btn" type="button" data-open-checkout>
-              Proceed to Secure Checkout
-            </button>
-          </div>
         </div>
       </div>
     </section>
@@ -3000,48 +2965,6 @@
         </div>
       </div>
     </section>
-
-    <section class="section" id="finalCta">
-      <div class="container">
-        <article class="final-cta-card">
-          <div class="final-cta-grid">
-            <div class="final-image">
-              <img src="images/1- Hero Product Image.png" alt="d'Alba Vita Toning Serum Toner final product visual" />
-            </div>
-
-            <div>
-              <span class="eyebrow">Ready for your glow routine</span>
-              <h3>Brighter skin starts with one simple daily step.</h3>
-              <p>
-                Choose your bundle and start your glow routine today with a lightweight vitamin-C toner designed to brighten, hydrate, and smooth skin.
-              </p>
-
-              <div class="final-trust-row">
-                <div class="final-trust-chip">⭐ 4.8★ Rated by 12,000+ customers</div>
-                <div class="final-trust-chip">✔ 30-Day Glow Guarantee</div>
-                <div class="final-trust-chip">🚚 Free 1-Day Shipping on Bundles</div>
-              </div>
-
-              <div class="purchase-actions">
-                <button class="primary-btn full" type="button" data-open-checkout>
-                  Get Your Glow Bundle
-                </button>
-
-                <div class="final-mini-trust">
-                  <span>🔒 Secure Checkout</span>
-                  <span>🚚 Fast 1-Day Shipping</span>
-                  <span>💳 All Major Cards Accepted</span>
-                </div>
-
-                <a class="return-top-link" href="#top">
-                  Return to Top ↑
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
   </main>
 
   <div class="footer-trust-bar">
@@ -3056,8 +2979,9 @@
   <footer class="site-footer">
     <div class="container footer-stack">
       <div class="footer-newsletter">
-        <h3>Get 10% Off Your First Order</h3>
-        <p>Join our skincare community and receive exclusive offers, skincare tips, and early access to new products.</p>
+        <p class="email-community-text">
+          Join our skincare community and receive exclusive offers, skincare tips, and early access to new products.
+        </p>
         <div class="newsletter-form">
           <input class="newsletter-input" type="email" placeholder="Enter your email address" />
           <button class="newsletter-btn" type="button">Subscribe</button>
@@ -3134,20 +3058,10 @@
         </div>
       </div>
 
-      <div class="footer-social" style="padding-top:18px;">
-        <h3>Payment Methods</h3>
-        <div class="payment-icons">
-          <span class="payment-pill">Visa</span>
-          <span class="payment-pill">Mastercard</span>
-          <span class="payment-pill">American Express</span>
-          <span class="payment-pill">PayPal</span>
-          <span class="payment-pill">Apple Pay</span>
-          <span class="payment-pill">Google Pay</span>
-        </div>
-      </div>
-
-      <div class="footer-final-trust">
-        Trusted by over 12,000+ customers worldwide
+      <div class="footer-payments" aria-label="Accepted payment methods">
+        <img class="footer-payment-icon" src="assets/images/visa.png" alt="Visa" />
+        <img class="footer-payment-icon" src="assets/images/mastercard.png" alt="Mastercard" />
+        <img class="footer-payment-icon" src="assets/images/amex.png" alt="American Express" />
       </div>
 
       <div class="footer-bottom">
