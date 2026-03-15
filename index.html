@@ -15,7 +15,7 @@
     :root {
       --bg: #fbf7f2;
       --bg-soft: #f5eee5;
-      --bg-card: rgba(255, 255, 255, 0.88);
+      --bg-card: rgba(255, 255, 255, 0.9);
       --text: #2b221b;
       --muted: #7c6b5f;
       --line: rgba(83, 62, 45, 0.12);
@@ -24,8 +24,8 @@
       --accent-soft: #efe2d2;
       --success: #2f7a58;
       --danger: #a64b4b;
-      --shadow: 0 18px 40px rgba(53, 35, 20, 0.08);
-      --shadow-soft: 0 8px 24px rgba(53, 35, 20, 0.06);
+      --shadow: 0 16px 34px rgba(53, 35, 20, 0.07);
+      --shadow-soft: 0 8px 20px rgba(53, 35, 20, 0.05);
       --radius-xl: 28px;
       --radius-lg: 22px;
       --radius-md: 18px;
@@ -35,13 +35,8 @@
       --transition: 220ms ease;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -58,7 +53,7 @@
       max-width: 100%;
     }
 
-    button, input, select {
+    button, input, select, textarea {
       font: inherit;
     }
 
@@ -99,7 +94,7 @@
     .title {
       margin: 0;
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(1.8rem, 4vw, 2.85rem);
+      font-size: clamp(2rem, 4.6vw, 3rem);
       line-height: 1.02;
       letter-spacing: -0.02em;
       font-weight: 700;
@@ -109,7 +104,22 @@
       margin: 0;
       color: var(--muted);
       font-size: 15px;
-      max-width: 700px;
+      max-width: 720px;
+    }
+
+    .trust-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.74);
+      border: 1px solid rgba(83, 62, 45, 0.08);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: var(--shadow-soft);
     }
 
     .topbar {
@@ -151,21 +161,11 @@
       letter-spacing: 0.01em;
     }
 
-    .topbar-item {
-      opacity: 0.98;
-    }
-
-    .topbar-divider {
-      opacity: 0.4;
-    }
+    .topbar-divider { opacity: 0.4; }
 
     @keyframes topbarScroll {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(-50%);
-      }
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
 
     .site-header {
@@ -194,56 +194,24 @@
       flex: 1;
     }
 
-    .brand-badge {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #d7b897, #a47d5b);
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
+    .brand-logo-wrap {
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
     }
 
-    .brand-badge::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.55), transparent 38%),
-        linear-gradient(180deg, rgba(255,255,255,0.16), transparent);
-    }
-
-    .brand-badge::after {
-      content: "";
-      position: absolute;
-      inset: 8px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.42);
+    .brand-logo-img {
+      display: block;
+      width: auto;
+      height: 32px;
+      max-width: 190px;
+      object-fit: contain;
     }
 
     .brand-text {
       min-width: 0;
       display: grid;
       gap: 3px;
-    }
-
-    .brand-name {
-      margin: 0;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.55rem;
-      line-height: 0.95;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-    }
-
-    .brand-sub {
-      margin: 0;
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      white-space: nowrap;
     }
 
     .brand-rating {
@@ -278,7 +246,11 @@
 
     .ghost-btn,
     .primary-btn,
-    .secondary-btn {
+    .secondary-btn,
+    .review-toggle-btn,
+    .review-verify-btn,
+    .review-submit-btn,
+    .newsletter-btn {
       border: 0;
       border-radius: 999px;
       cursor: pointer;
@@ -293,7 +265,10 @@
       font-weight: 600;
     }
 
-    .primary-btn {
+    .primary-btn,
+    .review-submit-btn,
+    .review-verify-btn,
+    .newsletter-btn {
       background: linear-gradient(135deg, var(--accent), var(--accent-dark));
       color: #fff;
       padding: 14px 18px;
@@ -301,17 +276,23 @@
       box-shadow: 0 14px 28px rgba(141, 103, 72, 0.24);
     }
 
-    .secondary-btn {
+    .secondary-btn,
+    .review-toggle-btn {
       background: #fff;
       color: var(--text);
       padding: 14px 18px;
       font-weight: 700;
       border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
     }
 
     .ghost-btn:hover,
     .primary-btn:hover,
-    .secondary-btn:hover {
+    .secondary-btn:hover,
+    .review-toggle-btn:hover,
+    .review-verify-btn:hover,
+    .review-submit-btn:hover,
+    .newsletter-btn:hover {
       transform: translateY(-1px);
     }
 
@@ -344,7 +325,13 @@
     .review-card,
     .faq-wrap,
     .final-cta-card,
-    .checkout-panel {
+    .checkout-panel,
+    .reviews-shell,
+    .review-submit-wrap,
+    .trust-card,
+    .glance-card,
+    .footer-newsletter,
+    .footer-social {
       background: var(--bg-card);
       border: 1px solid rgba(255,255,255,0.65);
       box-shadow: var(--shadow);
@@ -358,18 +345,83 @@
       position: relative;
     }
 
-    .hero-image-wrap {
-      border-radius: calc(var(--radius-xl) - 8px);
-      overflow: hidden;
-      background: linear-gradient(180deg, #fff, #f2e6d9);
-      position: relative;
-      aspect-ratio: 1 / 1.08;
+    .hero-gallery {
+      display: grid;
+      gap: 14px;
     }
 
-    .hero-image-wrap img {
+    .hero-main-media {
+      position: relative;
+      border-radius: calc(var(--radius-xl) - 8px);
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top center, rgba(255,255,255,0.98), rgba(242,230,217,0.9) 72%),
+        linear-gradient(180deg, #fff, #f2e6d9);
+      aspect-ratio: 1 / 1;
+      isolation: isolate;
+    }
+
+    .hero-main-media img,
+    .hero-main-media video {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
+      image-rendering: auto;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+    }
+
+    .hero-main-media video {
+      background: #000;
+    }
+
+    .hero-thumbnails {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .hero-thumb {
+      position: relative;
+      border: 1.5px solid rgba(83, 62, 45, 0.12);
+      background: rgba(255,255,255,0.86);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      padding: 0;
+      aspect-ratio: 1 / 1;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+
+    .hero-thumb:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-thumb.active {
+      border-color: var(--accent-dark);
+      box-shadow: 0 10px 22px rgba(141, 103, 72, 0.16);
+    }
+
+    .hero-thumb img,
+    .hero-thumb video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-thumb-video-badge {
+      position: absolute;
+      inset: auto auto 8px 8px;
+      background: rgba(43, 34, 27, 0.78);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 6px 8px;
+      border-radius: 999px;
+      line-height: 1;
     }
 
     .floating-note {
@@ -432,9 +484,7 @@
       letter-spacing: -0.03em;
     }
 
-    .hero-title span {
-      display: block;
-    }
+    .hero-title span { display: block; }
 
     .hero-desc {
       margin: 0;
@@ -458,32 +508,6 @@
       font-size: 13px;
       font-weight: 700;
       border: 1px solid rgba(83, 62, 45, 0.08);
-    }
-
-    .hero-bullets {
-      display: grid;
-      gap: 10px;
-    }
-
-    .bullet {
-      display: grid;
-      grid-template-columns: 20px 1fr;
-      gap: 10px;
-      align-items: start;
-      font-size: 14px;
-    }
-
-    .bullet-dot {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: rgba(47, 122, 88, 0.12);
-      color: var(--success);
-      font-size: 12px;
-      font-weight: 900;
-      margin-top: 1px;
     }
 
     .purchase-box {
@@ -543,12 +567,12 @@
       overflow: visible;
       border: 1.5px solid rgba(83, 62, 45, 0.12);
       border-radius: 20px;
-      padding: 16px 14px 14px;
-      background: rgba(255,255,255,0.8);
+      padding: 18px 14px 14px;
+      background: rgba(255,255,255,0.85);
       cursor: pointer;
       transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
       display: grid;
-      gap: 8px;
+      gap: 10px;
     }
 
     .bundle-option:hover {
@@ -586,7 +610,7 @@
     }
 
     .bundle-total {
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 800;
       line-height: 1;
     }
@@ -595,6 +619,21 @@
       color: var(--muted);
       font-size: 12px;
       margin-top: 4px;
+    }
+
+    .bundle-compare {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .bundle-compare strong {
+      color: var(--accent-dark);
+      font-size: 13px;
     }
 
     .bundle-badge {
@@ -664,7 +703,10 @@
     .ingredient-grid,
     .routine-grid,
     .offer-grid,
-    .reviews-grid {
+    .reviews-grid,
+    .glance-benefits,
+    .footer-columns,
+    .final-trust-row {
       display: grid;
       gap: 14px;
     }
@@ -685,6 +727,8 @@
 
     .media-card {
       padding: 12px;
+      transition: transform var(--transition), box-shadow var(--transition);
+      scroll-snap-align: start;
     }
 
     .media-frame {
@@ -699,6 +743,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
     }
 
     .media-caption {
@@ -713,7 +758,12 @@
     .offer-card h3,
     .review-card h3,
     .guarantee-card h3,
-    .final-cta-card h3 {
+    .final-cta-card h3,
+    .glance-card h3,
+    .trust-card h3,
+    .review-submit-wrap h3,
+    .footer-newsletter h3,
+    .footer-social h3 {
       margin: 0 0 8px;
       font-size: 18px;
       line-height: 1.15;
@@ -727,59 +777,115 @@
     .offer-card p,
     .review-card p,
     .guarantee-card p,
-    .final-cta-card p {
+    .final-cta-card p,
+    .glance-card p,
+    .trust-card p,
+    .review-submit-wrap p,
+    .footer-newsletter p,
+    .footer-social p {
       margin: 0;
       color: var(--muted);
       font-size: 14px;
     }
 
     .benefit-card {
-      padding: 16px;
+      padding: 18px;
       display: grid;
       gap: 10px;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 28px rgba(53, 35, 20, 0.08);
     }
 
     .benefit-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
       background: linear-gradient(135deg, #f3e5d5, #e8d4bf);
       display: grid;
       place-items: center;
-      font-size: 18px;
+      font-size: 22px;
     }
 
-    .proof-card {
+    .proof-card,
+    .ingredient-card,
+    .routine-card {
       display: grid;
       gap: 0;
     }
 
-    .proof-media {
+    .proof-media,
+    .ingredient-media,
+    .routine-media {
       background: #f2e8dd;
       overflow: hidden;
     }
 
-    .proof-media img {
+    .proof-media img,
+    .ingredient-media img,
+    .routine-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .proof-copy {
+    .proof-copy,
+    .ingredient-copy,
+    .routine-copy {
       padding: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .before-after-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.86);
+      border-top: 1px solid rgba(83, 62, 45, 0.08);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .before-after-label span:nth-child(2) {
+      color: var(--accent-dark);
+    }
+
+    .proof-points,
+    .ingredient-list,
+    .routine-steps,
+    .trust-list,
+    .glance-benefits {
       display: grid;
       gap: 10px;
     }
 
-    .proof-points {
-      display: grid;
-      gap: 8px;
+    .proof-point,
+    .ingredient-item,
+    .routine-step,
+    .trust-item,
+    .glance-card {
+      padding: 12px 14px;
+      border: 1px solid rgba(83, 62, 45, 0.08);
+      background: rgba(255,255,255,0.78);
+      border-radius: 16px;
+      font-size: 14px;
     }
 
-    .proof-point {
-      font-size: 14px;
+    .routine-step strong,
+    .ingredient-item strong,
+    .glance-card strong {
+      display: block;
+      margin-bottom: 4px;
       color: var(--text);
-      font-weight: 600;
     }
 
     .mini-label {
@@ -795,44 +901,49 @@
       letter-spacing: 0.05em;
     }
 
-    .ingredient-card,
-    .routine-card {
-      display: grid;
-      gap: 0;
+    .trust-checks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
     }
 
-    .ingredient-media,
-    .routine-media {
-      background: #f2e8dd;
-    }
-
-    .ingredient-copy,
-    .routine-copy {
-      padding: 18px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .ingredient-list,
-    .routine-steps {
-      display: grid;
-      gap: 10px;
-    }
-
-    .ingredient-item,
-    .routine-step {
-      padding: 12px 14px;
+    .trust-checks span {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.82);
       border: 1px solid rgba(83, 62, 45, 0.08);
-      background: rgba(255,255,255,0.75);
-      border-radius: 16px;
-      font-size: 14px;
+      font-size: 12px;
+      font-weight: 700;
     }
 
-    .routine-step strong,
-    .ingredient-item strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--text);
+    .routine-reinforcement {
+      color: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .at-glance-main {
+      display: grid;
+      gap: 16px;
+    }
+
+    .glance-main-visual {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #f3e8dc;
+      aspect-ratio: 16 / 10;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .glance-main-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top center, rgba(255,255,255,0.98), rgba(242,230,217,0.9) 72%),
+        linear-gradient(180deg, #fff, #f2e6d9);
     }
 
     .offer-grid {
@@ -849,8 +960,7 @@
 
     .offer-card.featured {
       border-color: var(--accent-dark);
-      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,239,230,0.88));
-      transform: translateY(-2px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,239,230,0.92));
       box-shadow: 0 18px 36px rgba(141, 103, 72, 0.12);
     }
 
@@ -870,10 +980,6 @@
       white-space: nowrap;
     }
 
-    .offer-head {
-      padding-right: 0;
-    }
-
     .offer-title {
       margin: 0;
       font-size: 20px;
@@ -887,6 +993,11 @@
     }
 
     .offer-price {
+      display: grid;
+      gap: 6px;
+    }
+
+    .offer-price-top {
       display: flex;
       align-items: end;
       gap: 10px;
@@ -894,12 +1005,31 @@
     }
 
     .offer-total {
-      font-size: 30px;
+      font-size: 31px;
       font-weight: 800;
       line-height: 1;
     }
 
+    .offer-old {
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: line-through;
+      font-weight: 700;
+    }
+
+    .offer-save {
+      font-size: 13px;
+      color: var(--success);
+      font-weight: 800;
+    }
+
     .offer-mini {
+      font-size: 14px;
+      color: var(--accent-dark);
+      font-weight: 800;
+    }
+
+    .offer-ship {
       font-size: 13px;
       color: var(--muted);
       font-weight: 700;
@@ -927,29 +1057,96 @@
       font-weight: 900;
     }
 
-    .guarantee-grid {
+    .trust-card {
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: grid;
+      gap: 18px;
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .trust-list {
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+    }
+
+    .trust-cta-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .reviews-shell {
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .rating-summary {
       display: grid;
       gap: 14px;
     }
 
-    .guarantee-card {
-      padding: 18px;
+    .rating-overview {
       display: grid;
-      gap: 12px;
+      gap: 4px;
     }
 
-    .guarantee-items {
-      display: grid;
+    .rating-score {
+      font-size: 26px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .guarantee-item {
-      padding: 12px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(83, 62, 45, 0.08);
-      background: rgba(255,255,255,0.78);
+    .rating-score .stars {
+      font-size: 18px;
+    }
+
+    .rating-note {
+      color: var(--muted);
       font-size: 14px;
       font-weight: 600;
+    }
+
+    .rating-bars {
+      display: grid;
+      gap: 8px;
+    }
+
+    .rating-bar-row {
+      display: grid;
+      grid-template-columns: 34px 1fr 42px;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .rating-bar-track {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(83, 62, 45, 0.08);
+      overflow: hidden;
+    }
+
+    .rating-bar-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
     }
 
     .reviews-grid {
@@ -962,9 +1159,17 @@
       gap: 12px;
     }
 
+    .review-card.hidden-review {
+      display: none;
+    }
+
+    .review-card.visible-review {
+      display: grid;
+    }
+
     .review-top {
       display: flex;
-      align-items: center;
+      align-items: start;
       justify-content: space-between;
       gap: 12px;
     }
@@ -974,18 +1179,113 @@
       font-weight: 800;
     }
 
-    .review-meta {
+    .verified-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+      color: var(--success);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .reviews-actions {
+      display: flex;
+      justify-content: center;
+    }
+
+    .review-submit-wrap {
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .review-code-row,
+    .newsletter-form {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+    }
+
+    .review-code-input,
+    .newsletter-input,
+    .review-textarea {
+      width: 100%;
+      border: 1px solid rgba(83, 62, 45, 0.16);
+      background: rgba(255,255,255,0.92);
+      min-height: 52px;
+      border-radius: 16px;
+      padding: 0 14px;
+      color: var(--text);
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .review-textarea {
+      padding: 14px;
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .review-code-input:focus,
+    .newsletter-input:focus,
+    .review-textarea:focus {
+      border-color: var(--accent-dark);
+      box-shadow: 0 0 0 4px rgba(182, 141, 103, 0.12);
+    }
+
+    .review-form {
+      display: none;
+      gap: 14px;
+    }
+
+    .review-form.open {
+      display: grid;
+    }
+
+    .star-select {
+      display: flex;
+      gap: 8px;
+      font-size: 22px;
+      color: #ccb9a3;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .star-select span.active {
+      color: #c98e28;
+    }
+
+    .review-note {
       color: var(--muted);
       font-size: 12px;
-      margin-top: 3px;
+      font-weight: 600;
     }
 
     .faq-wrap {
-      padding: 8px 0;
+      padding: 10px;
+      background: rgba(255,255,255,0.7);
+    }
+
+    .faq-item {
+      border-radius: 18px;
+      border: 1px solid rgba(83, 62, 45, 0.08);
+      background: rgba(255,255,255,0.84);
+      transition: background var(--transition), box-shadow var(--transition), border-color var(--transition);
     }
 
     .faq-item + .faq-item {
-      border-top: 1px solid var(--line);
+      margin-top: 10px;
+    }
+
+    .faq-item:hover {
+      box-shadow: var(--shadow-soft);
+    }
+
+    .faq-item.active {
+      border-color: rgba(182, 141, 103, 0.28);
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,239,230,0.72));
     }
 
     .faq-question {
@@ -993,7 +1293,7 @@
       background: transparent;
       border: 0;
       text-align: left;
-      padding: 18px 18px;
+      padding: 20px 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -1001,6 +1301,7 @@
       cursor: pointer;
       font-weight: 800;
       color: var(--text);
+      font-size: 15px;
     }
 
     .faq-answer {
@@ -1013,6 +1314,7 @@
       padding: 0 18px 18px;
       color: var(--muted);
       font-size: 14px;
+      line-height: 1.7;
     }
 
     .faq-item.active .faq-answer {
@@ -1020,45 +1322,231 @@
     }
 
     .faq-icon {
-      font-size: 20px;
-      color: var(--muted);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(182, 141, 103, 0.12);
+      color: var(--accent-dark);
+      font-size: 18px;
+      line-height: 1;
       flex-shrink: 0;
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+      background: rgba(182, 141, 103, 0.2);
+    }
+
+    .faq-reassurance {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 14px;
     }
 
     .final-cta-card {
-      padding: 18px;
+      padding: 22px;
       display: grid;
       gap: 18px;
     }
 
     .final-cta-grid {
       display: grid;
-      gap: 16px;
+      gap: 18px;
       align-items: center;
     }
 
     .final-image {
-      border-radius: 20px;
+      border-radius: 22px;
       overflow: hidden;
       background: #f2e8dd;
       aspect-ratio: 1 / 1;
+      box-shadow: var(--shadow-soft);
     }
 
     .final-image img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      padding: 18px;
+      background:
+        radial-gradient(circle at top center, rgba(255,255,255,0.98), rgba(242,230,217,0.9) 72%),
+        linear-gradient(180deg, #fff, #f2e6d9);
+      filter: drop-shadow(0 18px 24px rgba(141, 103, 72, 0.12));
     }
 
-    footer {
-      padding: 20px 0 calc(var(--sticky-bar) + 24px);
+    .final-trust-row {
+      grid-template-columns: 1fr;
+      margin: 16px 0;
+    }
+
+    .final-trust-chip {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(83, 62, 45, 0.08);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .final-mini-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
+      font-weight: 700;
     }
 
-    .footer-inner {
+    .return-top-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.78);
+      font-weight: 700;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .return-top-link:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .footer-trust-bar {
+      background: #201a16;
+      color: #f7f3ee;
+      padding: 14px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-trust-inner {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .site-footer {
+      background: #171310;
+      color: #e9e2d8;
+      padding: 26px 0 calc(var(--sticky-bar) + 28px);
+    }
+
+    .footer-stack {
+      display: grid;
+      gap: 20px;
+    }
+
+    .footer-newsletter,
+    .footer-social {
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .footer-columns {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .footer-group {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .footer-group-toggle {
+      width: 100%;
+      background: transparent;
+      border: 0;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0;
+      margin: 0 0 14px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      cursor: default;
+    }
+
+    .footer-group-toggle span:last-child {
+      display: none;
+    }
+
+    .footer-links {
       display: grid;
       gap: 10px;
+    }
+
+    .footer-links a {
+      color: #d9d1c6;
+      font-size: 14px;
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: #d8b27f;
+    }
+
+    .social-icons,
+    .payment-icons,
+    .footer-bottom-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .social-pill,
+    .payment-pill {
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding-top: 6px;
+      color: #b9ae9f;
+      font-size: 13px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 18px;
+    }
+
+    .footer-bottom-links a {
+      color: #d9d1c6;
+    }
+
+    .footer-bottom-links a:hover {
+      color: #d8b27f;
+    }
+
+    .footer-final-trust {
+      color: #d8b27f;
+      font-size: 13px;
+      font-weight: 700;
       text-align: center;
     }
 
@@ -1088,10 +1576,7 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .sticky-text {
-      min-width: 0;
-    }
-
+    .sticky-text { min-width: 0; }
     .sticky-label {
       font-size: 12px;
       color: var(--muted);
@@ -1146,14 +1631,8 @@
     }
 
     @keyframes rise {
-      from {
-        transform: translateY(22px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+      from { transform: translateY(22px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     .checkout-header {
@@ -1394,68 +1873,6 @@
       line-height: 1.5;
     }
 
-    .premium-hero-media {
-      padding: 16px;
-    }
-
-    .premium-hero-image-wrap {
-      background:
-        radial-gradient(circle at top center, rgba(255,255,255,0.98), rgba(242,230,217,0.9) 72%),
-        linear-gradient(180deg, #fff, #f2e6d9);
-      overflow: visible;
-    }
-
-    .premium-hero-content {
-      gap: 14px;
-    }
-
-    .premium-rating-row {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .premium-rating-row .stars {
-      font-size: 12px;
-      letter-spacing: 0.08em;
-    }
-
-    .benefit-chips.premium-benefit-chips {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px 18px;
-      margin-top: 2px;
-    }
-
-    .benefit-chips.premium-benefit-chips .chip {
-      padding: 0;
-      background: transparent;
-      border: 0;
-      box-shadow: none;
-      border-radius: 0;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .benefit-chips.premium-benefit-chips .chip::before {
-      content: "✓";
-      color: var(--success);
-      font-weight: 900;
-      flex-shrink: 0;
-    }
-
-    .premium-floating-note {
-      background: rgba(255,255,255,0.94);
-    }
-
     .hero-badge-minimal {
       position: absolute;
       top: 16px;
@@ -1504,101 +1921,12 @@
       color: var(--muted);
     }
 
-    .premium-cta-btn {
-      font-weight: 800;
-      letter-spacing: 0.01em;
-    }
-
-    #heroBundles .bundle-option[data-bundle="duo"] {
-      order: 1;
-    }
-
-    #heroBundles .bundle-option[data-bundle="starter"] {
-      order: 2;
-    }
-
-    #heroBundles .bundle-option[data-bundle="set"] {
-      order: 3;
-    }
-
-    .hero-gallery {
-      display: grid;
-      gap: 14px;
-    }
-
-    .hero-main-media {
-      position: relative;
-      border-radius: calc(var(--radius-xl) - 8px);
-      overflow: hidden;
-      background:
-        radial-gradient(circle at top center, rgba(255,255,255,0.98), rgba(242,230,217,0.9) 72%),
-        linear-gradient(180deg, #fff, #f2e6d9);
-      aspect-ratio: 1 / 1.08;
-    }
-
-    .hero-main-media img,
-    .hero-main-media video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-main-media video {
-      background: #000;
-    }
-
-    .hero-thumbnails {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .hero-thumb {
-      position: relative;
-      border: 1.5px solid rgba(83, 62, 45, 0.12);
-      background: rgba(255,255,255,0.86);
-      border-radius: 16px;
-      overflow: hidden;
-      cursor: pointer;
-      padding: 0;
-      aspect-ratio: 1 / 1;
-      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
-    }
-
-    .hero-thumb:hover {
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .hero-thumb.active {
-      border-color: var(--accent-dark);
-      box-shadow: 0 10px 22px rgba(141, 103, 72, 0.16);
-    }
-
-    .hero-thumb img,
-    .hero-thumb video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-thumb-video-badge {
-      position: absolute;
-      inset: auto auto 8px 8px;
-      background: rgba(43, 34, 27, 0.78);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 6px 8px;
-      border-radius: 999px;
-      line-height: 1;
-    }
+    #heroBundles .bundle-option[data-bundle="duo"] { order: 1; }
+    #heroBundles .bundle-option[data-bundle="set"] { order: 2; }
+    #heroBundles .bundle-option[data-bundle="starter"] { order: 3; }
 
     @media (max-width: 699px) {
-      .topbar {
-        min-height: 38px;
-      }
-
+      .topbar { min-height: 38px; }
       .topbar-track {
         gap: 12px;
         padding: 9px 0;
@@ -1610,31 +1938,16 @@
         font-size: 11px;
       }
 
-      .site-header {
-        top: 38px;
-      }
-
+      .site-header { top: 38px; }
       .site-header-inner {
         min-height: 68px;
         gap: 12px;
       }
 
-      .brand {
-        gap: 10px;
-      }
-
-      .brand-badge {
-        width: 40px;
-        height: 40px;
-      }
-
-      .brand-name {
-        font-size: 1.28rem;
-      }
-
-      .brand-sub {
-        font-size: 9px;
-        letter-spacing: 0.08em;
+      .brand { gap: 10px; }
+      .brand-logo-img {
+        height: 24px;
+        max-width: 140px;
       }
 
       .brand-rating {
@@ -1652,22 +1965,31 @@
         font-size: 13px;
       }
 
-      .section {
-        padding: 40px 0;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
+      .section { padding: 40px 0; }
+      .hero-grid { grid-template-columns: 1fr; }
       .benefits-grid,
-      .reviews-grid,
       .guarantee-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
       .media-grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 84%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scroll-snap-type: x mandatory;
+      }
+
+      .media-grid::-webkit-scrollbar,
+      .hero-thumbnails::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .media-grid::-webkit-scrollbar-thumb,
+      .hero-thumbnails::-webkit-scrollbar-thumb {
+        background: rgba(83, 62, 45, 0.18);
+        border-radius: 999px;
       }
 
       .proof-card,
@@ -1677,9 +1999,10 @@
         grid-template-columns: 1fr;
       }
 
-      .offer-grid {
-        grid-template-columns: 1fr;
-      }
+      .offer-grid { grid-template-columns: 1fr; }
+      .offer-card[data-offer="duo"] { order: 1; }
+      .offer-card[data-offer="set"] { order: 2; }
+      .offer-card[data-offer="starter"] { order: 3; }
 
       .hero-badge-minimal {
         top: 12px;
@@ -1694,29 +2017,40 @@
         padding-bottom: 4px;
       }
 
-      .hero-thumbnails::-webkit-scrollbar {
-        height: 6px;
+      .reviews-grid,
+      .glance-benefits,
+      .footer-trust-inner,
+      .footer-columns {
+        grid-template-columns: 1fr;
       }
 
-      .hero-thumbnails::-webkit-scrollbar-thumb {
-        background: rgba(83, 62, 45, 0.18);
-        border-radius: 999px;
+      .footer-group-toggle {
+        cursor: pointer;
+      }
+
+      .footer-group-toggle span:last-child {
+        display: inline-block;
+        font-size: 16px;
+      }
+
+      .footer-group.closed .footer-links {
+        display: none;
+      }
+
+      .footer-group.closed .footer-group-toggle span:last-child {
+        transform: rotate(-90deg);
+      }
+
+      .footer-bottom,
+      .footer-bottom-links {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
 
     @media (max-width: 520px) {
-      .site-header-inner {
-        align-items: center;
-      }
-
-      .brand-name {
-        font-size: 1.16rem;
-      }
-
-      .brand-rating-text {
-        max-width: 180px;
-      }
-
+      .site-header-inner { align-items: center; }
+      .brand-rating-text { max-width: 180px; }
       .header-shop-btn {
         padding: 10px 12px;
         min-width: auto;
@@ -1725,12 +2059,14 @@
       .benefits-grid,
       .reviews-grid,
       .guarantee-grid,
-      .media-grid {
+      .glance-benefits {
         grid-template-columns: 1fr;
       }
 
       .two-col,
-      .checkout-actions {
+      .checkout-actions,
+      .review-code-row,
+      .newsletter-form {
         grid-template-columns: 1fr;
       }
 
@@ -1738,22 +2074,10 @@
         grid-template-columns: repeat(8, 76px);
       }
 
-      .benefit-chips.premium-benefit-chips {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .hero-title {
-        line-height: 1.01;
-      }
-
+      .hero-title { line-height: 1.01; }
       .hero-desc {
         font-size: 14px;
         line-height: 1.65;
-      }
-
-      .benefit-chips.premium-benefit-chips .chip {
-        font-size: 13.5px;
       }
 
       .minimal-floating-note {
@@ -1763,33 +2087,32 @@
         padding: 11px 12px;
       }
 
-      .minimal-floating-note strong {
-        font-size: 14px;
+      .minimal-floating-note strong { font-size: 14px; }
+      .minimal-floating-note span { font-size: 11.5px; }
+
+      .faq-question {
+        min-height: 68px;
+        padding: 18px 16px;
       }
 
-      .minimal-floating-note span {
-        font-size: 11.5px;
+      .sticky-buy-inner {
+        grid-template-columns: 1fr;
       }
     }
 
     @media (min-width: 700px) {
-      .section {
-        padding: 40px 0;
-      }
-
+      .section { padding: 40px 0; }
       .hero-grid {
         grid-template-columns: 1.02fr 0.98fr;
         align-items: stretch;
       }
 
-      .benefits-grid,
-      .reviews-grid,
-      .guarantee-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .media-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
       }
 
       .proof-card,
@@ -1802,35 +2125,34 @@
       .offer-grid {
         grid-template-columns: repeat(3, 1fr);
       }
-    }
 
-    @media (min-width: 980px) {
-      .site-header-inner {
-        min-height: 72px;
-      }
-
-      .section {
-        padding: 54px 0;
-      }
-
-      .benefits-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .media-grid {
+      .glance-benefits {
         grid-template-columns: repeat(4, 1fr);
-      }
-
-      .guarantee-grid {
-        grid-template-columns: 1.2fr 0.8fr;
       }
 
       .reviews-grid {
         grid-template-columns: repeat(3, 1fr);
       }
 
-      .sticky-buy-inner {
-        grid-template-columns: 1fr auto;
+      .footer-columns {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 980px) {
+      .site-header-inner { min-height: 72px; }
+      .section { padding: 54px 0; }
+      .offer-card.featured {
+        transform: scale(1.08);
+        z-index: 2;
+      }
+
+      .final-trust-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer-trust-inner {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
   </style>
@@ -1858,11 +2180,11 @@
   <header class="site-header">
     <div class="container site-header-inner">
       <a href="#top" class="brand" aria-label="Go to top">
-        <div class="brand-badge"></div>
+        <div class="brand-logo-wrap">
+          <img class="brand-logo-img" src="images/dalba-vita-logo.png" alt="d'Alba Vita logo" />
+        </div>
 
         <div class="brand-text">
-          <p class="brand-name">d'Alba Vita</p>
-
           <div class="brand-rating">
             <span class="brand-stars">★★★★★</span>
             <span class="brand-rating-text">4.8 / 5 Rated — Trusted by over 12,000 customers</span>
@@ -1881,14 +2203,14 @@
   <main id="top">
     <section class="hero section">
       <div class="container hero-grid">
-        <div class="hero-media premium-hero-media">
+        <div class="hero-media">
           <div class="hero-gallery">
-            <div class="hero-main-media premium-hero-image-wrap" id="heroMainMedia">
+            <div class="hero-main-media" id="heroMainMedia">
               <img id="heroMainImage" src="images/1- Hero Product Image.png" alt="d'Alba Vita Toning Serum Toner bottle" />
 
               <span class="hero-badge-minimal">Vitamin C Toner Serum</span>
 
-              <div class="floating-note premium-floating-note minimal-floating-note">
+              <div class="floating-note minimal-floating-note">
                 <div>
                   <strong>Lightweight Glow Toner</strong>
                   <span>Brightens • Hydrates • Smooths</span>
@@ -1935,14 +2257,14 @@
           </div>
         </div>
 
-        <div class="hero-content premium-hero-content">
+        <div class="hero-content">
           <span class="eyebrow">Vitamin C Toner Serum</span>
 
-          <div class="rating-row premium-rating-row">
+          <div class="rating-row">
             <span class="stars">★★★★★</span>
             <span>4.8 rating</span>
             <span>•</span>
-            <span>2,184 verified customers</span>
+            <span>2,184 verified reviews</span>
           </div>
 
           <div>
@@ -1955,7 +2277,7 @@
             </p>
           </div>
 
-          <div class="benefit-chips premium-benefit-chips">
+          <div class="benefit-chips">
             <span class="chip">Brightens dull skin</span>
             <span class="chip">Evens skin tone</span>
             <span class="chip">Deep hydration</span>
@@ -1965,10 +2287,10 @@
           <div class="purchase-box">
             <div class="price-wrap">
               <div class="price-main">
-                <span class="price-now" id="heroPrice">$9.95</span>
-                <span class="price-old">$20.00</span>
+                <span class="price-now" id="heroPrice">$18.95</span>
+                <span class="price-old">$42.00</span>
               </div>
-              <span class="shipping-note" id="heroShipping">1-Day Shipping • $2.95</span>
+              <span class="shipping-note" id="heroShipping">Free 1-Day Shipping</span>
             </div>
 
             <div class="bundle-grid" id="heroBundles">
@@ -1980,9 +2302,31 @@
                     <p class="bundle-sub">2 Bottles</p>
                   </div>
                   <div class="bundle-price">
-                    <div class="bundle-total">$16.95</div>
-                    <div class="bundle-each">15% off • $8.47 each • Free 1-Day Shipping</div>
+                    <div class="bundle-total">$18.95</div>
+                    <div class="bundle-each">$9.47 each • Free 1-Day Shipping</div>
                   </div>
+                </div>
+                <div class="bundle-compare">
+                  <span>Was $42.00</span>
+                  <strong>55% OFF</strong>
+                </div>
+              </div>
+
+              <div class="bundle-option" data-bundle="set" tabindex="0">
+                <span class="bundle-badge">Best Value</span>
+                <div class="bundle-top">
+                  <div>
+                    <p class="bundle-name">Glow Set</p>
+                    <p class="bundle-sub">3 Bottles</p>
+                  </div>
+                  <div class="bundle-price">
+                    <div class="bundle-total">$24.95</div>
+                    <div class="bundle-each">$8.31 each • Free 1-Day Shipping</div>
+                  </div>
+                </div>
+                <div class="bundle-compare">
+                  <span>Was $63.00</span>
+                  <strong>60% OFF</strong>
                 </div>
               </div>
 
@@ -1997,26 +2341,16 @@
                     <div class="bundle-each">1-Day Shipping • $2.95 shipping</div>
                   </div>
                 </div>
-              </div>
-
-              <div class="bundle-option" data-bundle="set" tabindex="0">
-                <span class="bundle-badge">Best Value</span>
-                <div class="bundle-top">
-                  <div>
-                    <p class="bundle-name">Glow Set</p>
-                    <p class="bundle-sub">3 Bottles</p>
-                  </div>
-                  <div class="bundle-price">
-                    <div class="bundle-total">$21.95</div>
-                    <div class="bundle-each">26% off • $7.32 each • Free 1-Day Shipping</div>
-                  </div>
+                <div class="bundle-compare">
+                  <span>Was $21.00</span>
+                  <strong>53% OFF</strong>
                 </div>
               </div>
             </div>
 
             <div class="purchase-actions">
-              <button class="primary-btn full premium-cta-btn" type="button" data-open-checkout>
-                Get Brighter Skin Today — <span id="heroButtonPrice">$16.95</span>
+              <button class="primary-btn full" type="button" data-open-checkout>
+                Get Brighter Skin Today — <span id="heroButtonPrice">$18.95</span>
               </button>
               <button class="secondary-btn full" type="button" data-scroll="#offer">
                 Compare Bundles
@@ -2040,10 +2374,11 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">See it in use</span>
-          <h2 class="title">A lightweight glow step for your daily routine.</h2>
+          <h2 class="title">Brighter, smoother skin in one lightweight step.</h2>
           <p class="subtitle">
-            Explore the texture, ingredients, and how the formula fits easily into a simple skincare ritual.
+            Discover the texture, formula, and daily-use benefits behind the glow.
           </p>
+          <div class="trust-inline">⭐ Rated 4.8/5 by over 12,000 customers</div>
         </div>
 
         <div class="media-grid">
@@ -2055,8 +2390,8 @@
               </video>
             </div>
             <div class="media-caption">
-              <h3>See the formula in motion</h3>
-              <p>Watch how the product looks, feels, and fits naturally into a glow-focused routine.</p>
+              <h3>See it in motion</h3>
+              <p>Watch the formula apply smoothly on skin.</p>
             </div>
           </article>
 
@@ -2065,8 +2400,8 @@
               <img src="images/3- Texture droplet image.png" alt="Serum toner texture droplet close-up" />
             </div>
             <div class="media-caption">
-              <h3>Fresh, lightweight texture</h3>
-              <p>A smooth toner-serum feel designed to absorb quickly without heaviness.</p>
+              <h3>Fresh, weightless texture</h3>
+              <p>Fast-absorbing hydration without heaviness.</p>
             </div>
           </article>
 
@@ -2075,8 +2410,8 @@
               <img src="images/4- Ingredients image.png" alt="Ingredients image for d'Alba Vita Toning Serum Toner" />
             </div>
             <div class="media-caption">
-              <h3>Glow-focused formula</h3>
-              <p>Made to support brighter-looking, softer-feeling skin with daily use.</p>
+              <h3>Glow-focused active blend</h3>
+              <p>Vitamin C care with daily barrier-friendly support.</p>
             </div>
           </article>
 
@@ -2085,8 +2420,8 @@
               <img src="images/5- Model Using Serum Image .png" alt="Model using d'Alba Vita Toning Serum Toner" />
             </div>
             <div class="media-caption">
-              <h3>Easy daily skincare fit</h3>
-              <p>Simple enough for everyday use and elegant enough to feel like a premium skincare step.</p>
+              <h3>Made for everyday radiance</h3>
+              <p>A simple step for hydrated, brighter-looking skin.</p>
             </div>
           </article>
         </div>
@@ -2096,48 +2431,49 @@
     <section class="section" id="benefits">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Why you'll love it</span>
-          <h2 class="title">Brighter, smoother, more hydrated-looking skin.</h2>
+          <span class="eyebrow">Why Customers Love It</span>
+          <h2 class="title">Brighter, smoother, deeply hydrated skin — every day.</h2>
           <p class="subtitle">
-            A lightweight daily toner-serum designed to refresh dull skin, support a more even-looking tone, and leave skin feeling soft and comfortable.
+            A lightweight toner-serum hybrid designed to refresh dull skin, even tone, and deliver comfortable hydration without heaviness.
           </p>
+          <div class="trust-inline">⭐ Rated 4.8 / 5 by over 12,000 customers</div>
         </div>
 
         <div class="benefits-grid">
           <article class="benefit-card">
             <div class="benefit-icon">✨</div>
-            <h3>Brightens dull-looking skin</h3>
-            <p>Helps skin look fresher, more radiant, and more energized throughout your daily routine.</p>
+            <h3>Revives dull-looking skin</h3>
+            <p>Helps bring back a fresher, more radiant look.</p>
           </article>
 
           <article class="benefit-card">
             <div class="benefit-icon">🌿</div>
-            <h3>Supports a more even tone</h3>
-            <p>Designed for skin that looks tired or uneven and needs a more balanced, luminous appearance.</p>
+            <h3>Promotes a more even tone</h3>
+            <p>Supports a smoother, more balanced-looking complexion.</p>
           </article>
 
           <article class="benefit-card">
             <div class="benefit-icon">💧</div>
             <h3>Hydrates without heaviness</h3>
-            <p>The toner-serum format feels refreshing and comfortable, without weighing skin down.</p>
+            <p>Delivers comfort and moisture in a lightweight feel.</p>
           </article>
 
           <article class="benefit-card">
             <div class="benefit-icon">🫧</div>
-            <h3>Smoother-feeling texture</h3>
-            <p>Leaves skin feeling softer and more refined, with a polished finish that feels clean and fresh.</p>
+            <h3>Leaves skin smoother and softer</h3>
+            <p>Improves how skin feels after each use.</p>
           </article>
 
           <article class="benefit-card">
             <div class="benefit-icon">⚡</div>
             <h3>Fast-absorbing formula</h3>
-            <p>Made for everyday use, so your skincare routine stays simple, light, and easy to maintain.</p>
+            <p>Settles quickly with no sticky, heavy finish.</p>
           </article>
 
           <article class="benefit-card">
             <div class="benefit-icon">🕊️</div>
-            <h3>Easy to use daily</h3>
-            <p>Fits naturally into your morning or evening routine for glow-focused care without extra effort.</p>
+            <h3>Perfect for everyday use</h3>
+            <p>Easy to use morning or night in a simple routine.</p>
           </article>
         </div>
       </div>
@@ -2146,30 +2482,35 @@
     <section class="section" id="proof">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Visible glow support</span>
-          <h2 class="title">Made to support a fresher, more even-looking complexion.</h2>
+          <span class="eyebrow">Visible Skin Results</span>
+          <h2 class="title">See Brighter, Smoother Skin in as Little as 14 Days</h2>
           <p class="subtitle">
-            With regular use, skin looks more radiant, feels smoother, and fits beautifully into a glow-focused routine.
+            Daily use helps improve the appearance of dull skin, leaving it looking smoother, hydrated, and naturally radiant.
           </p>
         </div>
 
         <article class="proof-card">
           <div class="proof-media">
             <img src="images/6- Before - After Image (black women ).png" alt="Before and after skincare improvement example" />
+            <div class="before-after-label">
+              <span>Before</span>
+              <span>Visible Results in 14 Days</span>
+              <span>After</span>
+            </div>
           </div>
           <div class="proof-copy">
-            <span class="mini-label">Glow-focused care</span>
-            <h3>Refresh the look of dull skin and support a healthy-looking glow.</h3>
+            <span class="mini-label">Glow-Boosting Formula</span>
+            <h3>Refresh dull skin and reveal a healthy glow</h3>
             <p>
-              This daily toner-serum is made to leave skin looking softer, more hydrated, and more luminous while keeping your routine simple.
+              This lightweight toner-serum hydrates and smooths the skin while helping your complexion look brighter and more even.
             </p>
             <div class="proof-points">
-              <div class="proof-point">✓ More radiant-looking daily glow</div>
-              <div class="proof-point">✓ Softer-feeling texture and hydration support</div>
-              <div class="proof-point">✓ Lightweight enough for everyday use</div>
+              <div class="proof-point">✓ Brighter-looking skin</div>
+              <div class="proof-point">✓ Smoother texture and hydration</div>
+              <div class="proof-point">✓ Lightweight daily glow support</div>
             </div>
             <p class="fine-print">
-              Individual skincare results may vary depending on routine and skin type.
+              Results may vary depending on skin type and routine.
             </p>
           </div>
         </article>
@@ -2180,9 +2521,9 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Formula highlights</span>
-          <h2 class="title">Skincare that feels lightweight, fresh, and easy to layer.</h2>
+          <h2 class="title">A Lightweight Formula That Brightens, Hydrates, and Layers Effortlessly</h2>
           <p class="subtitle">
-            This Vitamin C toner-serum is designed to brighten the look of tired skin while delivering a smooth, comfortable finish.
+            This Vitamin C toner-serum refreshes tired-looking skin while delivering lightweight hydration and a smooth, comfortable finish.
           </p>
         </div>
 
@@ -2191,24 +2532,30 @@
             <img src="images/4- Ingredients image.png" alt="Ingredients story visual" />
           </div>
           <div class="ingredient-copy">
-            <h3>A simple daily formula for brighter-looking, well-hydrated skin.</h3>
+            <h3>A simple daily formula for brighter, well-hydrated skin</h3>
             <p>
-              The toner-serum texture makes this step feel refreshing and easy, while still giving skin the polished feel of premium skincare.
+              The refreshing toner-serum texture absorbs quickly, helping skin feel smoother, hydrated, and naturally radiant.
             </p>
 
             <div class="ingredient-list">
               <div class="ingredient-item">
-                <strong>Vitamin C positioning</strong>
-                Helps support a more radiant, energized-looking complexion.
+                <strong>Vitamin C Brightening</strong>
+                Supports a radiant, energized-looking complexion.
               </div>
               <div class="ingredient-item">
-                <strong>Hydration support</strong>
-                Leaves skin feeling fresh, comfortable, and soft throughout the day.
+                <strong>Deep Hydration</strong>
+                Helps skin stay fresh, soft, and comfortable throughout the day.
               </div>
               <div class="ingredient-item">
-                <strong>Lightweight toner-serum feel</strong>
-                Absorbs quickly and layers smoothly with the rest of your routine.
+                <strong>Lightweight Layering</strong>
+                Absorbs quickly and fits easily into any skincare routine.
               </div>
+            </div>
+
+            <div class="trust-checks">
+              <span>✔ Suitable for daily use</span>
+              <span>✔ Lightweight toner-serum texture</span>
+              <span>✔ Designed for glow-focused routines</span>
             </div>
           </div>
         </article>
@@ -2219,9 +2566,9 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">How to use</span>
-          <h2 class="title">An easy step that fits right into your daily routine.</h2>
+          <h2 class="title">How to Use for Maximum Glow</h2>
           <p class="subtitle">
-            Keep your skincare simple with a formula designed for quick application and effortless layering.
+            Takes less than 30 seconds to upgrade your skincare routine.
           </p>
         </div>
 
@@ -2230,25 +2577,26 @@
             <img src="images/8- Step-by-Step Guide Image.png" alt="Step-by-step guide for using the serum toner" />
           </div>
           <div class="routine-copy">
-            <h3>How to use d'Alba Vita Toning Serum Toner</h3>
+            <h3>Simple daily steps</h3>
             <div class="routine-steps">
               <div class="routine-step">
                 <strong>Step 1 — Cleanse</strong>
-                Start with freshly cleansed skin to prepare for better absorption.
+                Start with freshly cleansed skin.
               </div>
               <div class="routine-step">
-                <strong>Step 2 — Apply toner-serum</strong>
-                Dispense a small amount and gently sweep or press it onto the skin.
+                <strong>Step 2 — Apply</strong>
+                Pour a few drops into your palm and gently press onto face and neck.
               </div>
               <div class="routine-step">
-                <strong>Step 3 — Let it absorb</strong>
-                The lightweight texture is designed to settle quickly and feel comfortable.
+                <strong>Step 3 — Absorb</strong>
+                The lightweight formula absorbs quickly without stickiness.
               </div>
               <div class="routine-step">
-                <strong>Step 4 — Finish your routine</strong>
-                Follow with moisturizer and SPF in the morning for a complete skincare ritual.
+                <strong>Step 4 — Finish</strong>
+                Follow with moisturizer and SPF for a complete routine.
               </div>
             </div>
+            <div class="routine-reinforcement">✨ Visible glow begins in days with consistent use.</div>
           </div>
         </article>
       </div>
@@ -2258,23 +2606,36 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">At a glance</span>
-          <h2 class="title">Everything you want from a daily glow toner-serum.</h2>
+          <h2 class="title">Everything your skin needs for a daily glow</h2>
           <p class="subtitle">
-            A quick overview of the key benefits that make this formula easy to understand and easy to choose.
+            A lightweight toner-serum that brightens, hydrates, and smooths without feeling heavy.
           </p>
         </div>
 
-        <article class="media-card">
-          <div class="media-frame" style="aspect-ratio: 16 / 10;">
-            <img src="images/7- Benefits Infographic .png" alt="Benefits infographic for d'Alba Vita Toning Serum Toner" />
+        <div class="at-glance-main">
+          <div class="glance-main-visual">
+            <img src="images/1- Hero Product Image.png" alt="d'Alba Vita product bottle" />
           </div>
-          <div class="media-caption">
-            <h3>Simple, clear skincare benefits</h3>
-            <p>
-              Brightening, hydration, smoother-feeling skin, and a lightweight finish that works beautifully every day.
-            </p>
+
+          <div class="glance-benefits">
+            <div class="glance-card">
+              <strong>Brightens</strong>
+              Helps reduce dullness and improve skin tone.
+            </div>
+            <div class="glance-card">
+              <strong>Hydrates</strong>
+              Leaves skin fresh, soft, and comfortable.
+            </div>
+            <div class="glance-card">
+              <strong>Vitamin Boost</strong>
+              Vitamin C + E + B3 support a radiant-looking glow.
+            </div>
+            <div class="glance-card">
+              <strong>Lightweight Finish</strong>
+              Absorbs fast with no sticky feel.
+            </div>
           </div>
-        </article>
+        </div>
       </div>
     </section>
 
@@ -2284,60 +2645,74 @@
           <span class="eyebrow">Choose your bundle</span>
           <h2 class="title">Pick the option that fits your routine best.</h2>
           <p class="subtitle">
-            Start small or save more with a bundle designed for better value and faster checkout.
+            Start small or save more with our most popular glow bundles.
           </p>
         </div>
 
         <div class="offer-grid">
-          <article class="offer-card">
+          <article class="offer-card" data-offer="starter">
             <div class="offer-head">
               <h3 class="offer-title">Starter</h3>
-              <p class="offer-desc">1 Bottle • Great for first-time purchase</p>
+              <p class="offer-desc">1 Bottle</p>
             </div>
             <div class="offer-price">
-              <span class="offer-total">$9.95</span>
-              <span class="offer-mini">1-Day Shipping • $2.95</span>
+              <div class="offer-price-top">
+                <span class="offer-total">$9.95</span>
+                <span class="offer-old">$21.00</span>
+              </div>
+              <span class="offer-save">53% OFF</span>
+              <span class="offer-ship">1-Day Shipping • $2.95 shipping</span>
             </div>
             <ul class="offer-list">
               <li>Lowest entry price to try it</li>
-              <li>Easy first purchase decision</li>
-              <li>Ships in 1 business day</li>
+              <li>Simple first order option</li>
+              <li>Quick 1-day shipping available</li>
             </ul>
             <button class="secondary-btn full" type="button" data-select-offer="starter">Choose Starter</button>
           </article>
 
-          <article class="offer-card featured">
+          <article class="offer-card featured" data-offer="duo">
             <span class="offer-badge">Most Popular</span>
             <div class="offer-head">
               <h3 class="offer-title">Glow Duo</h3>
-              <p class="offer-desc">2 Bottles • Better value for regular use</p>
+              <p class="offer-desc">2 Bottles</p>
             </div>
             <div class="offer-price">
-              <span class="offer-total">$16.95</span>
-              <span class="offer-mini">15% off • $8.47 each • Free 1-Day Shipping</span>
+              <div class="offer-price-top">
+                <span class="offer-total">$18.95</span>
+                <span class="offer-old">$42.00</span>
+              </div>
+              <span class="offer-save">55% OFF</span>
+              <span class="offer-mini">Only $9.47 per bottle</span>
+              <span class="offer-ship">Free 1-Day Shipping</span>
             </div>
             <ul class="offer-list">
-              <li>Best balance of savings and commitment</li>
+              <li>Best balance of value and commitment</li>
+              <li>Most popular option for shoppers</li>
               <li>Free shipping for easier checkout</li>
-              <li>Ideal for daily routine consistency</li>
             </ul>
             <button class="primary-btn full" type="button" data-select-offer="duo">Choose Glow Duo</button>
           </article>
 
-          <article class="offer-card">
+          <article class="offer-card" data-offer="set">
             <span class="offer-badge">Best Value</span>
             <div class="offer-head">
               <h3 class="offer-title">Glow Set</h3>
-              <p class="offer-desc">3 Bottles • Best value bundle</p>
+              <p class="offer-desc">3 Bottles</p>
             </div>
             <div class="offer-price">
-              <span class="offer-total">$21.95</span>
-              <span class="offer-mini">26% off • $7.32 each • Free 1-Day Shipping</span>
+              <div class="offer-price-top">
+                <span class="offer-total">$24.95</span>
+                <span class="offer-old">$63.00</span>
+              </div>
+              <span class="offer-save">60% OFF</span>
+              <span class="offer-mini">Only $8.31 per bottle</span>
+              <span class="offer-ship">Free 1-Day Shipping</span>
             </div>
             <ul class="offer-list">
               <li>Lowest cost per bottle</li>
-              <li>Highest savings per order</li>
-              <li>Perfect for a longer routine</li>
+              <li>Best savings on one order</li>
+              <li>Perfect for a longer glow routine</li>
             </ul>
             <button class="secondary-btn full" type="button" data-select-offer="set">Choose Glow Set</button>
           </article>
@@ -2349,41 +2724,22 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Shop with confidence</span>
-          <h2 class="title">Secure checkout, fast dispatch, and glow guarantee.</h2>
-          <p class="subtitle">
-            Everything is designed to make your order feel easy, trustworthy, and low-friction from start to finish.
-          </p>
+          <h2 class="title">Secure Checkout • Fast 1-Day Dispatch • 30-Day Glow Guarantee</h2>
         </div>
 
-        <div class="guarantee-grid">
-          <article class="guarantee-card">
-            <h3>30-Day Glow Guarantee</h3>
-            <p>
-              Enjoy a premium shopping experience with secure checkout, clear delivery messaging, and bundle options that make sense for first-time buyers.
-            </p>
-            <div class="guarantee-items">
-              <div class="guarantee-item">SSL encrypted checkout experience</div>
-              <div class="guarantee-item">Visa, Mastercard, and American Express accepted</div>
-              <div class="guarantee-item">Fast 1-day dispatch messaging for added confidence</div>
-              <div class="guarantee-item">Simple, polished checkout from address to confirmation</div>
-            </div>
-          </article>
+        <div class="trust-card">
+          <div class="trust-list">
+            <div class="trust-item">🔒 SSL Secure Checkout</div>
+            <div class="trust-item">💳 Visa, Mastercard, and American Express Accepted</div>
+            <div class="trust-item">🚚 Fast 1-Day Shipping</div>
+            <div class="trust-item">✨ 30-Day Glow Guarantee</div>
+          </div>
 
-          <article class="guarantee-card">
-            <h3>Trusted daily skincare essentials</h3>
-            <p>
-              From product clarity to checkout simplicity, every part of the page is made to feel smooth, premium, and easy to shop.
-            </p>
-            <div class="card-icons">
-              <span class="card-icon">SSL</span>
-              <span class="card-icon">VISA</span>
-              <span class="card-icon">MC</span>
-              <span class="card-icon">AMEX</span>
-            </div>
-            <button class="primary-btn full" type="button" data-open-checkout>
+          <div class="trust-cta-wrap">
+            <button class="primary-btn" type="button" data-open-checkout>
               Proceed to Secure Checkout
             </button>
-          </article>
+          </div>
         </div>
       </div>
     </section>
@@ -2394,49 +2750,175 @@
           <span class="eyebrow">Customer reviews</span>
           <h2 class="title">Loved for its glow, feel, and everyday ease.</h2>
           <p class="subtitle">
-            Short reviews help shoppers understand how the product feels in a real skincare routine.
+            Real feedback from verified customers using d'Alba Vita.
           </p>
+          <div class="trust-inline">⭐ 4.8 / 5 — Based on 2,184 Verified Reviews</div>
         </div>
 
-        <div class="reviews-grid">
-          <article class="review-card">
-            <div class="review-top">
-              <div>
-                <div class="review-name">Jessica M.</div>
-                <div class="review-meta">Age 31 • Combination skin</div>
+        <div class="reviews-shell">
+          <div class="rating-summary">
+            <div class="rating-overview">
+              <div class="rating-score">
+                <span>4.8</span>
+                <span class="stars">★★★★★</span>
               </div>
-              <div class="stars">★★★★★</div>
+              <div class="rating-note">Based on 2,184 verified reviews</div>
             </div>
-            <p>
-              “It feels much more premium than the price suggests. My skin looks fresher and smoother, and I love how quickly it absorbs.”
-            </p>
-          </article>
 
-          <article class="review-card">
-            <div class="review-top">
-              <div>
-                <div class="review-name">Amanda T.</div>
-                <div class="review-meta">Age 36 • Daily skincare user</div>
+            <div class="rating-bars">
+              <div class="rating-bar-row">
+                <span>5★</span>
+                <div class="rating-bar-track"><div class="rating-bar-fill" style="width:82%"></div></div>
+                <span>82%</span>
               </div>
-              <div class="stars">★★★★★</div>
+              <div class="rating-bar-row">
+                <span>4★</span>
+                <div class="rating-bar-track"><div class="rating-bar-fill" style="width:12%"></div></div>
+                <span>12%</span>
+              </div>
+              <div class="rating-bar-row">
+                <span>3★</span>
+                <div class="rating-bar-track"><div class="rating-bar-fill" style="width:4%"></div></div>
+                <span>4%</span>
+              </div>
+              <div class="rating-bar-row">
+                <span>2★</span>
+                <div class="rating-bar-track"><div class="rating-bar-fill" style="width:1%"></div></div>
+                <span>1%</span>
+              </div>
+              <div class="rating-bar-row">
+                <span>1★</span>
+                <div class="rating-bar-track"><div class="rating-bar-fill" style="width:1%"></div></div>
+                <span>1%</span>
+              </div>
             </div>
-            <p>
-              “This fits right into my routine. It feels light, leaves my skin comfortable, and gives it a brighter look.”
-            </p>
-          </article>
+          </div>
 
-          <article class="review-card">
-            <div class="review-top">
-              <div>
-                <div class="review-name">Lauren S.</div>
-                <div class="review-meta">Age 29 • Dullness concern</div>
+          <div class="reviews-grid" id="reviewsGrid">
+            <article class="review-card visible-review">
+              <div class="review-top">
+                <div>
+                  <div class="review-name">Jessica M.</div>
+                  <div class="verified-badge">✓ Verified Customer</div>
+                </div>
+                <div class="stars">★★★★★</div>
               </div>
-              <div class="stars">★★★★★</div>
+              <p>“My skin looks fresher and smoother. It absorbs quickly and feels much more premium than the price.”</p>
+            </article>
+
+            <article class="review-card visible-review">
+              <div class="review-top">
+                <div>
+                  <div class="review-name">Amanda T.</div>
+                  <div class="verified-badge">✓ Verified Customer</div>
+                </div>
+                <div class="stars">★★★★★</div>
+              </div>
+              <p>“Fits perfectly into my routine. Light, comfortable, and gives my skin a brighter glow.”</p>
+            </article>
+
+            <article class="review-card visible-review">
+              <div class="review-top">
+                <div>
+                  <div class="review-name">Lauren S.</div>
+                  <div class="verified-badge">✓ Verified Customer</div>
+                </div>
+                <div class="stars">★★★★★</div>
+              </div>
+              <p>“I wanted something brightening that didn’t feel heavy. This was easy to use and worked great.”</p>
+            </article>
+
+            <article class="review-card hidden-review">
+              <div class="review-top">
+                <div>
+                  <div class="review-name">Daniela R.</div>
+                  <div class="verified-badge">✓ Verified Customer</div>
+                </div>
+                <div class="stars">★★★★★</div>
+              </div>
+              <p>“After two weeks my skin tone looked much more even.”</p>
+            </article>
+
+            <article class="review-card hidden-review">
+              <div class="review-top">
+                <div>
+                  <div class="review-name">Emily K.</div>
+                  <div class="verified-badge">✓ Verified Customer</div>
+                </div>
+                <div class="stars">★★★★★</div>
+              </div>
+              <p>“Super lightweight and hydrating. I use it morning and night.”</p>
+            </article>
+
+            <article class="review-card hidden-review">
+              <div class="review-top">
+                <div>
+                  <div class="review-name">Sarah W.</div>
+                  <div class="verified-badge">✓ Verified Customer</div>
+                </div>
+                <div class="stars">★★★★★</div>
+              </div>
+              <p>“It feels very high quality and leaves a natural glow.”</p>
+            </article>
+
+            <article class="review-card hidden-review">
+              <div class="review-top">
+                <div>
+                  <div class="review-name">Nicole H.</div>
+                  <div class="verified-badge">✓ Verified Customer</div>
+                </div>
+                <div class="stars">★★★★★</div>
+              </div>
+              <p>“Great for everyday use. My skin feels smoother and softer.”</p>
+            </article>
+          </div>
+
+          <div class="reviews-actions">
+            <button class="review-toggle-btn" id="reviewToggleBtn" type="button">See More Reviews</button>
+          </div>
+
+          <div class="review-submit-wrap">
+            <div>
+              <h3>Share Your Experience</h3>
+              <p>
+                Have you tried d'Alba Vita? We only accept reviews from verified customers. After completing a purchase, customers receive a secure review code by email that allows them to leave a review.
+              </p>
             </div>
-            <p>
-              “I wanted something brightening that didn’t feel heavy or complicated. This was easy to use and gave my skin a healthier-looking glow.”
-            </p>
-          </article>
+
+            <div class="field">
+              <label for="reviewCodeInput">Enter your review code</label>
+              <div class="review-code-row">
+                <input class="review-code-input" id="reviewCodeInput" type="text" placeholder="Enter review code" />
+                <button class="review-verify-btn" id="verifyReviewCodeBtn" type="button">Verify Code</button>
+              </div>
+            </div>
+
+            <div class="fine-print" id="reviewCodeMessage">Reviews are accepted from verified customers only.</div>
+
+            <div class="review-form" id="reviewForm">
+              <div class="field">
+                <label>Your Rating</label>
+                <div class="star-select" id="starSelect">
+                  <span data-rating="1">★</span>
+                  <span data-rating="2">★</span>
+                  <span data-rating="3">★</span>
+                  <span data-rating="4">★</span>
+                  <span data-rating="5">★</span>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="reviewText">Write your review</label>
+                <textarea class="review-textarea" id="reviewText" placeholder="Share your experience with d'Alba Vita"></textarea>
+              </div>
+
+              <div class="review-note">Reviews are accepted from verified customers only.</div>
+
+              <div>
+                <button class="review-submit-btn" id="submitReviewBtn" type="button">Submit Review</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2445,9 +2927,9 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Frequently asked questions</span>
-          <h2 class="title">Everything you need to know before ordering.</h2>
+          <h2 class="title">Everything you need before you order with confidence</h2>
           <p class="subtitle">
-            Simple answers to the questions shoppers ask most before trying a new skincare product.
+            Clear answers about usage, texture, shipping, and checkout security—so you can order with confidence.
           </p>
         </div>
 
@@ -2466,19 +2948,19 @@
 
           <div class="faq-item">
             <button class="faq-question" type="button">
-              <span>How often should I use it?</span>
+              <span>How do I use it in my routine?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                It can be used daily after cleansing, either in the morning or evening, before moisturizer.
+                Use it after cleansing. Press a small amount onto face and neck, then follow with moisturizer and SPF in the morning.
               </div>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" type="button">
-              <span>Does it feel sticky or heavy?</span>
+              <span>Will it feel sticky, greasy, or heavy?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
@@ -2490,7 +2972,7 @@
 
           <div class="faq-item">
             <button class="faq-question" type="button">
-              <span>What shipping offer do I get?</span>
+              <span>How long will shipping take?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
@@ -2502,7 +2984,7 @@
 
           <div class="faq-item">
             <button class="faq-question" type="button">
-              <span>Is the checkout secure?</span>
+              <span>Is my payment and checkout secure?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
@@ -2511,6 +2993,10 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="faq-reassurance">
+          Order with confidence — secure checkout, fast shipping, and simple support if you need help.
         </div>
       </div>
     </section>
@@ -2525,22 +3011,31 @@
 
             <div>
               <span class="eyebrow">Ready for your glow routine</span>
-              <h3>Lightweight hydration, brighter-looking skin, and an easy daily step.</h3>
+              <h3>Brighter skin starts with one simple daily step.</h3>
               <p>
-                Choose your bundle and enjoy a skincare formula designed to feel fresh, simple, and beautifully easy to use every day.
+                Choose your bundle and start your glow routine today with a lightweight vitamin-C toner designed to brighten, hydrate, and smooth skin.
               </p>
-              <div class="benefit-chips" style="margin: 16px 0;">
-                <span class="chip">4.8-star rated</span>
-                <span class="chip">Glow guarantee</span>
-                <span class="chip">Free shipping on 2+</span>
+
+              <div class="final-trust-row">
+                <div class="final-trust-chip">⭐ 4.8★ Rated by 12,000+ customers</div>
+                <div class="final-trust-chip">✔ 30-Day Glow Guarantee</div>
+                <div class="final-trust-chip">🚚 Free 1-Day Shipping on Bundles</div>
               </div>
+
               <div class="purchase-actions">
                 <button class="primary-btn full" type="button" data-open-checkout>
-                  Secure Your Bundle
+                  Get Your Glow Bundle
                 </button>
-                <button class="secondary-btn full" type="button" data-scroll="#top">
-                  Back to Top
-                </button>
+
+                <div class="final-mini-trust">
+                  <span>🔒 Secure Checkout</span>
+                  <span>🚚 Fast 1-Day Shipping</span>
+                  <span>💳 All Major Cards Accepted</span>
+                </div>
+
+                <a class="return-top-link" href="#top">
+                  Return to Top ↑
+                </a>
               </div>
             </div>
           </div>
@@ -2549,9 +3044,120 @@
     </section>
   </main>
 
-  <footer>
-    <div class="container footer-inner">
-      <div>Vitamin C toner-serum for brighter-looking, hydrated, smoother-feeling skin.</div>
+  <div class="footer-trust-bar">
+    <div class="container footer-trust-inner">
+      <div>🚚 Free 1-Day Shipping</div>
+      <div>🔒 Secure SSL Checkout</div>
+      <div>⭐ Rated 4.8 / 5 by 12,000+ Customers</div>
+      <div>💳 All Major Cards Accepted</div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-stack">
+      <div class="footer-newsletter">
+        <h3>Get 10% Off Your First Order</h3>
+        <p>Join our skincare community and receive exclusive offers, skincare tips, and early access to new products.</p>
+        <div class="newsletter-form">
+          <input class="newsletter-input" type="email" placeholder="Enter your email address" />
+          <button class="newsletter-btn" type="button">Subscribe</button>
+        </div>
+      </div>
+
+      <div class="footer-social">
+        <h3>Follow Our Skincare Community</h3>
+        <div class="social-icons">
+          <span class="social-pill">Instagram</span>
+          <span class="social-pill">TikTok</span>
+          <span class="social-pill">YouTube</span>
+          <span class="social-pill">Facebook</span>
+        </div>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-group">
+          <button class="footer-group-toggle" type="button">
+            <span>Customer Care</span>
+            <span>▼</span>
+          </button>
+          <div class="footer-links">
+            <a href="#">Contact Us</a>
+            <a href="#">Order Tracking</a>
+            <a href="#">Shipping Information</a>
+            <a href="#">Returns & Refund Policy</a>
+            <a href="#">Product FAQ</a>
+            <a href="#">Help Center</a>
+          </div>
+        </div>
+
+        <div class="footer-group">
+          <button class="footer-group-toggle" type="button">
+            <span>About d'Alba Vita</span>
+            <span>▼</span>
+          </button>
+          <div class="footer-links">
+            <a href="#">Our Story</a>
+            <a href="#">Ingredients & Science</a>
+            <a href="#">Sustainability</a>
+            <a href="#">Dermatology Standards</a>
+            <a href="#">Affiliate Program</a>
+            <a href="#">Wholesale Opportunities</a>
+          </div>
+        </div>
+
+        <div class="footer-group">
+          <button class="footer-group-toggle" type="button">
+            <span>Shop</span>
+            <span>▼</span>
+          </button>
+          <div class="footer-links">
+            <a href="#">Vitamin C Glow Toner</a>
+            <a href="#">Bundle & Save Offers</a>
+            <a href="#">Starter Kit</a>
+            <a href="#">Best Value Bundle</a>
+            <a href="#">Skincare Routine Guide</a>
+          </div>
+        </div>
+
+        <div class="footer-group">
+          <button class="footer-group-toggle" type="button">
+            <span>Policies</span>
+            <span>▼</span>
+          </button>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Payment Security</a>
+            <a href="#">Refund Guarantee</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-social" style="padding-top:18px;">
+        <h3>Payment Methods</h3>
+        <div class="payment-icons">
+          <span class="payment-pill">Visa</span>
+          <span class="payment-pill">Mastercard</span>
+          <span class="payment-pill">American Express</span>
+          <span class="payment-pill">PayPal</span>
+          <span class="payment-pill">Apple Pay</span>
+          <span class="payment-pill">Google Pay</span>
+        </div>
+      </div>
+
+      <div class="footer-final-trust">
+        Trusted by over 12,000+ customers worldwide
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 d'Alba Vita Skincare — All Rights Reserved</div>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -2560,7 +3166,7 @@
       <div class="sticky-text">
         <div class="sticky-label">Current offer</div>
         <div class="sticky-product">Glow Duo • d'Alba Vita Toning Serum Toner</div>
-        <div class="sticky-price" id="stickyPrice">$16.95 • Free 1-Day Shipping</div>
+        <div class="sticky-price" id="stickyPrice">$18.95 • Free 1-Day Shipping</div>
       </div>
       <button class="primary-btn sticky-btn" type="button" data-open-checkout>
         Buy Now
@@ -2610,7 +3216,7 @@
         <div class="summary-totals">
           <div class="summary-line">
             <span>Subtotal</span>
-            <span id="summarySubtotal">$16.95</span>
+            <span id="summarySubtotal">$18.95</span>
           </div>
           <div class="summary-line">
             <span>Shipping</span>
@@ -2618,7 +3224,7 @@
           </div>
           <div class="summary-line total">
             <span>Total</span>
-            <span id="summaryTotal">$16.95</span>
+            <span id="summaryTotal">$18.95</span>
           </div>
         </div>
       </div>
@@ -2741,10 +3347,10 @@
               </p>
             </div>
 
-            <div class="guarantee-items">
-              <div class="guarantee-item"><strong>Customer:</strong> <span id="confirmName">—</span></div>
-              <div class="guarantee-item"><strong>Bundle:</strong> <span id="confirmBundle">Glow Duo • 2 Bottles</span></div>
-              <div class="guarantee-item"><strong>Total paid:</strong> <span id="confirmTotal">$16.95</span></div>
+            <div class="trust-list">
+              <div class="trust-item"><strong>Customer:</strong> <span id="confirmName">—</span></div>
+              <div class="trust-item"><strong>Bundle:</strong> <span id="confirmBundle">Glow Duo • 2 Bottles</span></div>
+              <div class="trust-item"><strong>Total paid:</strong> <span id="confirmTotal">$18.95</span></div>
             </div>
 
             <p class="fine-print">
@@ -2767,8 +3373,8 @@
         name: "Starter",
         fullName: "Starter • 1 Bottle",
         price: 9.95,
-        oldPrice: 20.00,
-        shippingLabel: "1-Day Shipping • $2.95",
+        oldPrice: 21.00,
+        shippingLabel: "1-Day Shipping • $2.95 shipping",
         shippingValue: 2.95,
         buttonText: "$9.95"
       },
@@ -2776,26 +3382,27 @@
         key: "duo",
         name: "Glow Duo",
         fullName: "Glow Duo • 2 Bottles",
-        price: 16.95,
-        oldPrice: 20.00,
+        price: 18.95,
+        oldPrice: 42.00,
         shippingLabel: "Free 1-Day Shipping",
         shippingValue: 0,
-        buttonText: "$16.95"
+        buttonText: "$18.95"
       },
       set: {
         key: "set",
         name: "Glow Set",
         fullName: "Glow Set • 3 Bottles",
-        price: 21.95,
-        oldPrice: 30.00,
+        price: 24.95,
+        oldPrice: 63.00,
         shippingLabel: "Free 1-Day Shipping",
         shippingValue: 0,
-        buttonText: "$21.95"
+        buttonText: "$24.95"
       }
     };
 
     let selectedBundle = "duo";
     let currentStep = 1;
+    let selectedReviewRating = 5;
 
     const heroPrice = document.getElementById("heroPrice");
     const heroShipping = document.getElementById("heroShipping");
@@ -2843,6 +3450,18 @@
     const heroThumbs = document.querySelectorAll(".hero-thumb");
     const heroOverlay = document.querySelector(".minimal-floating-note");
     const defaultHeroImageSrc = "images/1- Hero Product Image.png";
+
+    const reviewToggleBtn = document.getElementById("reviewToggleBtn");
+    const hiddenReviews = document.querySelectorAll(".hidden-review");
+    const verifyReviewCodeBtn = document.getElementById("verifyReviewCodeBtn");
+    const reviewCodeInput = document.getElementById("reviewCodeInput");
+    const reviewForm = document.getElementById("reviewForm");
+    const reviewCodeMessage = document.getElementById("reviewCodeMessage");
+    const starSelect = document.getElementById("starSelect");
+    const submitReviewBtn = document.getElementById("submitReviewBtn");
+    const reviewText = document.getElementById("reviewText");
+
+    const validReviewCodes = ["DALBA2026", "GLOW1842", "VERIFIED12", "VITAGLOW"];
 
     function money(value) {
       return `$${value.toFixed(2)}`;
@@ -3116,10 +3735,95 @@
       });
     });
 
+    if (reviewToggleBtn) {
+      let reviewsExpanded = false;
+      reviewToggleBtn.addEventListener("click", () => {
+        reviewsExpanded = !reviewsExpanded;
+
+        hiddenReviews.forEach(card => {
+          card.classList.toggle("visible-review", reviewsExpanded);
+        });
+
+        reviewToggleBtn.textContent = reviewsExpanded ? "Show Less" : "See More Reviews";
+      });
+    }
+
+    if (verifyReviewCodeBtn) {
+      verifyReviewCodeBtn.addEventListener("click", () => {
+        const code = reviewCodeInput.value.trim().toUpperCase();
+
+        if (validReviewCodes.includes(code)) {
+          reviewForm.classList.add("open");
+          reviewCodeMessage.textContent = "Code verified. You can now submit your review.";
+          reviewCodeMessage.style.color = "var(--success)";
+        } else {
+          reviewForm.classList.remove("open");
+          reviewCodeMessage.textContent = "Invalid code. Please use the secure review code sent to your email after purchase.";
+          reviewCodeMessage.style.color = "var(--danger)";
+        }
+      });
+    }
+
+    if (starSelect) {
+      const stars = starSelect.querySelectorAll("span");
+      function paintStars(rating) {
+        stars.forEach(star => {
+          star.classList.toggle("active", Number(star.dataset.rating) <= rating);
+        });
+      }
+
+      paintStars(selectedReviewRating);
+
+      stars.forEach(star => {
+        star.addEventListener("click", () => {
+          selectedReviewRating = Number(star.dataset.rating);
+          paintStars(selectedReviewRating);
+        });
+      });
+    }
+
+    if (submitReviewBtn) {
+      submitReviewBtn.addEventListener("click", () => {
+        const text = reviewText.value.trim();
+        if (!text) {
+          reviewCodeMessage.textContent = "Please write your review before submitting.";
+          reviewCodeMessage.style.color = "var(--danger)";
+          return;
+        }
+
+        reviewCodeMessage.textContent = "Thank you. Your verified review has been submitted successfully.";
+        reviewCodeMessage.style.color = "var(--success)";
+        reviewText.value = "";
+        reviewForm.classList.remove("open");
+        reviewCodeInput.value = "";
+      });
+    }
+
+    document.querySelectorAll(".footer-group-toggle").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (window.innerWidth > 699) return;
+        const group = btn.closest(".footer-group");
+        group.classList.toggle("closed");
+      });
+    });
+
+    function handleFooterState() {
+      document.querySelectorAll(".footer-group").forEach(group => {
+        if (window.innerWidth <= 699) {
+          group.classList.add("closed");
+        } else {
+          group.classList.remove("closed");
+        }
+      });
+    }
+
+    window.addEventListener("resize", handleFooterState);
+
     if (heroOverlay) {
       heroOverlay.style.display = "";
     }
 
+    handleFooterState();
     updateBundleUI();
     setStep(1);
   </script>
