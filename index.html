@@ -396,34 +396,6 @@
       line-height: 1;
     }
 
-    .floating-note {
-      position: absolute;
-      bottom: 14px;
-      left: 14px;
-      right: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      background: rgba(255,255,255,0.92);
-      border: 1px solid rgba(83, 62, 45, 0.08);
-      padding: 12px 14px;
-      border-radius: 18px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .floating-note strong {
-      display: block;
-      font-size: 14px;
-      line-height: 1.2;
-    }
-
-    .floating-note span {
-      display: block;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
     .hero-content {
       border-radius: var(--radius-xl);
       padding: 18px;
@@ -462,24 +434,23 @@
       margin: 0;
       color: var(--muted);
       font-size: 15px;
-      max-width: 46ch;
+      max-width: 42ch;
       line-height: 1.7;
     }
 
-    .benefit-chips {
-      display: flex;
-      flex-wrap: wrap;
+    .benefit-list {
+      display: grid;
       gap: 10px;
     }
 
-    .chip {
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: var(--bg-soft);
+    .benefit-list-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       color: var(--text);
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
-      border: 1px solid rgba(83, 62, 45, 0.08);
+      line-height: 1.4;
     }
 
     .purchase-box {
@@ -488,16 +459,13 @@
       border-radius: 24px;
       padding: 16px;
       display: grid;
-      gap: 14px;
+      gap: 16px;
       box-shadow: var(--shadow-soft);
     }
 
     .price-wrap {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
+      display: grid;
+      gap: 8px;
     }
 
     .price-main {
@@ -513,13 +481,15 @@
       line-height: 1;
     }
 
-    .price-old {
+    .price-per-bottle {
       color: var(--muted);
       font-weight: 700;
-      font-size: 15px;
+      font-size: 14px;
+      line-height: 1.2;
     }
 
     .shipping-note {
+      width: fit-content;
       font-size: 13px;
       color: var(--success);
       font-weight: 700;
@@ -557,6 +527,10 @@
       background: linear-gradient(180deg, #fff, #f7efe6);
     }
 
+    .bundle-option[data-bundle="trio"] {
+      border-width: 2px;
+    }
+
     .bundle-top {
       display: flex;
       align-items: start;
@@ -571,25 +545,10 @@
     }
 
     .bundle-sub {
-      margin: 3px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .bundle-price {
-      text-align: right;
-    }
-
-    .bundle-total {
-      font-size: 21px;
-      font-weight: 800;
-      line-height: 1;
-    }
-
-    .bundle-each {
-      color: var(--muted);
-      font-size: 12px;
-      margin-top: 4px;
+      margin: 4px 0 0;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 700;
     }
 
     .bundle-compare {
@@ -597,14 +556,22 @@
       align-items: center;
       gap: 8px;
       flex-wrap: wrap;
-      font-size: 12px;
+      font-size: 13px;
       color: var(--muted);
       font-weight: 700;
     }
 
     .bundle-compare strong {
-      color: var(--accent-dark);
+      color: var(--text);
       font-size: 13px;
+    }
+
+    .bundle-benefits {
+      display: grid;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
     }
 
     .bundle-badge {
@@ -648,24 +615,9 @@
       gap: 8px;
     }
 
-    .cta-support {
-      text-align: center;
-      color: var(--muted);
-      font-size: 12.5px;
-      line-height: 1.55;
-      font-weight: 600;
-    }
-
-    .cta-support strong {
-      display: block;
-      color: var(--text);
-      font-size: 13px;
-      margin-bottom: 2px;
-    }
-
     .secure-row {
       display: grid;
-      gap: 8px;
+      gap: 6px;
       justify-items: center;
       text-align: center;
       color: var(--muted);
@@ -689,12 +641,6 @@
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.02em;
-    }
-
-    .trust-strip-line.meta {
-      color: var(--muted);
-      font-size: 11.5px;
-      font-weight: 600;
     }
 
     .card-icons {
@@ -1584,6 +1530,7 @@
     }
 
     .sticky-text { min-width: 0; }
+
     .sticky-label {
       font-size: 12px;
       color: var(--muted);
@@ -1903,36 +1850,12 @@
       -webkit-backdrop-filter: blur(8px);
     }
 
-    .minimal-floating-note {
-      justify-content: flex-start;
-      background: rgba(255,255,255,0.84);
-      border: 1px solid rgba(83, 62, 45, 0.06);
-      box-shadow: 0 10px 22px rgba(53, 35, 20, 0.06);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    .minimal-floating-note strong {
-      display: block;
-      margin: 0 0 4px;
-      font-size: 15px;
-      line-height: 1.15;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .minimal-floating-note span {
-      display: block;
-      font-size: 12px;
-      line-height: 1.4;
-      color: var(--muted);
-    }
-
     #heroBundles .bundle-option[data-bundle="starter"] { order: 1; }
     #heroBundles .bundle-option[data-bundle="trio"] { order: 2; }
 
     @media (max-width: 699px) {
       .topbar { min-height: 38px; }
+
       .topbar-track {
         gap: 12px;
         padding: 9px 0;
@@ -2085,20 +2008,11 @@
       }
 
       .hero-title { line-height: 1.01; }
+
       .hero-desc {
         font-size: 14px;
         line-height: 1.65;
       }
-
-      .minimal-floating-note {
-        left: 12px;
-        right: 12px;
-        bottom: 12px;
-        padding: 11px 12px;
-      }
-
-      .minimal-floating-note strong { font-size: 14px; }
-      .minimal-floating-note span { font-size: 11.5px; }
 
       .faq-question {
         min-height: 68px;
@@ -2125,6 +2039,7 @@
 
     @media (min-width: 700px) {
       .section { padding: 40px 0; }
+
       .hero-grid {
         grid-template-columns: 1.02fr 0.98fr;
         align-items: stretch;
@@ -2221,15 +2136,7 @@
           <div class="hero-gallery">
             <div class="hero-main-media" id="heroMainMedia">
               <img id="heroMainImage" src="assets/images/buy-2-get-1-free-dalba-vita-toner-offer.png" alt="Buy 2 Get 1 FREE d'Alba Vita toner promotional offer" />
-
               <span class="hero-badge-minimal">Vitamin C Toner Serum</span>
-
-              <div class="floating-note minimal-floating-note">
-                <div>
-                  <strong>Lightweight Glow Toner</strong>
-                  <span>Brightens • Hydrates • Smooths</span>
-                </div>
-              </div>
             </div>
 
             <div class="hero-thumbnails" id="heroThumbnails">
@@ -2291,22 +2198,22 @@
               <span>for Brighter, Smoother Skin</span>
             </h1>
             <p class="hero-desc">
-              Lightweight vitamin C toner-serum that brightens dull skin, evens tone, and deeply hydrates with a fast-absorbing formula.
+              Lightweight vitamin C toner that evens skin tone and boosts glow.
             </p>
           </div>
 
-          <div class="benefit-chips">
-            <span class="chip">Brightens dull skin</span>
-            <span class="chip">Evens skin tone</span>
-            <span class="chip">Deep hydration</span>
-            <span class="chip">Fast absorbing</span>
+          <div class="benefit-list" aria-label="Key product benefits">
+            <div class="benefit-list-item">✔ Brightens dull skin</div>
+            <div class="benefit-list-item">✔ Evens skin tone</div>
+            <div class="benefit-list-item">✔ Deep hydration</div>
+            <div class="benefit-list-item">✔ Fast absorbing</div>
           </div>
 
           <div class="purchase-box">
             <div class="price-wrap">
               <div class="price-main">
-                <span class="price-now" id="heroPrice">$14.00</span>
-                <span class="price-old">Was $21.00</span>
+                <span class="price-now" id="heroPrice">$28</span>
+                <span class="price-per-bottle" id="heroPerBottle">$14 per bottle</span>
               </div>
               <span class="shipping-note" id="heroShipping">Free 1-Day Shipping</span>
             </div>
@@ -2316,16 +2223,11 @@
                 <div class="bundle-top">
                   <div>
                     <p class="bundle-name">Starter</p>
-                    <p class="bundle-sub">1 Bottle</p>
-                  </div>
-                  <div class="bundle-price">
-                    <div class="bundle-total">$14.00</div>
-                    <div class="bundle-each">Free 1-Day Shipping</div>
+                    <p class="bundle-sub">1 Bottle — $14</p>
                   </div>
                 </div>
                 <div class="bundle-compare">
-                  <span>Was $21.00</span>
-                  <strong>Good for first-time buyers</strong>
+                  <strong>Good for first-time users</strong>
                 </div>
               </div>
 
@@ -2334,34 +2236,25 @@
                 <div class="bundle-top">
                   <div>
                     <p class="bundle-name">Glow Trio</p>
-                    <p class="bundle-sub">Buy 2 Get 1 FREE • 3 Bottles</p>
-                  </div>
-                  <div class="bundle-price">
-                    <div class="bundle-total">$28.00</div>
-                    <div class="bundle-each">Free 1-Day Shipping</div>
+                    <p class="bundle-sub">3 Bottles — $28</p>
                   </div>
                 </div>
-                <div class="bundle-compare">
-                  <span>Was $63.00</span>
-                  <strong>Save $35</strong>
+                <div class="bundle-benefits">
+                  <span>✔ Buy 2 Get 1 FREE</span>
+                  <span>✔ Save $35</span>
                 </div>
               </div>
             </div>
 
             <div class="purchase-actions">
-              <button class="primary-btn full" type="button" data-open-checkout>
-                Claim Your Buy 2 Get 1 FREE Offer
+              <button class="primary-btn full" type="button" data-open-checkout id="heroCtaBtn">
+                Claim Your Buy 2 Get 1 FREE
               </button>
-              <div class="cta-support">
-                <strong>3 Bottles — $28</strong>
-                <span>Regular Price $63 • Save $35</span>
-              </div>
             </div>
 
             <div class="secure-row" aria-label="Secure payment trust strip">
-              <div class="trust-strip-line primary">🔒 Secure SSL Checkout</div>
+              <div class="trust-strip-line primary">🔒 Secure Checkout</div>
               <div class="trust-strip-line cards">Visa • Mastercard • American Express</div>
-              <div class="trust-strip-line meta">All major cards accepted</div>
             </div>
           </div>
         </div>
@@ -3280,20 +3173,20 @@
         name: "Starter",
         fullName: "Starter • 1 Bottle",
         price: 14.00,
-        oldPrice: 21.00,
+        perBottleText: "$14 per bottle",
         shippingLabel: "Free 1-Day Shipping",
         shippingValue: 0,
-        buttonText: "Claim Your Buy 2 Get 1 FREE Offer"
+        buttonText: "Get Your First Bottle"
       },
       trio: {
         key: "trio",
         name: "Glow Trio",
         fullName: "Glow Trio • 3 Bottles",
         price: 28.00,
-        oldPrice: 63.00,
+        perBottleText: "$14 per bottle",
         shippingLabel: "Free 1-Day Shipping",
         shippingValue: 0,
-        buttonText: "Claim Your Buy 2 Get 1 FREE Offer"
+        buttonText: "Claim Your Buy 2 Get 1 FREE"
       }
     };
 
@@ -3302,7 +3195,9 @@
     let selectedReviewRating = 5;
 
     const heroPrice = document.getElementById("heroPrice");
+    const heroPerBottle = document.getElementById("heroPerBottle");
     const heroShipping = document.getElementById("heroShipping");
+    const heroCtaBtn = document.getElementById("heroCtaBtn");
     const stickyPrice = document.getElementById("stickyPrice");
 
     const summaryBundleName = document.getElementById("summaryBundleName");
@@ -3340,12 +3235,9 @@
     const cvvInput = document.getElementById("cvv");
 
     const confirmName = document.getElementById("confirmName");
-    const priceOld = document.querySelector(".price-old");
 
     const heroMainMedia = document.getElementById("heroMainMedia");
     const heroThumbs = document.querySelectorAll(".hero-thumb");
-    const heroOverlay = document.querySelector(".minimal-floating-note");
-    const defaultHeroImageSrc = "images/1- Hero Product Image.png";
 
     const reviewToggleBtn = document.getElementById("reviewToggleBtn");
     const hiddenReviews = document.querySelectorAll(".hidden-review");
@@ -3367,6 +3259,7 @@
       const data = bundles[selectedBundle];
 
       heroPrice.textContent = data.price % 1 === 0 ? `$${data.price.toFixed(0)}` : money(data.price);
+      heroPerBottle.textContent = data.perBottleText;
       heroShipping.textContent = data.shippingLabel;
       stickyPrice.textContent = `${money(data.price)} • ${data.shippingLabel}`;
 
@@ -3375,8 +3268,8 @@
         stickyProduct.textContent = `${data.name} • d'Alba Vita Toning Serum Toner`;
       }
 
-      if (priceOld) {
-        priceOld.textContent = `Was ${money(data.oldPrice)}`;
+      if (heroCtaBtn) {
+        heroCtaBtn.textContent = data.buttonText;
       }
 
       summaryBundleName.textContent = data.fullName;
@@ -3527,11 +3420,6 @@
         img.alt = alt;
         heroMainMedia.insertBefore(img, heroMainMedia.firstChild);
       }
-
-      if (heroOverlay) {
-        const isOriginalHeroImage = type === "image" && src === defaultHeroImageSrc;
-        heroOverlay.style.display = isOriginalHeroImage ? "" : "none";
-      }
     }
 
     document.querySelectorAll("[data-scroll]").forEach(btn => {
@@ -3665,6 +3553,7 @@
 
     if (starSelect) {
       const stars = starSelect.querySelectorAll("span");
+
       function paintStars(rating) {
         stars.forEach(star => {
           star.classList.toggle("active", Number(star.dataset.rating) <= rating);
@@ -3717,10 +3606,6 @@
     }
 
     window.addEventListener("resize", handleFooterState);
-
-    if (heroOverlay) {
-      heroOverlay.style.display = "none";
-    }
 
     handleFooterState();
     updateBundleUI();
