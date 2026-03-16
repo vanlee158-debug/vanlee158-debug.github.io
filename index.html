@@ -179,12 +179,12 @@
     }
 
     .site-header-inner {
-      min-height: 72px;
+      min-height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 10px 0;
+      gap: 10px;
+      padding: 8px 0;
     }
 
     .brand {
@@ -222,7 +222,7 @@
       border: 0;
       border-radius: 999px;
       cursor: pointer;
-      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), opacity var(--transition);
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), opacity var(--transition), filter var(--transition);
     }
 
     .ghost-btn {
@@ -265,9 +265,16 @@
     }
 
     .header-shop-btn {
-      padding: 12px 18px;
-      min-height: 46px;
+      padding: 10px 16px;
+      min-height: 42px;
       white-space: nowrap;
+      box-shadow: 0 10px 20px rgba(141, 103, 72, 0.16);
+    }
+
+    .header-shop-btn:hover {
+      background: linear-gradient(135deg, #ad835d, #7f5d41);
+      box-shadow: 0 12px 22px rgba(141, 103, 72, 0.2);
+      filter: saturate(1.02);
     }
 
     .hero {
@@ -495,7 +502,7 @@
 
     .price-main {
       display: flex;
-      align-items: center;
+      align-items: end;
       gap: 10px;
       flex-wrap: wrap;
     }
@@ -508,9 +515,8 @@
 
     .price-old {
       color: var(--muted);
-      text-decoration: line-through;
       font-weight: 700;
-      font-size: 16px;
+      font-size: 15px;
     }
 
     .shipping-note {
@@ -623,19 +629,14 @@
       border: 1px solid rgba(255,255,255,0.45);
     }
 
-    .bundle-option[data-bundle="duo"] .bundle-badge {
+    .bundle-option[data-bundle="trio"] .bundle-badge {
       background: linear-gradient(135deg, var(--accent), var(--accent-dark));
       color: #fff;
     }
 
-    .bundle-option[data-bundle="set"] .bundle-badge {
-      background: linear-gradient(180deg, #ead9c7, #dbc1a5);
-      color: #5f4530;
-    }
-
     .purchase-actions {
       display: grid;
-      gap: 10px;
+      gap: 8px;
     }
 
     .primary-btn.full,
@@ -647,14 +648,52 @@
       gap: 8px;
     }
 
+    .cta-support {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .cta-support strong {
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
     .secure-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+      text-align: center;
       color: var(--muted);
       font-size: 12px;
+      font-weight: 600;
+      padding-top: 2px;
+    }
+
+    .trust-strip-line {
+      line-height: 1.4;
+    }
+
+    .trust-strip-line.primary {
+      color: var(--text);
+      font-size: 12.5px;
+      font-weight: 800;
+    }
+
+    .trust-strip-line.cards {
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .trust-strip-line.meta {
+      color: var(--muted);
+      font-size: 11.5px;
       font-weight: 600;
     }
 
@@ -977,6 +1016,7 @@
 
     .offer-grid {
       align-items: stretch;
+      justify-content: center;
     }
 
     .offer-card {
@@ -1020,11 +1060,6 @@
       color: white;
     }
 
-    .offer-card[data-offer="set"] .offer-badge {
-      background: linear-gradient(180deg, #ead9c7, #dbc1a5);
-      color: #5f4530;
-    }
-
     .offer-title {
       margin: 0;
       font-size: 20px;
@@ -1058,7 +1093,6 @@
     .offer-old {
       font-size: 14px;
       color: var(--muted);
-      text-decoration: line-through;
       font-weight: 700;
     }
 
@@ -1894,9 +1928,8 @@
       color: var(--muted);
     }
 
-    #heroBundles .bundle-option[data-bundle="duo"] { order: 1; }
-    #heroBundles .bundle-option[data-bundle="set"] { order: 2; }
-    #heroBundles .bundle-option[data-bundle="starter"] { order: 3; }
+    #heroBundles .bundle-option[data-bundle="starter"] { order: 1; }
+    #heroBundles .bundle-option[data-bundle="trio"] { order: 2; }
 
     @media (max-width: 699px) {
       .topbar { min-height: 38px; }
@@ -1912,8 +1945,8 @@
       }
 
       .site-header-inner {
-        min-height: 68px;
-        gap: 12px;
+        min-height: 60px;
+        gap: 8px;
       }
 
       .brand-wordmark {
@@ -1922,8 +1955,8 @@
       }
 
       .header-shop-btn {
-        padding: 11px 14px;
-        min-height: 42px;
+        padding: 9px 14px;
+        min-height: 40px;
         font-size: 13px;
       }
 
@@ -1961,9 +1994,6 @@
       }
 
       .offer-grid { grid-template-columns: 1fr; }
-      .offer-card[data-offer="duo"] { order: 1; }
-      .offer-card[data-offer="set"] { order: 2; }
-      .offer-card[data-offer="starter"] { order: 3; }
 
       .hero-badge-minimal {
         top: 12px;
@@ -1973,7 +2003,7 @@
       }
 
       .hero-thumbnails {
-        grid-template-columns: repeat(8, 84px);
+        grid-template-columns: repeat(9, 84px);
         overflow-x: auto;
         padding-bottom: 4px;
       }
@@ -2029,7 +2059,7 @@
 
     @media (max-width: 520px) {
       .header-shop-btn {
-        padding: 10px 12px;
+        padding: 9px 12px;
         min-width: auto;
       }
 
@@ -2051,7 +2081,7 @@
       }
 
       .hero-thumbnails {
-        grid-template-columns: repeat(8, 76px);
+        grid-template-columns: repeat(9, 76px);
       }
 
       .hero-title { line-height: 1.01; }
@@ -2080,7 +2110,7 @@
       }
 
       .secure-row {
-        align-items: flex-start;
+        align-items: center;
       }
 
       .secure-cards-image {
@@ -2115,7 +2145,7 @@
       }
 
       .offer-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 360px));
       }
 
       .glance-benefits {
@@ -2132,11 +2162,11 @@
     }
 
     @media (min-width: 980px) {
-      .site-header-inner { min-height: 72px; }
+      .site-header-inner { min-height: 64px; }
       .section { padding: 54px 0; }
 
       .offer-card.featured {
-        transform: scale(1.08);
+        transform: scale(1.04);
         z-index: 2;
       }
 
@@ -2154,18 +2184,18 @@
   <div class="topbar">
     <div class="topbar-marquee" aria-label="Store trust messages">
       <div class="topbar-track">
-        <span class="topbar-item">🚚 Free 1-Day Shipping</span>
+        <span class="topbar-item">🚚 Free Shipping</span>
         <span class="topbar-divider">•</span>
-        <span class="topbar-item">⭐ 4.8 / 5 Rated — Trusted by over 12,000 customers</span>
+        <span class="topbar-item">⭐ 4.8 / 5 Rating</span>
         <span class="topbar-divider">•</span>
-        <span class="topbar-item">🔒 Secure SSL Checkout</span>
+        <span class="topbar-item">🔒 Secure Checkout</span>
 
         <span class="topbar-divider">•</span>
-        <span class="topbar-item">🚚 Free 1-Day Shipping</span>
+        <span class="topbar-item">🚚 Free Shipping</span>
         <span class="topbar-divider">•</span>
-        <span class="topbar-item">⭐ 4.8 / 5 Rated — Trusted by over 12,000 customers</span>
+        <span class="topbar-item">⭐ 4.8 / 5 Rating</span>
         <span class="topbar-divider">•</span>
-        <span class="topbar-item">🔒 Secure SSL Checkout</span>
+        <span class="topbar-item">🔒 Secure Checkout</span>
       </div>
     </div>
   </div>
@@ -2178,7 +2208,7 @@
 
       <div class="header-actions">
         <button class="primary-btn header-shop-btn" data-scroll="#offer">
-          Shop Now
+          Shop
         </button>
       </div>
     </div>
@@ -2190,7 +2220,7 @@
         <div class="hero-media">
           <div class="hero-gallery">
             <div class="hero-main-media" id="heroMainMedia">
-              <img id="heroMainImage" src="images/1- Hero Product Image.png" alt="d'Alba Vita Toning Serum Toner bottle" />
+              <img id="heroMainImage" src="assets/images/buy-2-get-1-free-dalba-vita-toner-offer.png" alt="Buy 2 Get 1 FREE d'Alba Vita toner promotional offer" />
 
               <span class="hero-badge-minimal">Vitamin C Toner Serum</span>
 
@@ -2203,15 +2233,12 @@
             </div>
 
             <div class="hero-thumbnails" id="heroThumbnails">
-              <button class="hero-thumb active" type="button" data-type="image" data-src="images/1- Hero Product Image.png" data-alt="d'Alba Vita Toning Serum Toner bottle">
-                <img src="images/1- Hero Product Image.png" alt="Hero product thumbnail" />
+              <button class="hero-thumb active" type="button" data-type="image" data-src="assets/images/buy-2-get-1-free-dalba-vita-toner-offer.png" data-alt="Buy 2 Get 1 FREE d'Alba Vita toner promotional offer">
+                <img src="assets/images/buy-2-get-1-free-dalba-vita-toner-offer.png" alt="Promotional offer thumbnail" />
               </button>
 
-              <button class="hero-thumb" type="button" data-type="video" data-src="images/2- video.mp4">
-                <video muted playsinline preload="metadata">
-                  <source src="images/2- video.mp4" type="video/mp4" />
-                </video>
-                <span class="hero-thumb-video-badge">▶ Video</span>
+              <button class="hero-thumb" type="button" data-type="image" data-src="images/1- Hero Product Image.png" data-alt="d'Alba Vita Toning Serum Toner bottle">
+                <img src="images/1- Hero Product Image.png" alt="Hero product thumbnail" />
               </button>
 
               <button class="hero-thumb" type="button" data-type="image" data-src="images/3- Texture droplet image.png" data-alt="Serum toner texture droplet close-up">
@@ -2220,6 +2247,13 @@
 
               <button class="hero-thumb" type="button" data-type="image" data-src="images/4- Ingredients image.png" data-alt="Ingredients image for d'Alba Vita Toning Serum Toner">
                 <img src="images/4- Ingredients image.png" alt="Ingredients thumbnail" />
+              </button>
+
+              <button class="hero-thumb" type="button" data-type="video" data-src="images/2- video.mp4">
+                <video muted playsinline preload="metadata">
+                  <source src="images/2- video.mp4" type="video/mp4" />
+                </video>
+                <span class="hero-thumb-video-badge">▶ Video</span>
               </button>
 
               <button class="hero-thumb" type="button" data-type="image" data-src="images/5- Model Using Serum Image .png" data-alt="Model using d'Alba Vita Toning Serum Toner">
@@ -2271,49 +2305,13 @@
           <div class="purchase-box">
             <div class="price-wrap">
               <div class="price-main">
-                <span class="price-now" id="heroPrice">$18.95</span>
-                <span class="price-old">$42.00</span>
+                <span class="price-now" id="heroPrice">$14.00</span>
+                <span class="price-old">Was $21.00</span>
               </div>
               <span class="shipping-note" id="heroShipping">Free 1-Day Shipping</span>
             </div>
 
             <div class="bundle-grid" id="heroBundles">
-              <div class="bundle-option active" data-bundle="duo" tabindex="0">
-                <span class="bundle-badge">Most Popular</span>
-                <div class="bundle-top">
-                  <div>
-                    <p class="bundle-name">Glow Duo</p>
-                    <p class="bundle-sub">2 Bottles</p>
-                  </div>
-                  <div class="bundle-price">
-                    <div class="bundle-total">$18.95</div>
-                    <div class="bundle-each">$9.47 each • Free 1-Day Shipping</div>
-                  </div>
-                </div>
-                <div class="bundle-compare">
-                  <span>Was $42.00</span>
-                  <strong>55% OFF</strong>
-                </div>
-              </div>
-
-              <div class="bundle-option" data-bundle="set" tabindex="0">
-                <span class="bundle-badge">Best Value</span>
-                <div class="bundle-top">
-                  <div>
-                    <p class="bundle-name">Glow Set</p>
-                    <p class="bundle-sub">3 Bottles</p>
-                  </div>
-                  <div class="bundle-price">
-                    <div class="bundle-total">$24.95</div>
-                    <div class="bundle-each">$8.31 each • Free 1-Day Shipping</div>
-                  </div>
-                </div>
-                <div class="bundle-compare">
-                  <span>Was $63.00</span>
-                  <strong>60% OFF</strong>
-                </div>
-              </div>
-
               <div class="bundle-option" data-bundle="starter" tabindex="0">
                 <div class="bundle-top">
                   <div>
@@ -2321,31 +2319,49 @@
                     <p class="bundle-sub">1 Bottle</p>
                   </div>
                   <div class="bundle-price">
-                    <div class="bundle-total">$9.95</div>
-                    <div class="bundle-each">1-Day Shipping • $2.95 shipping</div>
+                    <div class="bundle-total">$14.00</div>
+                    <div class="bundle-each">Free 1-Day Shipping</div>
                   </div>
                 </div>
                 <div class="bundle-compare">
                   <span>Was $21.00</span>
-                  <strong>53% OFF</strong>
+                  <strong>Good for first-time buyers</strong>
+                </div>
+              </div>
+
+              <div class="bundle-option active" data-bundle="trio" tabindex="0">
+                <span class="bundle-badge">Most Popular</span>
+                <div class="bundle-top">
+                  <div>
+                    <p class="bundle-name">Glow Trio</p>
+                    <p class="bundle-sub">Buy 2 Get 1 FREE • 3 Bottles</p>
+                  </div>
+                  <div class="bundle-price">
+                    <div class="bundle-total">$28.00</div>
+                    <div class="bundle-each">Free 1-Day Shipping</div>
+                  </div>
+                </div>
+                <div class="bundle-compare">
+                  <span>Was $63.00</span>
+                  <strong>Save $35</strong>
                 </div>
               </div>
             </div>
 
             <div class="purchase-actions">
               <button class="primary-btn full" type="button" data-open-checkout>
-                Get Brighter Skin Today — <span id="heroButtonPrice">$18.95</span>
+                Claim Your Buy 2 Get 1 FREE Offer
               </button>
-              <button class="secondary-btn full" type="button" data-scroll="#offer">
-                Compare Bundles
-              </button>
+              <div class="cta-support">
+                <strong>3 Bottles — $28</strong>
+                <span>Regular Price $63 • Save $35</span>
+              </div>
             </div>
 
-            <div class="secure-row">
-              <span>SSL Secure Checkout • Ships in 1 Business Day</span>
-              <div class="card-icons" aria-label="Accepted payment cards">
-                <img class="secure-cards-image" src="assets/images/secure-checkout-cards.png" alt="Secure checkout accepted cards" />
-              </div>
+            <div class="secure-row" aria-label="Secure payment trust strip">
+              <div class="trust-strip-line primary">🔒 Secure SSL Checkout</div>
+              <div class="trust-strip-line cards">Visa • Mastercard • American Express</div>
+              <div class="trust-strip-line meta">All major cards accepted</div>
             </div>
           </div>
         </div>
@@ -2634,7 +2650,7 @@
           <span class="eyebrow">Choose your bundle</span>
           <h2 class="title">Pick the option that fits your routine best.</h2>
           <p class="subtitle">
-            Start small or save more with our most popular glow bundles.
+            Start small or claim the Buy 2 Get 1 FREE offer with our most popular bundle.
           </p>
         </div>
 
@@ -2646,64 +2662,41 @@
             </div>
             <div class="offer-price">
               <div class="offer-price-top">
-                <span class="offer-total">$9.95</span>
-                <span class="offer-old">$21.00</span>
+                <span class="offer-total">$14.00</span>
+                <span class="offer-old">Was $21.00</span>
               </div>
-              <span class="offer-save">53% OFF</span>
-              <span class="offer-ship">1-Day Shipping • $2.95 shipping</span>
+              <span class="offer-save">Good for first-time buyers</span>
+              <span class="offer-ship">Free 1-Day Shipping</span>
             </div>
             <ul class="offer-list">
               <li>Lowest entry price to try it</li>
               <li>Simple first order option</li>
-              <li>Quick 1-day shipping available</li>
+              <li>Fast free shipping included</li>
             </ul>
             <button class="secondary-btn full" type="button" data-select-offer="starter">Choose Starter</button>
           </article>
 
-          <article class="offer-card featured" data-offer="duo">
+          <article class="offer-card featured" data-offer="trio">
             <span class="offer-badge">Most Popular</span>
             <div class="offer-head">
-              <h3 class="offer-title">Glow Duo</h3>
-              <p class="offer-desc">2 Bottles</p>
+              <h3 class="offer-title">Glow Trio</h3>
+              <p class="offer-desc">Buy 2 Get 1 FREE • 3 Bottles</p>
             </div>
             <div class="offer-price">
               <div class="offer-price-top">
-                <span class="offer-total">$18.95</span>
-                <span class="offer-old">$42.00</span>
+                <span class="offer-total">$28.00</span>
+                <span class="offer-old">Was $63.00</span>
               </div>
-              <span class="offer-save">55% OFF</span>
-              <span class="offer-mini">Only $9.47 per bottle</span>
+              <span class="offer-save">Save $35</span>
+              <span class="offer-mini">3 Bottles total</span>
               <span class="offer-ship">Free 1-Day Shipping</span>
             </div>
             <ul class="offer-list">
-              <li>Best balance of value and commitment</li>
-              <li>Most popular option for shoppers</li>
-              <li>Free shipping for easier checkout</li>
+              <li>Clear Instagram offer with lower friction</li>
+              <li>Best value for the routine</li>
+              <li>Free shipping for faster checkout</li>
             </ul>
-            <button class="primary-btn full" type="button" data-select-offer="duo">Choose Glow Duo</button>
-          </article>
-
-          <article class="offer-card" data-offer="set">
-            <span class="offer-badge">Best Value</span>
-            <div class="offer-head">
-              <h3 class="offer-title">Glow Set</h3>
-              <p class="offer-desc">3 Bottles</p>
-            </div>
-            <div class="offer-price">
-              <div class="offer-price-top">
-                <span class="offer-total">$24.95</span>
-                <span class="offer-old">$63.00</span>
-              </div>
-              <span class="offer-save">60% OFF</span>
-              <span class="offer-mini">Only $8.31 per bottle</span>
-              <span class="offer-ship">Free 1-Day Shipping</span>
-            </div>
-            <ul class="offer-list">
-              <li>Lowest cost per bottle</li>
-              <li>Best savings on one order</li>
-              <li>Perfect for a longer glow routine</li>
-            </ul>
-            <button class="secondary-btn full" type="button" data-select-offer="set">Choose Glow Set</button>
+            <button class="primary-btn full" type="button" data-select-offer="trio">Choose Glow Trio</button>
           </article>
         </div>
       </div>
@@ -2942,7 +2935,7 @@
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                The Starter option includes 1-Day Shipping for $2.95, while the 2-bottle and 3-bottle bundles include Free 1-Day Shipping.
+                All current bundle options include Free 1-Day Shipping.
               </div>
             </div>
           </div>
@@ -3079,8 +3072,8 @@
     <div class="sticky-buy-inner">
       <div class="sticky-text">
         <div class="sticky-label">Current offer</div>
-        <div class="sticky-product">Glow Duo • d'Alba Vita Toning Serum Toner</div>
-        <div class="sticky-price" id="stickyPrice">$18.95 • Free 1-Day Shipping</div>
+        <div class="sticky-product">Glow Trio • d'Alba Vita Toning Serum Toner</div>
+        <div class="sticky-price" id="stickyPrice">$28.00 • Free 1-Day Shipping</div>
       </div>
       <button class="primary-btn sticky-btn" type="button" data-open-checkout>
         Buy Now
@@ -3122,7 +3115,7 @@
           </div>
           <div>
             <p class="summary-title">d'Alba Vita Toning Serum Toner</p>
-            <div class="summary-meta" id="summaryBundleName">Glow Duo • 2 Bottles</div>
+            <div class="summary-meta" id="summaryBundleName">Glow Trio • 3 Bottles</div>
             <div class="summary-price-line" id="summaryShippingLine">Free 1-Day Shipping</div>
           </div>
         </div>
@@ -3130,7 +3123,7 @@
         <div class="summary-totals">
           <div class="summary-line">
             <span>Subtotal</span>
-            <span id="summarySubtotal">$18.95</span>
+            <span id="summarySubtotal">$28.00</span>
           </div>
           <div class="summary-line">
             <span>Shipping</span>
@@ -3138,7 +3131,7 @@
           </div>
           <div class="summary-line total">
             <span>Total</span>
-            <span id="summaryTotal">$18.95</span>
+            <span id="summaryTotal">$28.00</span>
           </div>
         </div>
       </div>
@@ -3263,8 +3256,8 @@
 
             <div class="trust-list">
               <div class="trust-item"><strong>Customer:</strong> <span id="confirmName">—</span></div>
-              <div class="trust-item"><strong>Bundle:</strong> <span id="confirmBundle">Glow Duo • 2 Bottles</span></div>
-              <div class="trust-item"><strong>Total paid:</strong> <span id="confirmTotal">$18.95</span></div>
+              <div class="trust-item"><strong>Bundle:</strong> <span id="confirmBundle">Glow Trio • 3 Bottles</span></div>
+              <div class="trust-item"><strong>Total paid:</strong> <span id="confirmTotal">$28.00</span></div>
             </div>
 
             <p class="fine-print">
@@ -3286,41 +3279,30 @@
         key: "starter",
         name: "Starter",
         fullName: "Starter • 1 Bottle",
-        price: 9.95,
+        price: 14.00,
         oldPrice: 21.00,
-        shippingLabel: "1-Day Shipping • $2.95 shipping",
-        shippingValue: 2.95,
-        buttonText: "$9.95"
-      },
-      duo: {
-        key: "duo",
-        name: "Glow Duo",
-        fullName: "Glow Duo • 2 Bottles",
-        price: 18.95,
-        oldPrice: 42.00,
         shippingLabel: "Free 1-Day Shipping",
         shippingValue: 0,
-        buttonText: "$18.95"
+        buttonText: "Claim Your Buy 2 Get 1 FREE Offer"
       },
-      set: {
-        key: "set",
-        name: "Glow Set",
-        fullName: "Glow Set • 3 Bottles",
-        price: 24.95,
+      trio: {
+        key: "trio",
+        name: "Glow Trio",
+        fullName: "Glow Trio • 3 Bottles",
+        price: 28.00,
         oldPrice: 63.00,
         shippingLabel: "Free 1-Day Shipping",
         shippingValue: 0,
-        buttonText: "$24.95"
+        buttonText: "Claim Your Buy 2 Get 1 FREE Offer"
       }
     };
 
-    let selectedBundle = "duo";
+    let selectedBundle = "trio";
     let currentStep = 1;
     let selectedReviewRating = 5;
 
     const heroPrice = document.getElementById("heroPrice");
     const heroShipping = document.getElementById("heroShipping");
-    const heroButtonPrice = document.getElementById("heroButtonPrice");
     const stickyPrice = document.getElementById("stickyPrice");
 
     const summaryBundleName = document.getElementById("summaryBundleName");
@@ -3384,20 +3366,23 @@
     function updateBundleUI() {
       const data = bundles[selectedBundle];
 
-      heroPrice.textContent = money(data.price);
+      heroPrice.textContent = data.price % 1 === 0 ? `$${data.price.toFixed(0)}` : money(data.price);
       heroShipping.textContent = data.shippingLabel;
-      heroButtonPrice.textContent = data.buttonText;
       stickyPrice.textContent = `${money(data.price)} • ${data.shippingLabel}`;
 
+      const stickyProduct = document.querySelector(".sticky-product");
+      if (stickyProduct) {
+        stickyProduct.textContent = `${data.name} • d'Alba Vita Toning Serum Toner`;
+      }
+
       if (priceOld) {
-        priceOld.textContent = money(data.oldPrice);
-        priceOld.style.visibility = data.oldPrice > data.price ? "visible" : "hidden";
+        priceOld.textContent = `Was ${money(data.oldPrice)}`;
       }
 
       summaryBundleName.textContent = data.fullName;
       summaryShippingLine.textContent = data.shippingLabel;
       summarySubtotal.textContent = money(data.price);
-      summaryShipping.textContent = data.shippingValue === 0 ? "$0.00" : money(data.shippingValue);
+      summaryShipping.textContent = "$0.00";
       summaryTotal.textContent = money(data.price + data.shippingValue);
 
       confirmBundle.textContent = data.fullName;
@@ -3544,8 +3529,8 @@
       }
 
       if (heroOverlay) {
-        const isDefaultMainImage = type === "image" && src === defaultHeroImageSrc;
-        heroOverlay.style.display = isDefaultMainImage ? "" : "none";
+        const isOriginalHeroImage = type === "image" && src === defaultHeroImageSrc;
+        heroOverlay.style.display = isOriginalHeroImage ? "" : "none";
       }
     }
 
@@ -3734,7 +3719,7 @@
     window.addEventListener("resize", handleFooterState);
 
     if (heroOverlay) {
-      heroOverlay.style.display = "";
+      heroOverlay.style.display = "none";
     }
 
     handleFooterState();
