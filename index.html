@@ -481,13 +481,6 @@
       line-height: 1;
     }
 
-    .price-per-bottle {
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 1.2;
-    }
-
     .shipping-note {
       width: fit-content;
       font-size: 13px;
@@ -883,81 +876,6 @@
       color: var(--accent-dark);
       font-size: 13px;
       font-weight: 700;
-    }
-
-    #infographic .section-head {
-      margin-bottom: 24px;
-      justify-items: center;
-      text-align: center;
-    }
-
-    .at-glance-main {
-      display: grid;
-      gap: 22px;
-      align-items: start;
-    }
-
-    .glance-main-visual {
-      border-radius: 30px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at top center, rgba(255,255,255,0.98), rgba(242,230,217,0.9) 72%),
-        linear-gradient(180deg, #fff, #f2e6d9);
-      min-height: 360px;
-      box-shadow: 0 20px 40px rgba(53, 35, 20, 0.08);
-      border: 1px solid rgba(255,255,255,0.8);
-      display: grid;
-      place-items: center;
-      padding: 26px;
-    }
-
-    .glance-main-visual img {
-      width: 100%;
-      height: 100%;
-      max-height: 360px;
-      object-fit: contain;
-      filter: drop-shadow(0 20px 28px rgba(141, 103, 72, 0.12));
-    }
-
-    .glance-card {
-      display: grid;
-      gap: 8px;
-      padding: 18px;
-      background: rgba(255,255,255,0.82);
-      border-radius: 20px;
-      box-shadow: var(--shadow-soft);
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-    }
-
-    .glance-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 28px rgba(53, 35, 20, 0.08);
-      border-color: rgba(182, 141, 103, 0.22);
-    }
-
-    .glance-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #f3e5d5, #e8d4bf);
-      color: var(--accent-dark);
-      font-size: 18px;
-      font-weight: 800;
-    }
-
-    .glance-card h3 {
-      margin: 0;
-      font-size: 16px;
-      font-weight: 800;
-    }
-
-    .glance-card p {
-      margin: 0;
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.65;
     }
 
     .offer-grid {
@@ -1503,6 +1421,14 @@
       text-decoration-color: currentColor;
     }
 
+    .powered-by-shopify {
+      text-align: center;
+      color: #8f8375;
+      font-size: 12px;
+      font-weight: 400;
+      margin-top: 4px;
+    }
+
     .sticky-buy {
       position: fixed;
       left: 0;
@@ -1938,15 +1864,6 @@
         grid-template-columns: 1fr;
       }
 
-      .at-glance-main {
-        gap: 18px;
-      }
-
-      .glance-main-visual {
-        min-height: 300px;
-        padding: 22px;
-      }
-
       .footer-group-toggle {
         cursor: pointer;
       }
@@ -2063,10 +1980,6 @@
         grid-template-columns: repeat(2, minmax(0, 360px));
       }
 
-      .glance-benefits {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
       .reviews-grid {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -2083,10 +1996,6 @@
       .offer-card.featured {
         transform: scale(1.04);
         z-index: 2;
-      }
-
-      .glance-benefits {
-        grid-template-columns: repeat(4, 1fr);
       }
 
       .footer-trust-inner {
@@ -2213,7 +2122,6 @@
             <div class="price-wrap">
               <div class="price-main">
                 <span class="price-now" id="heroPrice">$28</span>
-                <span class="price-per-bottle" id="heroPerBottle">$14 per bottle</span>
               </div>
               <span class="shipping-note" id="heroShipping">Free 1-Day Shipping</span>
             </div>
@@ -2232,23 +2140,24 @@
               </div>
 
               <div class="bundle-option active" data-bundle="trio" tabindex="0">
-                <span class="bundle-badge">Most Popular</span>
+                <span class="bundle-badge">🔥 Popular Choice</span>
                 <div class="bundle-top">
                   <div>
-                    <p class="bundle-name">Glow Trio</p>
-                    <p class="bundle-sub">3 Bottles — $28</p>
+                    <p class="bundle-name">Glow Duo</p>
+                    <p class="bundle-sub">2 Bottles — $28</p>
                   </div>
                 </div>
                 <div class="bundle-benefits">
-                  <span>✔ Buy 2 Get 1 FREE</span>
-                  <span>✔ Save $35</span>
+                  <span><strong>✔ FREE Vita Toning Capsule Cream ($12 Value)</strong></span>
+                  <span>✔ Visible Glow in 14 Days or Less</span>
+                  <span>✔ Save $20 Today</span>
                 </div>
               </div>
             </div>
 
             <div class="purchase-actions">
               <button class="primary-btn full" type="button" data-open-checkout id="heroCtaBtn">
-                Claim Your Buy 2 Get 1 FREE
+                Claim Your Offer
               </button>
             </div>
 
@@ -2257,64 +2166,6 @@
               <div class="trust-strip-line cards">Visa • Mastercard • American Express</div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="media">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">See it in use</span>
-          <h2 class="title">Brighter, smoother skin in one lightweight step.</h2>
-          <p class="subtitle">
-            Discover the texture, formula, and daily-use benefits behind the glow.
-          </p>
-          <div class="trust-inline">⭐ Rated 4.8/5 by over 12,000 customers</div>
-        </div>
-
-        <div class="media-grid">
-          <article class="media-card">
-            <div class="media-frame">
-              <video controls playsinline muted preload="metadata">
-                <source src="images/2- video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="media-caption">
-              <h3>See it in motion</h3>
-              <p>Watch the formula apply smoothly on skin.</p>
-            </div>
-          </article>
-
-          <article class="media-card">
-            <div class="media-frame">
-              <img src="images/3- Texture droplet image.png" alt="Serum toner texture droplet close-up" />
-            </div>
-            <div class="media-caption">
-              <h3>Fresh, weightless texture</h3>
-              <p>Fast-absorbing hydration without heaviness.</p>
-            </div>
-          </article>
-
-          <article class="media-card">
-            <div class="media-frame">
-              <img src="images/4- Ingredients image.png" alt="Ingredients image for d'Alba Vita Toning Serum Toner" />
-            </div>
-            <div class="media-caption">
-              <h3>Glow-focused active blend</h3>
-              <p>Vitamin C care with daily barrier-friendly support.</p>
-            </div>
-          </article>
-
-          <article class="media-card">
-            <div class="media-frame">
-              <img src="images/5- Model Using Serum Image .png" alt="Model using d'Alba Vita Toning Serum Toner" />
-            </div>
-            <div class="media-caption">
-              <h3>Made for everyday radiance</h3>
-              <p>A simple step for hydrated, brighter-looking skin.</p>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -2493,57 +2344,13 @@
       </div>
     </section>
 
-    <section class="section" id="infographic">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">At a glance</span>
-          <h2 class="title">Everything your skin needs for a daily glow</h2>
-          <p class="subtitle">
-            A lightweight toner-serum that brightens, hydrates, and smooths without feeling heavy.
-          </p>
-        </div>
-
-        <div class="at-glance-main">
-          <div class="glance-main-visual">
-            <img src="images/1- Hero Product Image.png" alt="d'Alba Vita product bottle" />
-          </div>
-
-          <div class="glance-benefits">
-            <article class="glance-card">
-              <div class="glance-icon">✨</div>
-              <h3>Brightens</h3>
-              <p>Helps reduce visible dullness for a fresher, more radiant-looking complexion.</p>
-            </article>
-
-            <article class="glance-card">
-              <div class="glance-icon">💧</div>
-              <h3>Hydrates</h3>
-              <p>Leaves skin feeling soft, comfortable, and refreshed throughout the day.</p>
-            </article>
-
-            <article class="glance-card">
-              <div class="glance-icon">🧴</div>
-              <h3>Vitamin Boost</h3>
-              <p>Vitamin C + E + B3 support a healthy-looking glow in one lightweight step.</p>
-            </article>
-
-            <article class="glance-card">
-              <div class="glance-icon">🫧</div>
-              <h3>Lightweight Finish</h3>
-              <p>Absorbs quickly with a smooth, non-sticky feel that layers effortlessly.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="offer">
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Choose your bundle</span>
           <h2 class="title">Pick the option that fits your routine best.</h2>
           <p class="subtitle">
-            Start small or claim the Buy 2 Get 1 FREE offer with our most popular bundle.
+            Start small or claim our most popular premium offer.
           </p>
         </div>
 
@@ -2570,26 +2377,22 @@
           </article>
 
           <article class="offer-card featured" data-offer="trio">
-            <span class="offer-badge">Most Popular</span>
+            <span class="offer-badge">🔥 Popular Choice</span>
             <div class="offer-head">
-              <h3 class="offer-title">Glow Trio</h3>
-              <p class="offer-desc">Buy 2 Get 1 FREE • 3 Bottles</p>
+              <h3 class="offer-title">Glow Duo</h3>
+              <p class="offer-desc">2 Bottles — $28</p>
             </div>
             <div class="offer-price">
-              <div class="offer-price-top">
-                <span class="offer-total">$28.00</span>
-                <span class="offer-old">Was $63.00</span>
-              </div>
-              <span class="offer-save">Save $35</span>
-              <span class="offer-mini">3 Bottles total</span>
-              <span class="offer-ship">Free 1-Day Shipping</span>
+              <span class="offer-save"><strong>✔ FREE Vita Toning Capsule Cream ($12 Value)</strong></span>
+              <span class="offer-mini">✔ Visible Glow in 14 Days or Less</span>
+              <span class="offer-ship">✔ Save $20 Today</span>
             </div>
             <ul class="offer-list">
-              <li>Clear Instagram offer with lower friction</li>
-              <li>Best value for the routine</li>
+              <li>Premium value bundle with added skincare bonus</li>
+              <li>Clear, fast-to-understand offer</li>
               <li>Free shipping for faster checkout</li>
             </ul>
-            <button class="primary-btn full" type="button" data-select-offer="trio">Choose Glow Trio</button>
+            <button class="primary-btn full" type="button" data-select-offer="trio">Choose Glow Duo</button>
           </article>
         </div>
       </div>
@@ -2874,16 +2677,6 @@
         </div>
       </div>
 
-      <div class="footer-social">
-        <h3>Follow Our Skincare Community</h3>
-        <div class="social-icons">
-          <span class="social-pill">Instagram</span>
-          <span class="social-pill">TikTok</span>
-          <span class="social-pill">YouTube</span>
-          <span class="social-pill">Facebook</span>
-        </div>
-      </div>
-
       <div class="footer-columns">
         <div class="footer-group">
           <button class="footer-group-toggle" type="button">
@@ -2910,8 +2703,6 @@
             <a href="#">Ingredients & Science</a>
             <a href="#">Sustainability</a>
             <a href="#">Dermatology Standards</a>
-            <a href="#">Affiliate Program</a>
-            <a href="#">Wholesale Opportunities</a>
           </div>
         </div>
 
@@ -2957,6 +2748,7 @@
           <a href="#">Terms</a>
           <a href="#">Contact</a>
         </div>
+        <div class="powered-by-shopify">Powered by Shopify</div>
       </div>
     </div>
   </footer>
@@ -2965,7 +2757,7 @@
     <div class="sticky-buy-inner">
       <div class="sticky-text">
         <div class="sticky-label">Current offer</div>
-        <div class="sticky-product">Glow Trio • d'Alba Vita Toning Serum Toner</div>
+        <div class="sticky-product">Glow Duo • d'Alba Vita Toning Serum Toner</div>
         <div class="sticky-price" id="stickyPrice">$28.00 • Free 1-Day Shipping</div>
       </div>
       <button class="primary-btn sticky-btn" type="button" data-open-checkout>
@@ -3008,7 +2800,7 @@
           </div>
           <div>
             <p class="summary-title">d'Alba Vita Toning Serum Toner</p>
-            <div class="summary-meta" id="summaryBundleName">Glow Trio • 3 Bottles</div>
+            <div class="summary-meta" id="summaryBundleName">Glow Duo • 2 Bottles</div>
             <div class="summary-price-line" id="summaryShippingLine">Free 1-Day Shipping</div>
           </div>
         </div>
@@ -3149,7 +2941,7 @@
 
             <div class="trust-list">
               <div class="trust-item"><strong>Customer:</strong> <span id="confirmName">—</span></div>
-              <div class="trust-item"><strong>Bundle:</strong> <span id="confirmBundle">Glow Trio • 3 Bottles</span></div>
+              <div class="trust-item"><strong>Bundle:</strong> <span id="confirmBundle">Glow Duo • 2 Bottles</span></div>
               <div class="trust-item"><strong>Total paid:</strong> <span id="confirmTotal">$28.00</span></div>
             </div>
 
@@ -3173,20 +2965,18 @@
         name: "Starter",
         fullName: "Starter • 1 Bottle",
         price: 14.00,
-        perBottleText: "$14 per bottle",
         shippingLabel: "Free 1-Day Shipping",
         shippingValue: 0,
         buttonText: "Get Your First Bottle"
       },
       trio: {
         key: "trio",
-        name: "Glow Trio",
-        fullName: "Glow Trio • 3 Bottles",
+        name: "Glow Duo",
+        fullName: "Glow Duo • 2 Bottles",
         price: 28.00,
-        perBottleText: "$14 per bottle",
         shippingLabel: "Free 1-Day Shipping",
         shippingValue: 0,
-        buttonText: "Claim Your Buy 2 Get 1 FREE"
+        buttonText: "Claim Your Offer"
       }
     };
 
@@ -3195,7 +2985,6 @@
     let selectedReviewRating = 5;
 
     const heroPrice = document.getElementById("heroPrice");
-    const heroPerBottle = document.getElementById("heroPerBottle");
     const heroShipping = document.getElementById("heroShipping");
     const heroCtaBtn = document.getElementById("heroCtaBtn");
     const stickyPrice = document.getElementById("stickyPrice");
@@ -3259,7 +3048,6 @@
       const data = bundles[selectedBundle];
 
       heroPrice.textContent = data.price % 1 === 0 ? `$${data.price.toFixed(0)}` : money(data.price);
-      heroPerBottle.textContent = data.perBottleText;
       heroShipping.textContent = data.shippingLabel;
       stickyPrice.textContent = `${money(data.price)} • ${data.shippingLabel}`;
 
