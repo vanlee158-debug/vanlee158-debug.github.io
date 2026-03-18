@@ -3090,7 +3090,12 @@
       <div class="checkout-summary">
         <div class="summary-card">
           <div class="summary-thumb">
-            <img src="images/glow-duo-offer-premium.png" alt="Product thumbnail" />
+            <img
+              id="summaryProductImage"
+              src="assets/glow-duo-offer-premium.png"
+              alt="Product thumbnail"
+              onerror="this.onerror=null; this.src='images/glow-duo-offer-premium.png';"
+            />
           </div>
           <div>
             <p class="summary-title">d'Alba Vita Toning Serum Toner</p>
@@ -3106,7 +3111,7 @@
           </div>
           <div class="summary-line">
             <span>Shipping</span>
-            <span id="summaryShipping">$0.00</span>
+            <span id="summaryShipping">Free</span>
           </div>
           <div class="summary-line total">
             <span>Total</span>
@@ -3161,12 +3166,7 @@
               <div class="field">
                 <label for="country">Country</label>
                 <select class="select" id="country" required>
-                  <option value="">Select country</option>
-                  <option>United States</option>
-                  <option>Canada</option>
-                  <option>United Kingdom</option>
-                  <option>Morocco</option>
-                  <option>France</option>
+                  <option value="United States" selected>United States</option>
                 </select>
               </div>
             </div>
@@ -3253,6 +3253,23 @@
   </div>
 
   <script>
+    const bundleImageMap = {
+      starter: {
+        primary: "assets/Hero Product Image.png",
+        fallbacks: [
+          "assets/1- Hero Product Image.png",
+          "images/Hero Product Image.png",
+          "images/1- Hero Product Image.png"
+        ]
+      },
+      trio: {
+        primary: "assets/glow-duo-offer-premium.png",
+        fallbacks: [
+          "images/glow-duo-offer-premium.png"
+        ]
+      }
+    };
+
     const bundles = {
       starter: {
         key: "starter",
@@ -3300,6 +3317,7 @@
     const heroCtaBtn = document.getElementById("heroCtaBtn");
     const stickyPrice = document.getElementById("stickyPrice");
 
+    const summaryProductImage = document.getElementById("summaryProductImage");
     const summaryBundleName = document.getElementById("summaryBundleName");
     const summaryShippingLine = document.getElementById("summaryShippingLine");
     const summarySubtotal = document.getElementById("summarySubtotal");
@@ -3369,6 +3387,30 @@
       return `${bundles[bundleKey].fullName} • ${packLabel}`;
     }
 
+    function resolveBundleImage(bundleKey) {
+      return bundleImageMap[bundleKey] || bundleImageMap.trio;
+    }
+
+    function setSummaryProductImage(bundleKey) {
+      if (!summaryProductImage) return;
+
+      const imageConfig = resolveBundleImage(bundleKey);
+      const fallbackQueue = [...imageConfig.fallbacks];
+
+      summaryProductImage.src = imageConfig.primary;
+      summaryProductImage.alt = bundles[bundleKey]?.name
+        ? `${bundles[bundleKey].name} product image`
+        : "Product thumbnail";
+
+      summaryProductImage.onerror = function () {
+        if (fallbackQueue.length > 0) {
+          this.src = fallbackQueue.shift();
+        } else {
+          this.onerror = null;
+        }
+      };
+    }
+
     function updateQuantityUI() {
       document.querySelectorAll("[data-qty-value]").forEach(el => {
         const bundleKey = el.dataset.qtyValue;
@@ -3398,10 +3440,11 @@
         heroCtaBtn.textContent = `${data.buttonText} — ${total % 1 === 0 ? `$${total.toFixed(0)}` : money(total)}`;
       }
 
+      setSummaryProductImage(selectedBundle);
       summaryBundleName.textContent = getBundleLabel(selectedBundle);
       summaryShippingLine.textContent = data.shippingLabel;
       summarySubtotal.textContent = money(total);
-      summaryShipping.textContent = "$0.00";
+      summaryShipping.textContent = data.shippingValue === 0 ? "Free" : money(data.shippingValue);
       summaryTotal.textContent = money(total + data.shippingValue);
 
       confirmBundle.textContent = getBundleLabel(selectedBundle);
@@ -3459,6 +3502,7 @@
     }
 
     function openCheckout() {
+      countryInput.value = "United States";
       updateBundleUI();
       setStep(1);
       overlay.classList.add("open");
@@ -3489,6 +3533,8 @@
     }
 
     function validateAddress() {
+      countryInput.value = "United States";
+
       const required = [fullNameInput, emailInput, phoneInput, streetInput, cityInput, stateInput, zipInput, countryInput];
       let valid = true;
 
@@ -3504,6 +3550,11 @@
       const emailOk = /\S+@\S+\.\S+/.test(emailInput.value.trim());
       if (!emailOk) {
         emailInput.style.borderColor = "var(--danger)";
+        valid = false;
+      }
+
+      if (countryInput.value !== "United States") {
+        countryInput.style.borderColor = "var(--danger)";
         valid = false;
       }
 
@@ -3816,6 +3867,7 @@
 
     window.addEventListener("resize", handleFooterState);
 
+    countryInput.value = "United States";
     handleFooterState();
     updateBundleUI();
     setStep(1);
