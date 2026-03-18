@@ -218,7 +218,8 @@
     .review-toggle-btn,
     .review-verify-btn,
     .review-submit-btn,
-    .newsletter-btn {
+    .newsletter-btn,
+    .page-link-btn {
       border: 0;
       border-radius: 999px;
       cursor: pointer;
@@ -260,7 +261,8 @@
     .review-toggle-btn:hover,
     .review-verify-btn:hover,
     .review-submit-btn:hover,
-    .newsletter-btn:hover {
+    .newsletter-btn:hover,
+    .page-link-btn:hover {
       transform: translateY(-1px);
     }
 
@@ -303,7 +305,8 @@
     .review-submit-wrap,
     .glance-card,
     .footer-newsletter,
-    .footer-social {
+    .footer-social,
+    .page-sheet {
       background: var(--bg-card);
       border: 1px solid rgba(255,255,255,0.65);
       box-shadow: var(--shadow);
@@ -655,7 +658,6 @@
       gap: 8px;
     }
 
-    /* PREMIUM CHECKOUT TRUST IMAGE - TIGHTENED BOTTOM SPACING */
     .checkout-trust {
       width: 100%;
       margin-top: 12px;
@@ -682,7 +684,9 @@
     .offer-grid,
     .reviews-grid,
     .glance-benefits,
-    .footer-columns {
+    .footer-columns,
+    .page-meta-grid,
+    .page-list-grid {
       display: grid;
       gap: 14px;
     }
@@ -697,63 +701,6 @@
     .faq-wrap {
       border-radius: var(--radius-lg);
       overflow: hidden;
-    }
-
-    .media-card {
-      padding: 12px;
-      transition: transform var(--transition), box-shadow var(--transition);
-      scroll-snap-align: start;
-    }
-
-    .media-frame {
-      overflow: hidden;
-      border-radius: 18px;
-      background: #f2e8dd;
-      aspect-ratio: 1 / 1;
-    }
-
-    .media-frame img,
-    .media-frame video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .media-caption {
-      padding: 12px 4px 2px;
-    }
-
-    .media-caption h3,
-    .benefit-card h3,
-    .proof-copy h3,
-    .ingredient-copy h3,
-    .routine-copy h3,
-    .offer-card h3,
-    .review-card h3,
-    .glance-card h3,
-    .review-submit-wrap h3,
-    .footer-newsletter h3,
-    .footer-social h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-      line-height: 1.15;
-    }
-
-    .media-caption p,
-    .benefit-card p,
-    .proof-copy p,
-    .ingredient-copy p,
-    .routine-copy p,
-    .offer-card p,
-    .review-card p,
-    .glance-card p,
-    .review-submit-wrap p,
-    .footer-newsletter p,
-    .footer-social p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
     }
 
     .benefit-card {
@@ -838,7 +785,9 @@
     .proof-point,
     .ingredient-item,
     .routine-step,
-    .glance-card {
+    .glance-card,
+    .page-meta-card,
+    .page-list-item {
       padding: 12px 14px;
       border: 1px solid rgba(83, 62, 45, 0.08);
       background: rgba(255,255,255,0.78);
@@ -848,7 +797,9 @@
 
     .routine-step strong,
     .ingredient-item strong,
-    .glance-card strong {
+    .glance-card strong,
+    .page-meta-card strong,
+    .page-list-item strong {
       display: block;
       margin-bottom: 4px;
       color: var(--text);
@@ -1254,7 +1205,7 @@
     }
 
     .footer-columns {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
@@ -1290,13 +1241,20 @@
       gap: 10px;
     }
 
-    .footer-links a {
+    .footer-links a,
+    .footer-links button {
       color: #d9d1c6;
       font-size: 14px;
       transition: color var(--transition);
+      background: transparent;
+      padding: 0;
+      border: 0;
+      text-align: left;
+      cursor: pointer;
     }
 
-    .footer-links a:hover {
+    .footer-links a:hover,
+    .footer-links button:hover {
       color: #d8b27f;
     }
 
@@ -1339,16 +1297,22 @@
       gap: 18px;
     }
 
-    .footer-bottom-links a {
+    .footer-bottom-links a,
+    .footer-bottom-links button {
       color: #d9d1c6;
       font-size: 13px;
       transition: color var(--transition), text-decoration-color var(--transition);
       text-decoration: underline;
       text-decoration-color: transparent;
       text-underline-offset: 3px;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      padding: 0;
     }
 
-    .footer-bottom-links a:hover {
+    .footer-bottom-links a:hover,
+    .footer-bottom-links button:hover {
       color: #e6d6c6;
       text-decoration-color: currentColor;
     }
@@ -1416,7 +1380,8 @@
       min-width: 132px;
     }
 
-    .checkout-overlay {
+    .checkout-overlay,
+    .page-overlay {
       position: fixed;
       inset: 0;
       z-index: 80;
@@ -1428,7 +1393,8 @@
       padding: 16px;
     }
 
-    .checkout-overlay.open {
+    .checkout-overlay.open,
+    .page-overlay.open {
       display: flex;
     }
 
@@ -1442,25 +1408,38 @@
       grid-template-rows: auto auto 1fr;
     }
 
+    .page-sheet {
+      width: min(100%, 840px);
+      border-radius: 28px;
+      overflow: hidden;
+      animation: rise 260ms ease;
+      max-height: min(92vh, 920px);
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
     @keyframes rise {
       from { transform: translateY(22px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
 
-    .checkout-header {
+    .checkout-header,
+    .page-header {
       padding: 18px 18px 10px;
       border-bottom: 1px solid var(--line);
       background: rgba(255,255,255,0.78);
     }
 
-    .checkout-top {
+    .checkout-top,
+    .page-top {
       display: flex;
       align-items: start;
       justify-content: space-between;
       gap: 14px;
     }
 
-    .checkout-title {
+    .checkout-title,
+    .page-title {
       margin: 0;
       font-family: "Cormorant Garamond", serif;
       font-size: 2rem;
@@ -1468,7 +1447,8 @@
       font-weight: 700;
     }
 
-    .checkout-close {
+    .checkout-close,
+    .page-close {
       width: 42px;
       height: 42px;
       border-radius: 50%;
@@ -1478,6 +1458,59 @@
       font-size: 18px;
       color: var(--text);
       flex-shrink: 0;
+    }
+
+    .page-body {
+      padding: 18px;
+      overflow: auto;
+      display: grid;
+      gap: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(250,245,239,0.96));
+    }
+
+    .page-panel {
+      display: none;
+      gap: 18px;
+    }
+
+    .page-panel.active {
+      display: grid;
+    }
+
+    .page-copy {
+      display: grid;
+      gap: 14px;
+    }
+
+    .page-copy h3 {
+      margin: 4px 0 0;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .page-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .page-highlight {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(247,239,230,0.82));
+      border: 1px solid rgba(83, 62, 45, 0.08);
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .page-list-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .page-meta-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .stepper {
@@ -1685,6 +1718,24 @@
       line-height: 1.5;
     }
 
+    .card-icons,
+    .trust-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .card-icon,
+    .trust-item {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(83, 62, 45, 0.08);
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
     .hero-badge-minimal {
       position: absolute;
       top: 16px;
@@ -1748,26 +1799,6 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .media-grid {
-        display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: 84%;
-        overflow-x: auto;
-        padding-bottom: 4px;
-        scroll-snap-type: x mandatory;
-      }
-
-      .media-grid::-webkit-scrollbar,
-      .hero-thumbnails::-webkit-scrollbar {
-        height: 6px;
-      }
-
-      .media-grid::-webkit-scrollbar-thumb,
-      .hero-thumbnails::-webkit-scrollbar-thumb {
-        background: rgba(83, 62, 45, 0.18);
-        border-radius: 999px;
-      }
-
       .proof-card,
       .ingredient-card,
       .routine-card {
@@ -1792,7 +1823,8 @@
       .reviews-grid,
       .footer-trust-inner,
       .footer-columns,
-      .glance-benefits {
+      .glance-benefits,
+      .page-meta-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1870,10 +1902,6 @@
         grid-template-columns: 1fr;
       }
 
-      .checkout-icons {
-        max-width: 200px;
-      }
-
       .email-community-text {
         font-size: 16px;
       }
@@ -1891,10 +1919,6 @@
         grid-template-columns: repeat(3, 1fr);
       }
 
-      .media-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
       .proof-card,
       .ingredient-card,
       .routine-card {
@@ -1910,7 +1934,7 @@
       }
 
       .footer-columns {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
@@ -1973,16 +1997,14 @@
                 id="main-product-image"
                 src="images/glow-duo-offer-premium.png"
                 alt="Glow Duo Offer"
+                onerror="this.onerror=null; this.src='images/glow-duo-offer-premium.png';"
               />
               <span class="hero-badge-minimal">Vitamin C Toner Serum</span>
             </div>
 
             <div class="hero-thumbnails" id="heroThumbnails">
               <button class="hero-thumb active" type="button" data-type="image" data-src="images/glow-duo-offer-premium.png" data-alt="Glow Duo Offer">
-                <img
-                  src="images/glow-duo-offer-premium.png"
-                  alt="Glow Duo Offer thumbnail"
-                />
+                <img src="images/glow-duo-offer-premium.png" alt="Glow Duo Offer thumbnail" />
               </button>
 
               <button class="hero-thumb" type="button" data-type="image" data-src="images/1- Hero Product Image.png" data-alt="d'Alba Vita Toning Serum Toner bottle">
@@ -2059,7 +2081,6 @@
             </div>
 
             <div class="bundle-grid" id="heroBundles">
-              <!-- STARTER OFFER: Removed "PACKS" label, added "Visible glow in 14 days" benefit -->
               <div class="bundle-option" data-bundle="starter" tabindex="0">
                 <div class="bundle-top">
                   <div>
@@ -2081,7 +2102,6 @@
                 </div>
               </div>
 
-              <!-- GLOW DUO OFFER: Added "Free 1-Day Shipping" benefit -->
               <div class="bundle-option active" data-bundle="trio" tabindex="0">
                 <div class="most-popular-badge">MOST POPULAR</div>
                 <div class="bundle-top">
@@ -2113,11 +2133,9 @@
               </button>
             </div>
 
-            <!-- TIGHTENED BOTTOM SPACING -->
             <div class="checkout-trust">
-              <img src="images/secure-checkout-cards.png" alt="Secure Checkout">
+              <img src="images/secure-checkout-cards.png" alt="Secure Checkout" onerror="this.onerror=null; this.src='images/secure-checkout-cards.png';">
             </div>
-
           </div>
         </div>
       </div>
@@ -2699,12 +2717,10 @@
             <span>▼</span>
           </button>
           <div class="footer-links">
-            <a href="#">Contact Us</a>
-            <a href="#">Order Tracking</a>
-            <a href="#">Shipping Information</a>
-            <a href="#">Returns & Refund Policy</a>
-            <a href="#">Product FAQ</a>
-            <a href="#">Help Center</a>
+            <button type="button" data-page-target="contact-us">Contact Us</button>
+            <button type="button" data-page-target="order-tracking">Order Tracking</button>
+            <button type="button" data-page-target="shipping-information">Shipping Information</button>
+            <button type="button" data-page-target="returns-refund-policy">Returns & Refund Policy</button>
           </div>
         </div>
 
@@ -2714,24 +2730,9 @@
             <span>▼</span>
           </button>
           <div class="footer-links">
-            <a href="#">Our Story</a>
-            <a href="#">Ingredients & Science</a>
-            <a href="#">Sustainability</a>
-            <a href="#">Dermatology Standards</a>
-          </div>
-        </div>
-
-        <div class="footer-group">
-          <button class="footer-group-toggle" type="button">
-            <span>Shop</span>
-            <span>▼</span>
-          </button>
-          <div class="footer-links">
-            <a href="#">Vitamin C Glow Toner</a>
-            <a href="#">Bundle & Save Offers</a>
-            <a href="#">Starter Kit</a>
-            <a href="#">Best Value Bundle</a>
-            <a href="#">Skincare Routine Guide</a>
+            <button type="button" data-page-target="our-story">Our Story</button>
+            <button type="button" data-page-target="ingredients-science">Ingredients & Science</button>
+            <button type="button" data-page-target="sustainability">Sustainability</button>
           </div>
         </div>
 
@@ -2741,11 +2742,11 @@
             <span>▼</span>
           </button>
           <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Cookie Policy</a>
-            <a href="#">Payment Security</a>
-            <a href="#">Refund Guarantee</a>
+            <button type="button" data-page-target="privacy-policy">Privacy Policy</button>
+            <button type="button" data-page-target="terms-of-service">Terms of Service</button>
+            <button type="button" data-page-target="cookie-policy">Cookie Policy</button>
+            <button type="button" data-page-target="payment-security">Payment Security</button>
+            <button type="button" data-page-target="returns-refund-policy">Refund Guarantee</button>
           </div>
         </div>
       </div>
@@ -2753,9 +2754,9 @@
       <div class="footer-bottom">
         <div>© 2026 d'Alba Vita Skincare — All Rights Reserved</div>
         <div class="footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms</a>
-          <a href="#">Contact</a>
+          <button type="button" data-page-target="privacy-policy">Privacy Policy</button>
+          <button type="button" data-page-target="terms-of-service">Terms</button>
+          <button type="button" data-page-target="contact-us">Contact</button>
         </div>
         <div class="powered-by-shopify">Powered by Shopify</div>
       </div>
@@ -2772,6 +2773,290 @@
       <button class="primary-btn sticky-btn" type="button" data-open-checkout>
         Buy Now
       </button>
+    </div>
+  </div>
+
+  <div class="page-overlay" id="pageOverlay" aria-hidden="true">
+    <div class="page-sheet" role="dialog" aria-modal="true" aria-labelledby="pageTitle">
+      <div class="page-header">
+        <div class="page-top">
+          <div>
+            <p class="eyebrow" style="margin: 0 0 10px;">Customer & brand pages</p>
+            <h2 class="page-title" id="pageTitle">Page</h2>
+          </div>
+          <button class="page-close" type="button" id="pageClose" aria-label="Close page">✕</button>
+        </div>
+      </div>
+
+      <div class="page-body">
+        <section class="page-panel" id="page-contact-us" data-page-panel="contact-us">
+          <div class="page-copy">
+            <span class="mini-label">Customer Care</span>
+            <h3>Contact Us</h3>
+            <p>We’re here to support your skincare journey — every step of the way.</p>
+            <p>Whether you have a question about your order, need help choosing the right product, or want personalized skincare guidance, our team is ready to assist you with care and expertise.</p>
+          </div>
+          <div class="page-meta-grid">
+            <div class="page-meta-card">
+              <strong>Email Support</strong>
+              support@dalbavita.com
+            </div>
+            <div class="page-meta-card">
+              <strong>Phone Support</strong>
+              (212) 555-0147
+            </div>
+            <div class="page-meta-card">
+              <strong>Response Time</strong>
+              Within 24 hours (Monday – Friday)
+            </div>
+            <div class="page-meta-card">
+              <strong>Business Hours</strong>
+              Monday – Friday: 9:00 AM – 6:00 PM
+            </div>
+          </div>
+          <div class="page-highlight">
+            Speak directly with our skincare support team for personalized assistance and product guidance.
+          </div>
+          <div class="page-copy">
+            <h3>Our Commitment</h3>
+            <p>At d’Alba Vita Skincare, your satisfaction is at the heart of everything we do. We are dedicated to delivering not only high-quality skincare, but also a seamless and supportive experience.</p>
+            <p>Need quick help? Most common questions about shipping, returns, and product usage can be found in our Help Center.</p>
+          </div>
+        </section>
+
+        <section class="page-panel" id="page-order-tracking" data-page-panel="order-tracking">
+          <div class="page-copy">
+            <span class="mini-label">Customer Care</span>
+            <h3>Order Tracking</h3>
+            <p>We know how important it is to receive your order quickly.</p>
+            <p>At d’Alba Vita Skincare, we offer fast 1-Day Shipping on all orders.</p>
+          </div>
+          <div class="page-copy">
+            <h3>Tracking Your Order</h3>
+            <p>Once your order is placed, you will receive a confirmation email with tracking details.</p>
+          </div>
+          <div class="page-list-grid">
+            <div class="page-list-item">
+              <strong>Delivery Time</strong>
+              • Processing: 0–1 business day<br>
+              • Shipping: 24 hours
+            </div>
+          </div>
+          <div class="page-highlight">
+            Most orders are delivered within 24 hours after dispatch.
+          </div>
+          <div class="page-meta-grid">
+            <div class="page-meta-card">
+              <strong>Need Help?</strong>
+              support@dalbavita.com
+            </div>
+          </div>
+        </section>
+
+        <section class="page-panel" id="page-shipping-information" data-page-panel="shipping-information">
+          <div class="page-copy">
+            <span class="mini-label">Customer Care</span>
+            <h3>Shipping Information</h3>
+            <p>We prioritize fast, reliable delivery.</p>
+          </div>
+          <div class="page-list-grid">
+            <div class="page-list-item">
+              <strong>Fast 1-Day Shipping</strong>
+              • Processing: 0–1 business day<br>
+              • Delivery: 24 hours
+            </div>
+            <div class="page-list-item">
+              <strong>Trusted Shipping Partners</strong>
+              • USPS<br>
+              • UPS<br>
+              • FedEx
+            </div>
+            <div class="page-list-item">
+              <strong>Tracking</strong>
+              All orders include real-time tracking via email.
+            </div>
+            <div class="page-list-item">
+              <strong>Support</strong>
+              support@dalbavita.com
+            </div>
+          </div>
+        </section>
+
+        <section class="page-panel" id="page-returns-refund-policy" data-page-panel="returns-refund-policy">
+          <div class="page-copy">
+            <span class="mini-label">Customer Care</span>
+            <h3>Returns & Refund Policy</h3>
+            <p>We offer a fair and transparent return policy.</p>
+          </div>
+          <div class="page-meta-grid">
+            <div class="page-meta-card">
+              <strong>Return Window</strong>
+              14 days after delivery
+            </div>
+            <div class="page-meta-card">
+              <strong>Refunds</strong>
+              Processed after inspection to original payment method
+            </div>
+          </div>
+          <div class="page-list-grid">
+            <div class="page-list-item">
+              <strong>Conditions</strong>
+              • Unused, original packaging required<br>
+              • Proof of purchase required<br>
+              • Opened products not eligible
+            </div>
+            <div class="page-list-item">
+              <strong>Shipping</strong>
+              • Original shipping non-refundable<br>
+              • Return shipping paid by customer<br>
+              • Defective items covered by us
+            </div>
+            <div class="page-list-item">
+              <strong>Damaged Orders</strong>
+              Report within 48 hours with photos.
+            </div>
+            <div class="page-list-item">
+              <strong>Contact</strong>
+              support@dalbavita.com
+            </div>
+          </div>
+        </section>
+
+        <section class="page-panel" id="page-our-story" data-page-panel="our-story">
+          <div class="page-copy">
+            <span class="mini-label">About d'Alba Vita</span>
+            <h3>Our Story</h3>
+            <p>Skincare is more than a routine — it’s a ritual of confidence and transformation.</p>
+            <p>At d’Alba Vita Skincare, we create high-performance products that deliver visible results with a luxury experience.</p>
+          </div>
+          <div class="page-copy">
+            <h3>Where Nature Meets Science</h3>
+          </div>
+          <div class="page-list-grid">
+            <div class="page-list-item"><strong>Brighten and even skin tone</strong>Thoughtfully developed for a smoother, more radiant-looking complexion.</div>
+            <div class="page-list-item"><strong>Restore hydration</strong>Lightweight formulas designed to leave skin feeling comfortable and refreshed.</div>
+            <div class="page-list-item"><strong>Reveal natural glow</strong>Daily essentials that support visible beauty with a premium ritual feel.</div>
+          </div>
+          <div class="page-copy">
+            <h3>Our Philosophy</h3>
+          </div>
+          <div class="page-list-grid">
+            <div class="page-list-item"><strong>Quality over quantity</strong>We focus on products that earn their place in your routine.</div>
+            <div class="page-list-item"><strong>Simplicity over complexity</strong>Clear, effective skincare without unnecessary complications.</div>
+            <div class="page-list-item"><strong>Confidence through healthy skin</strong>Because feeling good in your skin changes everything.</div>
+          </div>
+        </section>
+
+        <section class="page-panel" id="page-ingredients-science" data-page-panel="ingredients-science">
+          <div class="page-copy">
+            <span class="mini-label">About d'Alba Vita</span>
+            <h3>Ingredients & Science</h3>
+            <p>We combine natural ingredients with proven actives.</p>
+          </div>
+          <div class="page-list-grid">
+            <div class="page-list-item">
+              <strong>Vitamin C</strong>
+              Brightens skin.
+            </div>
+            <div class="page-list-item">
+              <strong>Niacinamide</strong>
+              Smooths texture.
+            </div>
+            <div class="page-list-item">
+              <strong>Hyaluronic Acid</strong>
+              Deep hydration.
+            </div>
+          </div>
+          <div class="page-highlight">
+            Designed for visible results in as little as 14 days.
+          </div>
+        </section>
+
+        <section class="page-panel" id="page-sustainability" data-page-panel="sustainability">
+          <div class="page-copy">
+            <span class="mini-label">About d'Alba Vita</span>
+            <h3>Sustainability</h3>
+            <p>We believe beauty should respect your skin and the planet.</p>
+          </div>
+          <div class="page-list-grid">
+            <div class="page-list-item"><strong>Responsible ingredients</strong>Thoughtful sourcing with quality and care in mind.</div>
+            <div class="page-list-item"><strong>Minimal packaging</strong>Cleaner presentation with less excess.</div>
+            <div class="page-list-item"><strong>Continuous improvement</strong>We keep refining our process to do better over time.</div>
+          </div>
+        </section>
+
+        <section class="page-panel" id="page-privacy-policy" data-page-panel="privacy-policy">
+          <div class="page-copy">
+            <span class="mini-label">Policy</span>
+            <h3>Privacy Policy</h3>
+            <p>We collect:</p>
+          </div>
+          <div class="page-list-grid">
+            <div class="page-list-item">• Name, email, address</div>
+            <div class="page-list-item">• Payment information through secure third-party providers</div>
+            <div class="page-list-item">• Order data</div>
+          </div>
+          <div class="page-copy">
+            <p>We use it to:</p>
+          </div>
+          <div class="page-list-grid">
+            <div class="page-list-item">• Process orders</div>
+            <div class="page-list-item">• Improve experience</div>
+          </div>
+          <div class="page-highlight">
+            We never sell your data.
+          </div>
+        </section>
+
+        <section class="page-panel" id="page-terms-of-service" data-page-panel="terms-of-service">
+          <div class="page-copy">
+            <span class="mini-label">Policy</span>
+            <h3>Terms of Service</h3>
+            <p>By using this site, you agree to:</p>
+          </div>
+          <div class="page-list-grid">
+            <div class="page-list-item">• Use it legally</div>
+            <div class="page-list-item">• Provide accurate information</div>
+          </div>
+          <div class="page-highlight">
+            We may cancel orders if needed.
+          </div>
+        </section>
+
+        <section class="page-panel" id="page-cookie-policy" data-page-panel="cookie-policy">
+          <div class="page-copy">
+            <span class="mini-label">Policy</span>
+            <h3>Cookie Policy</h3>
+            <p>We use cookies to:</p>
+          </div>
+          <div class="page-list-grid">
+            <div class="page-list-item">• Improve performance</div>
+            <div class="page-list-item">• Analyze usage</div>
+          </div>
+          <div class="page-highlight">
+            You can disable cookies anytime.
+          </div>
+        </section>
+
+        <section class="page-panel" id="page-payment-security" data-page-panel="payment-security">
+          <div class="page-copy">
+            <span class="mini-label">Policy</span>
+            <h3>Payment Security</h3>
+            <p>We use SSL-secured checkout.</p>
+          </div>
+          <div class="page-list-grid">
+            <div class="page-list-item">
+              <strong>Accepted payments</strong>
+              • Visa<br>
+              • Mastercard<br>
+              • American Express
+            </div>
+          </div>
+          <div class="page-highlight">
+            Your data is never stored on our servers.
+          </div>
+        </section>
+      </div>
     </div>
   </div>
 
@@ -2805,10 +3090,7 @@
       <div class="checkout-summary">
         <div class="summary-card">
           <div class="summary-thumb">
-            <img
-              src="images/glow-duo-offer-premium.png"
-              alt="Product thumbnail"
-            />
+            <img src="images/glow-duo-offer-premium.png" alt="Product thumbnail" />
           </div>
           <div>
             <p class="summary-title">d'Alba Vita Toning Serum Toner</p>
@@ -2977,7 +3259,7 @@
         name: "Starter",
         unitLabel: "1 Bottle",
         fullName: "Starter • 1 Bottle",
-        price: 14.00,
+        price: 14.0,
         shippingLabel: "Free 1-Day Shipping",
         shippingValue: 0,
         buttonText: "Choose Starter"
@@ -2987,20 +3269,31 @@
         name: "Glow Duo",
         unitLabel: "2 Bottles",
         fullName: "Glow Duo • 2 Bottles",
-        price: 28.00,
+        price: 28.0,
         shippingLabel: "Free 1-Day Shipping",
         shippingValue: 0,
         buttonText: "Choose Glow Duo"
       }
     };
 
+    const pageTitles = {
+      "contact-us": "Contact Us",
+      "order-tracking": "Order Tracking",
+      "shipping-information": "Shipping Information",
+      "returns-refund-policy": "Returns & Refund Policy",
+      "our-story": "Our Story",
+      "ingredients-science": "Ingredients & Science",
+      "sustainability": "Sustainability",
+      "privacy-policy": "Privacy Policy",
+      "terms-of-service": "Terms of Service",
+      "cookie-policy": "Cookie Policy",
+      "payment-security": "Payment Security"
+    };
+
     let selectedBundle = "trio";
     let currentStep = 1;
     let selectedReviewRating = 5;
-    const quantities = {
-      starter: 1,
-      trio: 1
-    };
+    const quantities = { starter: 1, trio: 1 };
 
     const heroPrice = document.getElementById("heroPrice");
     const heroShipping = document.getElementById("heroShipping");
@@ -3018,6 +3311,10 @@
 
     const overlay = document.getElementById("checkoutOverlay");
     const checkoutClose = document.getElementById("checkoutClose");
+
+    const pageOverlay = document.getElementById("pageOverlay");
+    const pageClose = document.getElementById("pageClose");
+    const pageTitle = document.getElementById("pageTitle");
 
     const stepAddress = document.getElementById("stepAddress");
     const stepPayment = document.getElementById("stepPayment");
@@ -3151,32 +3448,48 @@
       stepFill3.style.width = step >= 3 ? "100%" : "0%";
     }
 
+    function lockBody() {
+      document.body.style.overflow = "hidden";
+    }
+
+    function unlockBodyIfClear() {
+      const checkoutOpen = overlay.classList.contains("open");
+      const pageOpen = pageOverlay.classList.contains("open");
+      document.body.style.overflow = (checkoutOpen || pageOpen) ? "hidden" : "";
+    }
+
     function openCheckout() {
       updateBundleUI();
       setStep(1);
       overlay.classList.add("open");
       overlay.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
+      lockBody();
     }
 
     function closeCheckout() {
       overlay.classList.remove("open");
       overlay.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
+      unlockBodyIfClear();
+    }
+
+    function openPage(pageKey) {
+      document.querySelectorAll("[data-page-panel]").forEach(panel => {
+        panel.classList.toggle("active", panel.dataset.pagePanel === pageKey);
+      });
+      pageTitle.textContent = pageTitles[pageKey] || "Page";
+      pageOverlay.classList.add("open");
+      pageOverlay.setAttribute("aria-hidden", "false");
+      lockBody();
+    }
+
+    function closePage() {
+      pageOverlay.classList.remove("open");
+      pageOverlay.setAttribute("aria-hidden", "true");
+      unlockBodyIfClear();
     }
 
     function validateAddress() {
-      const required = [
-        fullNameInput,
-        emailInput,
-        phoneInput,
-        streetInput,
-        cityInput,
-        stateInput,
-        zipInput,
-        countryInput
-      ];
-
+      const required = [fullNameInput, emailInput, phoneInput, streetInput, cityInput, stateInput, zipInput, countryInput];
       let valid = true;
 
       required.forEach(field => {
@@ -3230,11 +3543,7 @@
     }
 
     function formatCardNumber(value) {
-      return value
-        .replace(/\D/g, "")
-        .slice(0, 16)
-        .replace(/(.{4})/g, "$1 ")
-        .trim();
+      return value.replace(/\D/g, "").slice(0, 16).replace(/(.{4})/g, "$1 ").trim();
     }
 
     function formatExpDate(value) {
@@ -3338,18 +3647,10 @@
         const action = btn.dataset.qtyAction;
         const currentQty = quantities[bundleKey] || 1;
 
-        if (action === "increase" && currentQty < 5) {
-          quantities[bundleKey] = currentQty + 1;
-        }
+        if (action === "increase" && currentQty < 5) quantities[bundleKey] = currentQty + 1;
+        if (action === "decrease" && currentQty > 1) quantities[bundleKey] = currentQty - 1;
 
-        if (action === "decrease" && currentQty > 1) {
-          quantities[bundleKey] = currentQty - 1;
-        }
-
-        if (selectedBundle !== bundleKey) {
-          selectedBundle = bundleKey;
-        }
-
+        if (selectedBundle !== bundleKey) selectedBundle = bundleKey;
         updateBundleUI();
       });
     });
@@ -3368,15 +3669,27 @@
     });
 
     checkoutClose.addEventListener("click", closeCheckout);
+    pageClose.addEventListener("click", closePage);
 
     overlay.addEventListener("click", e => {
       if (e.target === overlay) closeCheckout();
     });
 
+    pageOverlay.addEventListener("click", e => {
+      if (e.target === pageOverlay) closePage();
+    });
+
     document.addEventListener("keydown", e => {
-      if (e.key === "Escape" && overlay.classList.contains("open")) {
-        closeCheckout();
+      if (e.key === "Escape") {
+        if (overlay.classList.contains("open")) closeCheckout();
+        if (pageOverlay.classList.contains("open")) closePage();
       }
+    });
+
+    document.querySelectorAll("[data-page-target]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        openPage(btn.dataset.pageTarget);
+      });
     });
 
     document.getElementById("toPaymentBtn").addEventListener("click", () => {
@@ -3424,11 +3737,9 @@
       let reviewsExpanded = false;
       reviewToggleBtn.addEventListener("click", () => {
         reviewsExpanded = !reviewsExpanded;
-
         hiddenReviews.forEach(card => {
           card.classList.toggle("visible-review", reviewsExpanded);
         });
-
         reviewToggleBtn.textContent = reviewsExpanded ? "Show Less" : "See More Reviews";
       });
     }
