@@ -655,11 +655,12 @@
       gap: 8px;
     }
 
-    /* PREMIUM CHECKOUT TRUST IMAGE FIX */
+    /* PREMIUM CHECKOUT TRUST IMAGE - TIGHTENED BOTTOM SPACING */
     .checkout-trust {
       width: 100%;
-      margin-top: 18px;
-      padding: 12px 16px;
+      margin-top: 12px;
+      margin-bottom: 0;
+      padding: 10px 14px;
       background: #f8f8f8;
       border-radius: 12px;
       display: flex;
@@ -2058,6 +2059,7 @@
             </div>
 
             <div class="bundle-grid" id="heroBundles">
+              <!-- STARTER OFFER: Removed "PACKS" label, added "Visible glow in 14 days" benefit -->
               <div class="bundle-option" data-bundle="starter" tabindex="0">
                 <div class="bundle-top">
                   <div>
@@ -2068,9 +2070,9 @@
                 <div class="bundle-benefits">
                   <span>✔ Good for first-time use</span>
                   <span>✔ Free 1-Day Shipping</span>
+                  <span>✔ Visible glow in 14 days</span>
                 </div>
                 <div class="quantity-wrap" data-qty-wrap="starter" hidden>
-                  <span class="quantity-label">Packs</span>
                   <div class="quantity-selector">
                     <button class="qty-btn" type="button" data-qty-action="decrease" data-bundle="starter" aria-label="Decrease Starter quantity">−</button>
                     <span class="qty-value" data-qty-value="starter">1</span>
@@ -2079,6 +2081,7 @@
                 </div>
               </div>
 
+              <!-- GLOW DUO OFFER: Added "Free 1-Day Shipping" benefit -->
               <div class="bundle-option active" data-bundle="trio" tabindex="0">
                 <div class="most-popular-badge">MOST POPULAR</div>
                 <div class="bundle-top">
@@ -2091,6 +2094,7 @@
                   <span>✔ FREE Capsule Cream ($12 Value)</span>
                   <span>✔ Visible glow in 14 days</span>
                   <span>✔ Best value</span>
+                  <span>✔ Free 1-Day Shipping</span>
                 </div>
                 <div class="quantity-wrap" data-qty-wrap="trio">
                   <span class="quantity-label">Packs</span>
@@ -2109,7 +2113,7 @@
               </button>
             </div>
 
-            <!-- PREMIUM CHECKOUT TRUST IMAGE FIX -->
+            <!-- TIGHTENED BOTTOM SPACING -->
             <div class="checkout-trust">
               <img src="images/secure-checkout-cards.png" alt="Secure Checkout">
             </div>
