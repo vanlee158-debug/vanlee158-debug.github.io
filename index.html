@@ -1269,27 +1269,29 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
+      gap: 14px;
       flex-wrap: wrap;
-      padding: 8px 0 2px;
+      padding: 0;
+      margin-bottom: 4px;
     }
 
     .footer-payment-icon {
       display: block;
       width: auto;
-      height: 44px;
+      height: 28px;
       object-fit: contain;
+      opacity: 0.92;
     }
 
     .footer-bottom {
       display: grid;
-      gap: 12px;
+      gap: 14px;
       justify-items: center;
       text-align: center;
       color: #b9ae9f;
       font-size: 13px;
       border-top: 1px solid rgba(255,255,255,0.06);
-      padding-top: 18px;
+      padding-top: 22px;
     }
 
     .footer-bottom-links {
@@ -1322,7 +1324,8 @@
       color: #8f8375;
       font-size: 12px;
       font-weight: 400;
-      margin-top: 4px;
+      margin-top: 8px;
+      padding-top: 2px;
     }
 
     .sticky-buy {
@@ -1846,11 +1849,11 @@
       }
 
       .footer-payments {
-        gap: 14px;
+        gap: 12px;
       }
 
       .footer-payment-icon {
-        height: 40px;
+        height: 26px;
       }
 
       .most-popular-badge {
@@ -1904,6 +1907,10 @@
 
       .email-community-text {
         font-size: 16px;
+      }
+
+      .footer-payment-icon {
+        height: 24px;
       }
     }
 
@@ -2752,12 +2759,35 @@
       </div>
 
       <div class="footer-bottom">
+        <div class="footer-payments" aria-label="Accepted payment methods">
+          <img
+            class="footer-payment-icon"
+            src="assets/visa icon.png"
+            alt="Visa"
+            onerror="this.onerror=null; this.src='images/visa icon.png';"
+          />
+          <img
+            class="footer-payment-icon"
+            src="assets/master card icon.png"
+            alt="Mastercard"
+            onerror="this.onerror=null; this.src='images/master card icon.png';"
+          />
+          <img
+            class="footer-payment-icon"
+            src="assets/america express icon.png"
+            alt="American Express"
+            onerror="this.onerror=null; this.src='images/america express icon.png';"
+          />
+        </div>
+
         <div>© 2026 d'Alba Vita Skincare — All Rights Reserved</div>
+
         <div class="footer-bottom-links">
           <button type="button" data-page-target="privacy-policy">Privacy Policy</button>
           <button type="button" data-page-target="terms-of-service">Terms</button>
           <button type="button" data-page-target="contact-us">Contact</button>
         </div>
+
         <div class="powered-by-shopify">Powered by Shopify</div>
       </div>
     </div>
