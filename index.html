@@ -553,16 +553,6 @@
       font-weight: 700;
     }
 
-    .bundle-compare {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      font-size: 13px;
-      color: var(--text);
-      font-weight: 700;
-    }
-
     .bundle-benefits {
       display: grid;
       gap: 8px;
@@ -591,6 +581,64 @@
       align-items: center;
       justify-content: center;
       z-index: 2;
+    }
+
+    .quantity-wrap[hidden] {
+      display: none !important;
+    }
+
+    .quantity-wrap {
+      display: grid;
+      gap: 8px;
+      padding-top: 2px;
+    }
+
+    .quantity-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .quantity-selector {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(83, 62, 45, 0.12);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .qty-btn {
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(239, 226, 210, 0.9);
+      color: var(--text);
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    .qty-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(232, 214, 193, 0.95);
+    }
+
+    .qty-value {
+      min-width: 18px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
     }
 
     .purchase-actions {
@@ -862,10 +910,6 @@
       box-shadow: 0 18px 36px rgba(141, 103, 72, 0.12);
     }
 
-    .offer-card.featured {
-      border-color: rgba(83, 62, 45, 0.1);
-    }
-
     .offer-title {
       margin: 0;
       font-size: 20px;
@@ -890,86 +934,6 @@
       font-size: 14px;
       color: var(--text);
       font-weight: 700;
-    }
-
-    .offer-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 8px;
-      color: var(--text);
-      font-size: 14px;
-    }
-
-    .offer-list li {
-      display: flex;
-      align-items: start;
-      gap: 10px;
-    }
-
-    .offer-list li::before {
-      content: "✓";
-      color: var(--success);
-      font-weight: 900;
-    }
-
-    .quantity-wrap[hidden] {
-      display: none !important;
-    }
-
-    .quantity-wrap {
-      display: grid;
-      gap: 8px;
-      padding-top: 2px;
-    }
-
-    .quantity-label {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .quantity-selector {
-      width: fit-content;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 6px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.92);
-      border: 1px solid rgba(83, 62, 45, 0.12);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .qty-btn {
-      width: 34px;
-      height: 34px;
-      border: 0;
-      border-radius: 999px;
-      background: rgba(239, 226, 210, 0.9);
-      color: var(--text);
-      font-size: 18px;
-      font-weight: 700;
-      cursor: pointer;
-      display: grid;
-      place-items: center;
-      transition: transform var(--transition), background var(--transition);
-    }
-
-    .qty-btn:hover {
-      transform: translateY(-1px);
-      background: rgba(232, 214, 193, 0.95);
-    }
-
-    .qty-value {
-      min-width: 18px;
-      text-align: center;
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--text);
     }
 
     .reviews-shell {
@@ -1336,15 +1300,6 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-    }
-
-    .social-pill {
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
-      font-size: 13px;
-      font-weight: 700;
     }
 
     .footer-payments {
@@ -2009,51 +1964,57 @@
         <div class="hero-media">
           <div class="hero-gallery">
             <div class="hero-main-media product-main-image" id="heroMainMedia">
-              <img id="main-product-image"
-                   src="./assets/glow-duo-offer-premium.png"
-                   alt="Glow Duo Offer"
-                   onerror="this.onerror=null; this.src='assets/glow-duo-offer-premium.png';">
+              <img
+                id="main-product-image"
+                src="./assets/glow-duo-offer-premium.png"
+                alt="Glow Duo Offer"
+                onerror="this.onerror=null; this.src='assets/glow-duo-offer-premium.png';"
+              />
               <span class="hero-badge-minimal">Vitamin C Toner Serum</span>
             </div>
 
             <div class="hero-thumbnails" id="heroThumbnails">
               <button class="hero-thumb active" type="button" data-type="image" data-src="./assets/glow-duo-offer-premium.png" data-alt="Glow Duo Offer">
-                <img src="./assets/glow-duo-offer-premium.png" alt="Glow Duo Offer thumbnail" onerror="this.onerror=null; this.src='assets/glow-duo-offer-premium.png';" />
+                <img
+                  src="./assets/glow-duo-offer-premium.png"
+                  alt="Glow Duo Offer thumbnail"
+                  onerror="this.onerror=null; this.src='assets/glow-duo-offer-premium.png';"
+                />
               </button>
 
-              <button class="hero-thumb" type="button" data-type="image" data-src="images/1- Hero Product Image.png" data-alt="d'Alba Vita Toning Serum Toner bottle">
-                <img src="images/1- Hero Product Image.png" alt="Hero product thumbnail" />
+              <button class="hero-thumb" type="button" data-type="image" data-src="1- Hero Product Image.png" data-alt="d'Alba Vita Toning Serum Toner bottle">
+                <img src="1- Hero Product Image.png" alt="Hero product thumbnail" />
               </button>
 
-              <button class="hero-thumb" type="button" data-type="image" data-src="images/3- Texture droplet image.png" data-alt="Serum toner texture droplet close-up">
-                <img src="images/3- Texture droplet image.png" alt="Texture thumbnail" />
+              <button class="hero-thumb" type="button" data-type="image" data-src="3- Texture droplet image.png" data-alt="Serum toner texture droplet close-up">
+                <img src="3- Texture droplet image.png" alt="Texture thumbnail" />
               </button>
 
-              <button class="hero-thumb" type="button" data-type="image" data-src="images/4- Ingredients image.png" data-alt="Ingredients image for d'Alba Vita Toning Serum Toner">
-                <img src="images/4- Ingredients image.png" alt="Ingredients thumbnail" />
+              <button class="hero-thumb" type="button" data-type="image" data-src="4- Ingredients image.png" data-alt="Ingredients image for d'Alba Vita Toning Serum Toner">
+                <img src="4- Ingredients image.png" alt="Ingredients thumbnail" />
               </button>
 
-              <button class="hero-thumb" type="button" data-type="video" data-src="images/2- video.mp4">
+              <button class="hero-thumb" type="button" data-type="video" data-src="2- video.mp4">
                 <video muted playsinline preload="metadata">
-                  <source src="images/2- video.mp4" type="video/mp4" />
+                  <source src="2- video.mp4" type="video/mp4" />
                 </video>
                 <span class="hero-thumb-video-badge">▶ Video</span>
               </button>
 
-              <button class="hero-thumb" type="button" data-type="image" data-src="images/5- Model Using Serum Image .png" data-alt="Model using d'Alba Vita Toning Serum Toner">
-                <img src="images/5- Model Using Serum Image .png" alt="Model thumbnail" />
+              <button class="hero-thumb" type="button" data-type="image" data-src="5- Model Using Serum Image .png" data-alt="Model using d'Alba Vita Toning Serum Toner">
+                <img src="5- Model Using Serum Image .png" alt="Model thumbnail" />
               </button>
 
-              <button class="hero-thumb" type="button" data-type="image" data-src="images/6- Before - After Image (black women ).png" data-alt="Before and after skincare improvement example">
-                <img src="images/6- Before - After Image (black women ).png" alt="Before after thumbnail" />
+              <button class="hero-thumb" type="button" data-type="image" data-src="6- Before - After Image (black women ).png" data-alt="Before and after skincare improvement example">
+                <img src="6- Before - After Image (black women ).png" alt="Before after thumbnail" />
               </button>
 
-              <button class="hero-thumb" type="button" data-type="image" data-src="images/7- Benefits Infographic .png" data-alt="Benefits infographic for d'Alba Vita Toning Serum Toner">
-                <img src="images/7- Benefits Infographic .png" alt="Infographic thumbnail" />
+              <button class="hero-thumb" type="button" data-type="image" data-src="7- Benefits Infographic .png" data-alt="Benefits infographic for d'Alba Vita Toning Serum Toner">
+                <img src="7- Benefits Infographic .png" alt="Infographic thumbnail" />
               </button>
 
-              <button class="hero-thumb" type="button" data-type="image" data-src="images/8- Step-by-Step Guide Image.png" data-alt="Step-by-step guide for using the serum toner">
-                <img src="images/8- Step-by-Step Guide Image.png" alt="Routine guide thumbnail" />
+              <button class="hero-thumb" type="button" data-type="image" data-src="8- Step-by-Step Guide Image.png" data-alt="Step-by-step guide for using the serum toner">
+                <img src="8- Step-by-Step Guide Image.png" alt="Routine guide thumbnail" />
               </button>
             </div>
           </div>
@@ -2147,10 +2108,12 @@
             </div>
 
             <div class="secure-checkout" aria-label="Secure checkout image">
-              <img src="./assets/secure-checkout-cards.png"
-                   alt="Secure checkout accepted cards"
-                   class="checkout-icons"
-                   onerror="this.onerror=null; this.src='assets/secure-checkout-cards.png';">
+              <img
+                src="./assets/secure-checkout-cards.png"
+                alt="Secure checkout accepted cards"
+                class="checkout-icons"
+                onerror="this.onerror=null; this.src='assets/secure-checkout-cards.png';"
+              />
             </div>
           </div>
         </div>
@@ -2220,7 +2183,7 @@
 
         <article class="proof-card">
           <div class="proof-media">
-            <img src="images/6- Before - After Image (black women ).png" alt="Before and after skincare improvement example" />
+            <img src="6- Before - After Image (black women ).png" alt="Before and after skincare improvement example" />
             <div class="before-after-label">
               <span>Before</span>
               <span>Visible Results in 14 Days</span>
@@ -2258,7 +2221,7 @@
 
         <article class="ingredient-card">
           <div class="ingredient-media">
-            <img src="images/4- Ingredients image.png" alt="Ingredients story visual" />
+            <img src="4- Ingredients image.png" alt="Ingredients story visual" />
           </div>
           <div class="ingredient-copy">
             <h3>A simple daily formula for brighter, well-hydrated skin</h3>
@@ -2303,7 +2266,7 @@
 
         <article class="routine-card">
           <div class="routine-media">
-            <img src="images/8- Step-by-Step Guide Image.png" alt="Step-by-step guide for using the serum toner" />
+            <img src="8- Step-by-Step Guide Image.png" alt="Step-by-step guide for using the serum toner" />
           </div>
           <div class="routine-copy">
             <h3>Simple daily steps</h3>
@@ -2362,7 +2325,7 @@
             <button class="secondary-btn full" type="button" data-select-offer="starter">Choose Starter</button>
           </article>
 
-          <article class="offer-card featured active" data-offer="trio" tabindex="0">
+          <article class="offer-card active featured" data-offer="trio" tabindex="0">
             <div class="most-popular-badge">MOST POPULAR</div>
             <div class="offer-head">
               <h3 class="offer-title">Glow Duo</h3>
@@ -2381,7 +2344,7 @@
                 <button class="qty-btn" type="button" data-qty-action="increase" data-bundle="trio" aria-label="Increase Glow Duo quantity">+</button>
               </div>
             </div>
-            <button class="primary-btn full" type="button" data-select-offer="trio">Choose Glow Duo</button>
+            <button class="primary-btn full" type="button" data-select-offer="trio">Choose Glow Duo — $28</button>
           </article>
         </div>
       </div>
@@ -2845,7 +2808,11 @@
       <div class="checkout-summary">
         <div class="summary-card">
           <div class="summary-thumb">
-            <img src="./assets/glow-duo-offer-premium.png" alt="Product thumbnail" onerror="this.onerror=null; this.src='assets/glow-duo-offer-premium.png';" />
+            <img
+              src="./assets/glow-duo-offer-premium.png"
+              alt="Product thumbnail"
+              onerror="this.onerror=null; this.src='assets/glow-duo-offer-premium.png';"
+            />
           </div>
           <div>
             <p class="summary-title">d'Alba Vita Toning Serum Toner</p>
@@ -3099,10 +3066,6 @@
       return `$${value.toFixed(2)}`;
     }
 
-    function getSelectedQuantity() {
-      return quantities[selectedBundle] || 1;
-    }
-
     function getBundleTotal(bundleKey) {
       return bundles[bundleKey].price * (quantities[bundleKey] || 1);
     }
@@ -3161,8 +3124,8 @@
 
       document.querySelectorAll("[data-select-offer]").forEach(btn => {
         const bundleKey = btn.dataset.selectOffer;
-        const totalText = getBundleTotal(bundleKey);
-        btn.textContent = `${bundles[bundleKey].buttonText}${bundleKey === selectedBundle ? ` — ${totalText % 1 === 0 ? `$${totalText.toFixed(0)}` : money(totalText)}` : ""}`;
+        const buttonTotal = getBundleTotal(bundleKey);
+        btn.textContent = `${bundles[bundleKey].buttonText}${bundleKey === selectedBundle ? ` — ${buttonTotal % 1 === 0 ? `$${buttonTotal.toFixed(0)}` : money(buttonTotal)}` : ""}`;
 
         if (bundleKey === selectedBundle) {
           btn.classList.remove("secondary-btn");
@@ -3311,9 +3274,7 @@
         img.alt = alt;
         img.onerror = function () {
           this.onerror = null;
-          if (src !== "assets/glow-duo-offer-premium.png") {
-            this.src = "assets/glow-duo-offer-premium.png";
-          }
+          this.src = "assets/glow-duo-offer-premium.png";
         };
         heroMainMedia.insertBefore(img, heroMainMedia.firstChild);
       }
