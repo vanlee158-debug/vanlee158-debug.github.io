@@ -1964,22 +1964,24 @@
         <div class="hero-media">
           <div class="hero-gallery">
             <div class="hero-main-media product-main-image" id="heroMainMedia">
-              <!-- FIXED: Updated path to images/ folder and corrected filename -->
               <img
                 id="main-product-image"
-                src="images/1- Hero Product Image.png"
+                src="images/glow-duo-offer-premium.png"
                 alt="Glow Duo Offer"
               />
               <span class="hero-badge-minimal">Vitamin C Toner Serum</span>
             </div>
 
             <div class="hero-thumbnails" id="heroThumbnails">
-              <!-- FIXED: Updated all thumbnail paths to images/ folder -->
-              <button class="hero-thumb active" type="button" data-type="image" data-src="images/1- Hero Product Image.png" data-alt="d'Alba Vita Toning Serum Toner bottle">
+              <button class="hero-thumb active" type="button" data-type="image" data-src="images/glow-duo-offer-premium.png" data-alt="Glow Duo Offer">
                 <img
-                  src="images/1- Hero Product Image.png"
-                  alt="Hero product thumbnail"
+                  src="images/glow-duo-offer-premium.png"
+                  alt="Glow Duo Offer thumbnail"
                 />
+              </button>
+
+              <button class="hero-thumb" type="button" data-type="image" data-src="images/1- Hero Product Image.png" data-alt="d'Alba Vita Toning Serum Toner bottle">
+                <img src="images/1- Hero Product Image.png" alt="Hero product thumbnail" />
               </button>
 
               <button class="hero-thumb" type="button" data-type="image" data-src="images/3- Texture droplet image.png" data-alt="Serum toner texture droplet close-up">
@@ -2105,7 +2107,7 @@
 
             <div class="secure-checkout" aria-label="Secure checkout image">
               <img
-                src="./assets/secure-checkout-cards.png"
+                src="images/secure-checkout-cards.png"
                 alt="Secure checkout accepted cards"
                 class="checkout-icons"
               />
@@ -2742,12 +2744,6 @@
         </div>
       </div>
 
-      <div class="footer-payments" aria-label="Accepted payment methods">
-        <img class="footer-payment-icon" src="assets/images/visa.png" alt="Visa" />
-        <img class="footer-payment-icon" src="assets/images/mastercard.png" alt="Mastercard" />
-        <img class="footer-payment-icon" src="assets/images/amex.png" alt="American Express" />
-      </div>
-
       <div class="footer-bottom">
         <div>© 2026 d'Alba Vita Skincare — All Rights Reserved</div>
         <div class="footer-bottom-links">
@@ -2804,7 +2800,7 @@
         <div class="summary-card">
           <div class="summary-thumb">
             <img
-              src="images/1- Hero Product Image.png"
+              src="images/glow-duo-offer-premium.png"
               alt="Product thumbnail"
             />
           </div>
@@ -3268,7 +3264,7 @@
         img.alt = alt;
         img.onerror = function () {
           this.onerror = null;
-          this.src = "assets/glow-duo-offer-premium.png";
+          this.src = "images/glow-duo-offer-premium.png";
         };
         heroMainMedia.insertBefore(img, heroMainMedia.firstChild);
       }
@@ -3506,20 +3502,6 @@
     handleFooterState();
     updateBundleUI();
     setStep(1);
-  </script>
-
-  <script>
-    window.addEventListener("load", function() {
-      const mainImg = document.getElementById("main-product-image");
-      if (!mainImg || mainImg.naturalWidth === 0) {
-        console.error("Main product image failed to load");
-      }
-
-      const icons = document.querySelector(".checkout-icons");
-      if (!icons || icons.naturalWidth === 0) {
-        console.error("Checkout icons image failed to load");
-      }
-    });
   </script>
 </body>
 </html>
