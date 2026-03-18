@@ -334,7 +334,9 @@
     }
 
     .hero-main-media img,
-    .hero-main-media video {
+    .hero-main-media video,
+    .product-main-image img {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -550,13 +552,8 @@
       gap: 8px;
       flex-wrap: wrap;
       font-size: 13px;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .bundle-compare strong {
       color: var(--text);
-      font-size: 13px;
+      font-weight: 700;
     }
 
     .bundle-benefits {
@@ -608,59 +605,17 @@
       gap: 8px;
     }
 
-    .secure-row {
-      display: grid;
-      gap: 6px;
-      justify-items: center;
-      text-align: center;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 600;
-      padding-top: 2px;
-    }
-
-    .trust-strip-line {
-      line-height: 1.4;
-    }
-
-    .trust-strip-line.primary {
-      color: var(--text);
-      font-size: 12.5px;
-      font-weight: 800;
-    }
-
-    .trust-strip-line.cards {
-      color: var(--text);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .card-icons {
+    .secure-checkout {
+      margin-top: 16px;
       display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .card-icon {
-      min-width: 42px;
-      text-align: center;
-      padding: 7px 10px;
-      border-radius: 10px;
-      background: #fff;
-      border: 1px solid var(--line);
-      font-weight: 800;
-      font-size: 11px;
-      color: var(--text);
-    }
-
-    .secure-cards-image {
-      display: block;
-      width: auto;
-      height: 26px;
-      max-width: 180px;
-      object-fit: contain;
+    .secure-checkout img {
+      width: 220px;
+      max-width: 100%;
+      height: auto;
+      opacity: 0.95;
     }
 
     .media-grid,
@@ -932,49 +887,21 @@
 
     .offer-desc {
       margin: 6px 0 0;
-      color: var(--muted);
+      color: var(--text);
       font-size: 14px;
+      font-weight: 700;
     }
 
     .offer-price {
       display: grid;
-      gap: 6px;
+      gap: 8px;
     }
 
-    .offer-price-top {
-      display: flex;
-      align-items: end;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .offer-total {
-      font-size: 31px;
-      font-weight: 800;
-      line-height: 1;
-    }
-
-    .offer-old {
-      font-size: 14px;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .offer-save {
-      font-size: 13px;
-      color: var(--success);
-      font-weight: 800;
-    }
-
+    .offer-ship,
+    .offer-save,
     .offer-mini {
       font-size: 14px;
-      color: var(--accent-dark);
-      font-weight: 800;
-    }
-
-    .offer-ship {
-      font-size: 13px;
-      color: var(--muted);
+      color: var(--text);
       font-weight: 700;
     }
 
@@ -1940,13 +1867,8 @@
         grid-template-columns: 1fr;
       }
 
-      .secure-row {
-        align-items: center;
-      }
-
-      .secure-cards-image {
-        height: 24px;
-        max-width: 150px;
+      .secure-checkout img {
+        width: 200px;
       }
 
       .email-community-text {
@@ -2043,14 +1965,14 @@
       <div class="container hero-grid">
         <div class="hero-media">
           <div class="hero-gallery">
-            <div class="hero-main-media" id="heroMainMedia">
-              <img id="heroMainImage" src="assets/images/buy-2-get-1-free-dalba-vita-toner-offer.png" alt="Buy 2 Get 1 FREE d'Alba Vita toner promotional offer" />
+            <div class="hero-main-media product-main-image" id="heroMainMedia">
+              <img id="main-product-image" src="assets/glow-duo-offer-premium.png" alt="Glow Duo Offer" />
               <span class="hero-badge-minimal">Vitamin C Toner Serum</span>
             </div>
 
             <div class="hero-thumbnails" id="heroThumbnails">
-              <button class="hero-thumb active" type="button" data-type="image" data-src="assets/images/buy-2-get-1-free-dalba-vita-toner-offer.png" data-alt="Buy 2 Get 1 FREE d'Alba Vita toner promotional offer">
-                <img src="assets/images/buy-2-get-1-free-dalba-vita-toner-offer.png" alt="Promotional offer thumbnail" />
+              <button class="hero-thumb active" type="button" data-type="image" data-src="assets/glow-duo-offer-premium.png" data-alt="Glow Duo Offer">
+                <img src="assets/glow-duo-offer-premium.png" alt="Glow Duo Offer thumbnail" />
               </button>
 
               <button class="hero-thumb" type="button" data-type="image" data-src="images/1- Hero Product Image.png" data-alt="d'Alba Vita Toning Serum Toner bottle">
@@ -2134,13 +2056,14 @@
                     <p class="bundle-sub">1 Bottle — $14</p>
                   </div>
                 </div>
-                <div class="bundle-compare">
-                  <strong>Good for first-time users</strong>
+                <div class="bundle-benefits">
+                  <span>✔ Good for first-time use</span>
+                  <span>✔ Free 1-Day Shipping</span>
                 </div>
               </div>
 
               <div class="bundle-option active" data-bundle="trio" tabindex="0">
-                <span class="bundle-badge">🔥 Popular Choice</span>
+                <span class="bundle-badge">Most Popular</span>
                 <div class="bundle-top">
                   <div>
                     <p class="bundle-name">Glow Duo</p>
@@ -2148,9 +2071,9 @@
                   </div>
                 </div>
                 <div class="bundle-benefits">
-                  <span><strong>✔ FREE Vita Toning Capsule Cream ($12 Value)</strong></span>
-                  <span>✔ Visible Glow in 14 Days or Less</span>
-                  <span>✔ Save $20 Today</span>
+                  <span>✔ FREE Capsule Cream ($12 Value)</span>
+                  <span>✔ Visible glow in 14 days</span>
+                  <span>✔ Best value</span>
                 </div>
               </div>
             </div>
@@ -2161,9 +2084,8 @@
               </button>
             </div>
 
-            <div class="secure-row" aria-label="Secure payment trust strip">
-              <div class="trust-strip-line primary">🔒 Secure Checkout</div>
-              <div class="trust-strip-line cards">Visa • Mastercard • American Express</div>
+            <div class="secure-checkout" aria-label="Secure checkout image">
+              <img src="assets/images/secure-checkout-cards.png" alt="Secure checkout accepted cards" />
             </div>
           </div>
         </div>
@@ -2358,40 +2280,26 @@
           <article class="offer-card" data-offer="starter">
             <div class="offer-head">
               <h3 class="offer-title">Starter</h3>
-              <p class="offer-desc">1 Bottle</p>
+              <p class="offer-desc">1 Bottle — $14</p>
             </div>
             <div class="offer-price">
-              <div class="offer-price-top">
-                <span class="offer-total">$14.00</span>
-                <span class="offer-old">Was $21.00</span>
-              </div>
-              <span class="offer-save">Good for first-time buyers</span>
-              <span class="offer-ship">Free 1-Day Shipping</span>
+              <span class="offer-save">✔ Good for first-time use</span>
+              <span class="offer-ship">✔ Free 1-Day Shipping</span>
             </div>
-            <ul class="offer-list">
-              <li>Lowest entry price to try it</li>
-              <li>Simple first order option</li>
-              <li>Fast free shipping included</li>
-            </ul>
             <button class="secondary-btn full" type="button" data-select-offer="starter">Choose Starter</button>
           </article>
 
           <article class="offer-card featured" data-offer="trio">
-            <span class="offer-badge">🔥 Popular Choice</span>
+            <span class="offer-badge">Most Popular</span>
             <div class="offer-head">
               <h3 class="offer-title">Glow Duo</h3>
               <p class="offer-desc">2 Bottles — $28</p>
             </div>
             <div class="offer-price">
-              <span class="offer-save"><strong>✔ FREE Vita Toning Capsule Cream ($12 Value)</strong></span>
-              <span class="offer-mini">✔ Visible Glow in 14 Days or Less</span>
-              <span class="offer-ship">✔ Save $20 Today</span>
+              <span class="offer-save">✔ FREE Capsule Cream ($12 Value)</span>
+              <span class="offer-mini">✔ Visible glow in 14 days</span>
+              <span class="offer-ship">✔ Best value</span>
             </div>
-            <ul class="offer-list">
-              <li>Premium value bundle with added skincare bonus</li>
-              <li>Clear, fast-to-understand offer</li>
-              <li>Free shipping for faster checkout</li>
-            </ul>
             <button class="primary-btn full" type="button" data-select-offer="trio">Choose Glow Duo</button>
           </article>
         </div>
@@ -2595,7 +2503,19 @@
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                It is ideal for anyone looking to brighten the look of dull skin, support a more even-looking tone, and add lightweight hydration to a daily routine.
+                This toner is ideal for anyone looking to brighten dull skin, improve overall tone, and add lightweight daily hydration.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>When will I start seeing results?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Most users notice a healthier glow within 7–14 days of consistent use.
               </div>
             </div>
           </div>
@@ -2607,7 +2527,7 @@
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Use it after cleansing. Press a small amount onto face and neck, then follow with moisturizer and SPF in the morning.
+                Apply after cleansing, before serums or moisturizer. Use daily, morning and night.
               </div>
             </div>
           </div>
@@ -2619,7 +2539,43 @@
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                No. The toner-serum texture is designed to feel lightweight, fresh, and fast absorbing on the skin.
+                No. The formula is lightweight, fast-absorbing, and leaves no sticky residue.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Is it suitable for sensitive skin?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes, it is designed to be gentle on most skin types. We recommend patch testing before first use.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Can I use it with other skincare products?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes, it works well with most routines and layers easily with serums, moisturizers, and SPF.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>How long does one bottle last?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                With daily use, one bottle typically lasts around 3–4 weeks.
               </div>
             </div>
           </div>
@@ -2631,7 +2587,7 @@
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                All current bundle options include Free 1-Day Shipping.
+                Orders are processed quickly and typically arrive within 1–3 business days.
               </div>
             </div>
           </div>
@@ -2643,7 +2599,19 @@
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Yes. Checkout includes SSL secure messaging and accepted card options including Visa, Mastercard, and American Express.
+                Yes. We use secure encryption and trusted payment providers to protect your information.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>What if I’m not satisfied?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                If you’re not satisfied, contact our support team and we’ll help resolve your issue quickly.
               </div>
             </div>
           </div>
@@ -2967,7 +2935,7 @@
         price: 14.00,
         shippingLabel: "Free 1-Day Shipping",
         shippingValue: 0,
-        buttonText: "Get Your First Bottle"
+        buttonText: "Choose Starter"
       },
       trio: {
         key: "trio",
@@ -2976,7 +2944,7 @@
         price: 28.00,
         shippingLabel: "Free 1-Day Shipping",
         shippingValue: 0,
-        buttonText: "Claim Your Offer"
+        buttonText: "Choose Glow Duo"
       }
     };
 
@@ -3186,9 +3154,10 @@
       if (!heroMainMedia) return;
 
       const existingMainImage = document.getElementById("heroMainImage");
-      if (existingMainImage) {
-        existingMainImage.remove();
-      }
+      if (existingMainImage) existingMainImage.remove();
+
+      const existingProductImage = document.getElementById("main-product-image");
+      if (existingProductImage) existingProductImage.remove();
 
       heroMainMedia.querySelectorAll("video").forEach(el => el.remove());
 
@@ -3203,7 +3172,7 @@
         heroMainMedia.insertBefore(video, heroMainMedia.firstChild);
       } else {
         const img = document.createElement("img");
-        img.id = "heroMainImage";
+        img.id = "main-product-image";
         img.src = src;
         img.alt = alt;
         heroMainMedia.insertBefore(img, heroMainMedia.firstChild);
